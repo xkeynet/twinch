@@ -11,8 +11,8 @@
 
   const START_DELAY_MS = 400;
 
-  const LINE_STAGGER_MS = 260;
-  const LINE_ANIMATION_MS = 1500;
+  const LINE_STAGGER_MS = 600;
+  const LINE_ANIMATION_MS = 1900;
 
   const SEQUENCE_HOLD_MS = 10000;
   const SEQUENCE_FADE_MS = 500;
