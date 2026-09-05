@@ -1,1 +1,423 @@
+/* =========================================================
+   TWINCH — LANDING
+   ========================================================= */
 
+:root {
+  --page-background: #ffffff;
+  --page-foreground: #000000;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+
+  --sequence-width-mobile: min(88vw, 560px);
+  --sequence-width-tablet: min(72vw, 680px);
+  --sequence-width-desktop: min(52vw, 760px);
+
+  --sequence-gap-mobile: 6px;
+  --sequence-gap-tablet: 8px;
+  --sequence-gap-desktop: 10px;
+
+  --line-duration: 1500ms;
+  --line-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
+
+  --sequence-fade-duration: 500ms;
+
+  --heart-width-mobile: min(38vw, 190px);
+  --heart-width-tablet: min(25vw, 230px);
+  --heart-width-desktop: min(16vw, 260px);
+
+  --heart-stop-mobile: -4vh;
+  --heart-stop-tablet: -5vh;
+  --heart-stop-desktop: -6vh;
+
+  --heart-duration: 2400ms;
+  --heart-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
+  --heart-fade-duration: 500ms;
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+
+  background: var(--page-background);
+  color: var(--page-foreground);
+
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background: var(--page-background);
+  color: var(--page-foreground);
+
+  overscroll-behavior: none;
+  touch-action: manipulation;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  min-height: 100svh;
+
+  overflow: hidden;
+  isolation: isolate;
+
+  background: var(--page-background);
+}
+
+.intro__content {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   SLOGAN SEQUENCE
+   ========================================================= */
+
+.intro__sequence {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: var(--sequence-width-mobile);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sequence-gap-mobile);
+
+  opacity: 1;
+  visibility: visible;
+
+  transform: translate3d(-50%, -50%, 0);
+  transform-origin: 50% 50%;
+
+  transition:
+    opacity var(--sequence-fade-duration) ease,
+    visibility 0s linear var(--sequence-fade-duration);
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.intro__sequence.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* =========================================================
+   SLOGAN LINES
+   ========================================================= */
+
+.intro__line {
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+  object-position: center center;
+
+  opacity: 0;
+
+  transform:
+    translate3d(
+      calc(100vw + 120%),
+      0,
+      0
+    );
+
+  transform-origin: 50% 50%;
+
+  will-change: transform, opacity;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  transition:
+    transform var(--line-duration) var(--line-easing),
+    opacity 300ms ease-out;
+}
+
+.intro__line.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.intro__line.is-settled {
+  will-change: auto;
+}
+
+/* =========================================================
+   HEART STAGE
+   ========================================================= */
+
+.intro__heart-stage {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: var(--heart-width-mobile);
+  height: auto;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform:
+    translate3d(
+      -50%,
+      calc(-50% + var(--heart-stop-mobile)),
+      0
+    );
+
+  transform-origin: 50% 50%;
+
+  transition:
+    opacity var(--heart-fade-duration) ease,
+    visibility 0s linear var(--heart-fade-duration);
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.intro__heart-stage.is-visible {
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 180ms linear,
+    visibility 0s linear 0s;
+}
+
+.intro__heart-stage.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* =========================================================
+   HEART
+   ========================================================= */
+
+.intro__heart {
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+  object-position: center center;
+
+  opacity: 0;
+
+  transform:
+    translate3d(
+      0,
+      calc(-50svh - 140%),
+      0
+    )
+    rotate(0deg);
+
+  transform-origin: 50% 50%;
+
+  will-change: transform, opacity;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.intro__heart-stage.is-entering .intro__heart {
+  animation:
+    introHeartEnter
+    var(--heart-duration)
+    var(--heart-easing)
+    forwards;
+}
+
+.intro__heart-stage.is-settled .intro__heart {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotate(1080deg);
+  will-change: auto;
+}
+
+/* =========================================================
+   HEART ENTER + ROTATION
+   ========================================================= */
+
+@keyframes introHeartEnter {
+  0% {
+    opacity: 0;
+    transform:
+      translate3d(
+        0,
+        calc(-50svh - 140%),
+        0
+      )
+      rotate(0deg);
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  42% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translate3d(0, 0, 0)
+      rotate(1080deg);
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .intro__sequence {
+    width: var(--sequence-width-tablet);
+    gap: var(--sequence-gap-tablet);
+  }
+
+  .intro__heart-stage {
+    width: var(--heart-width-tablet);
+
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% + var(--heart-stop-tablet)),
+        0
+      );
+  }
+}
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  .intro__sequence {
+    width: var(--sequence-width-desktop);
+    gap: var(--sequence-gap-desktop);
+  }
+
+  .intro__heart-stage {
+    width: var(--heart-width-desktop);
+
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% + var(--heart-stop-desktop)),
+        0
+      );
+  }
+}
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .intro__sequence {
+    width: min(64vw, 560px);
+    gap: 4px;
+  }
+
+  .intro__heart-stage {
+    width: min(22vw, 150px);
+
+    transform:
+      translate3d(
+        -50%,
+        -54%,
+        0
+      );
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .intro__line {
+    transition:
+      transform 500ms ease-out,
+      opacity 250ms ease-out;
+  }
+
+  .intro__sequence,
+  .intro__heart-stage {
+    transition-duration: 250ms;
+  }
+
+  .intro__heart-stage.is-entering .intro__heart {
+    animation-duration: 800ms;
+  }
+}
