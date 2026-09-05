@@ -213,9 +213,6 @@ img {
 
 .intro__line--4 {
   margin-top: 10px;
-
-  font-size: 0.72em;
-  font-weight: 500;
 }
 
 .intro__line.is-visible {
@@ -368,7 +365,6 @@ img {
 
   .intro__line--4 {
     margin-top: 12px;
-    font-size: calc(var(--line-size-tablet) * 0.72);
   }
 
   .intro__heart-stage {
@@ -399,7 +395,6 @@ img {
 
   .intro__line--4 {
     margin-top: 14px;
-    font-size: calc(var(--line-size-desktop) * 0.72);
   }
 
   .intro__heart-stage {
@@ -430,7 +425,6 @@ img {
 
   .intro__line--4 {
     margin-top: 6px;
-    font-size: 0.72em;
   }
 
   .intro__heart-stage {
