@@ -15,9 +15,13 @@
   --sequence-width-tablet: min(72vw, 680px);
   --sequence-width-desktop: min(52vw, 760px);
 
-  --sequence-gap-mobile: 6px;
-  --sequence-gap-tablet: 8px;
-  --sequence-gap-desktop: 10px;
+  --sequence-gap-mobile: 0px;
+  --sequence-gap-tablet: 0px;
+  --sequence-gap-desktop: 0px;
+
+  --sequence-overlap-mobile: -10px;
+  --sequence-overlap-tablet: -12px;
+  --sequence-overlap-desktop: -14px;
 
   --line-duration: 1500ms;
   --line-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
@@ -201,6 +205,17 @@ img {
     opacity 300ms ease-out;
 }
 
+.intro__line--1,
+.intro__line--4 {
+  width: 75%;
+}
+
+.intro__line--2,
+.intro__line--3,
+.intro__line--4 {
+  margin-top: var(--sequence-overlap-mobile);
+}
+
 .intro__line.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
@@ -345,6 +360,12 @@ img {
     gap: var(--sequence-gap-tablet);
   }
 
+  .intro__line--2,
+  .intro__line--3,
+  .intro__line--4 {
+    margin-top: var(--sequence-overlap-tablet);
+  }
+
   .intro__heart-stage {
     width: var(--heart-width-tablet);
 
@@ -367,6 +388,12 @@ img {
     gap: var(--sequence-gap-desktop);
   }
 
+  .intro__line--2,
+  .intro__line--3,
+  .intro__line--4 {
+    margin-top: var(--sequence-overlap-desktop);
+  }
+
   .intro__heart-stage {
     width: var(--heart-width-desktop);
 
@@ -386,7 +413,13 @@ img {
 @media (max-height: 520px) and (orientation: landscape) {
   .intro__sequence {
     width: min(64vw, 560px);
-    gap: 4px;
+    gap: 0;
+  }
+
+  .intro__line--2,
+  .intro__line--3,
+  .intro__line--4 {
+    margin-top: -8px;
   }
 
   .intro__heart-stage {
