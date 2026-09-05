@@ -11,20 +11,20 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
 
-  --sequence-width-mobile: min(90vw, 560px);
-  --sequence-width-tablet: min(78vw, 720px);
-  --sequence-width-desktop: min(64vw, 900px);
+  --sequence-width-mobile: min(92vw, 600px);
+  --sequence-width-tablet: min(82vw, 760px);
+  --sequence-width-desktop: min(68vw, 960px);
 
-  --sequence-gap-mobile: 4px;
-  --sequence-gap-tablet: 6px;
-  --sequence-gap-desktop: 8px;
+  --sequence-gap-mobile: 10px;
+  --sequence-gap-tablet: 12px;
+  --sequence-gap-desktop: 14px;
 
   --line-duration: 1500ms;
   --line-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
 
-  --line-size-mobile: clamp(25px, 7vw, 36px);
-  --line-size-tablet: clamp(34px, 4.6vw, 48px);
-  --line-size-desktop: clamp(38px, 3vw, 56px);
+  --line-size-mobile: clamp(29px, 8vw, 42px);
+  --line-size-tablet: clamp(38px, 5.2vw, 54px);
+  --line-size-desktop: clamp(44px, 3.4vw, 62px);
 
   --sequence-fade-duration: 500ms;
 
@@ -185,7 +185,7 @@ img {
 
   font-size: var(--line-size-mobile);
   font-weight: 600;
-  line-height: 1.12;
+  line-height: 1;
   letter-spacing: -0.025em;
   text-align: center;
   white-space: nowrap;
@@ -211,10 +211,6 @@ img {
     opacity 300ms ease-out;
 }
 
-.intro__line--4 {
-  margin-top: 10px;
-}
-
 .intro__line.is-visible {
   opacity: 1;
   transform: translate3d(0, 0, 0);
@@ -222,6 +218,23 @@ img {
 
 .intro__line.is-settled {
   will-change: auto;
+}
+
+.intro__line.is-exiting {
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   CHARACTERS
+   ========================================================= */
+
+.intro__char {
+  display: inline-block;
+
+  transform-origin: 50% 50%;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* =========================================================
@@ -317,6 +330,14 @@ img {
   will-change: auto;
 }
 
+.intro__heart-stage.is-exiting .intro__heart {
+  animation:
+    introHeartExit
+    var(--heart-duration)
+    var(--heart-easing)
+    forwards;
+}
+
 /* =========================================================
    HEART ENTER + ROTATION
    ========================================================= */
@@ -350,6 +371,34 @@ img {
 }
 
 /* =========================================================
+   HEART EXIT
+   ========================================================= */
+
+@keyframes introHeartExit {
+  0% {
+    opacity: 1;
+    transform:
+      translate3d(0, 0, 0)
+      rotate(1080deg);
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(
+        0,
+        calc(50svh + 160%),
+        0
+      )
+      rotate(2160deg);
+  }
+}
+
+/* =========================================================
    TABLET
    ========================================================= */
 
@@ -361,10 +410,6 @@ img {
 
   .intro__line {
     font-size: var(--line-size-tablet);
-  }
-
-  .intro__line--4 {
-    margin-top: 12px;
   }
 
   .intro__heart-stage {
@@ -393,10 +438,6 @@ img {
     font-size: var(--line-size-desktop);
   }
 
-  .intro__line--4 {
-    margin-top: 14px;
-  }
-
   .intro__heart-stage {
     width: var(--heart-width-desktop);
 
@@ -415,16 +456,12 @@ img {
 
 @media (max-height: 520px) and (orientation: landscape) {
   .intro__sequence {
-    width: min(82vw, 700px);
-    gap: 3px;
+    width: min(86vw, 740px);
+    gap: 8px;
   }
 
   .intro__line {
-    font-size: clamp(22px, 4.2vw, 34px);
-  }
-
-  .intro__line--4 {
-    margin-top: 6px;
+    font-size: clamp(25px, 4.8vw, 38px);
   }
 
   .intro__heart-stage {
@@ -455,7 +492,8 @@ img {
     transition-duration: 250ms;
   }
 
-  .intro__heart-stage.is-entering .intro__heart {
+  .intro__heart-stage.is-entering .intro__heart,
+  .intro__heart-stage.is-exiting .intro__heart {
     animation-duration: 800ms;
   }
 }
