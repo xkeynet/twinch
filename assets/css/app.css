@@ -38,6 +38,8 @@
 
   --heart-duration: 2400ms;
   --heart-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
+
+  --heart-color-duration: 520ms;
   --heart-fade-duration: 500ms;
 }
 
@@ -248,7 +250,7 @@ img {
   left: 50%;
 
   width: var(--heart-width-mobile);
-  height: auto;
+  aspect-ratio: 1 / 1;
 
   opacity: 0;
   visibility: hidden;
@@ -285,18 +287,36 @@ img {
 }
 
 /* =========================================================
-   HEART
+   HEART — SHARED
    ========================================================= */
 
 .intro__heart {
+  position: absolute;
+  inset: 0;
+
   width: 100%;
-  height: auto;
+  height: 100%;
 
   margin: 0;
   padding: 0;
 
   object-fit: contain;
   object-position: center center;
+
+  transform-origin: 50% 50%;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   WHITE HEART
+   ========================================================= */
+
+.intro__heart--white {
+  z-index: 2;
 
   opacity: 0;
 
@@ -308,15 +328,34 @@ img {
     )
     rotate(0deg);
 
-  transform-origin: 50% 50%;
-
-  will-change: transform, opacity;
-
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  transition:
+    opacity var(--heart-color-duration) ease;
 }
 
-.intro__heart-stage.is-entering .intro__heart {
+/* =========================================================
+   RED HEART
+   ========================================================= */
+
+.intro__heart--red {
+  z-index: 1;
+
+  opacity: 0;
+
+  transform:
+    translate3d(0, 0, 0)
+    rotate(1080deg);
+
+  transition:
+    opacity var(--heart-color-duration) ease;
+
+  will-change: opacity;
+}
+
+/* =========================================================
+   HEART ENTER + ROTATION
+   ========================================================= */
+
+.intro__heart-stage.is-entering .intro__heart--white {
   animation:
     introHeartEnter
     var(--heart-duration)
@@ -324,27 +363,10 @@ img {
     forwards;
 }
 
-.intro__heart-stage.is-settled .intro__heart {
-  opacity: 1;
-  transform: translate3d(0, 0, 0) rotate(1080deg);
-  will-change: auto;
-}
-
-.intro__heart-stage.is-exiting .intro__heart {
-  animation:
-    introHeartExit
-    var(--heart-duration)
-    var(--heart-easing)
-    forwards;
-}
-
-/* =========================================================
-   HEART ENTER + ROTATION
-   ========================================================= */
-
 @keyframes introHeartEnter {
   0% {
     opacity: 0;
+
     transform:
       translate3d(
         0,
@@ -364,6 +386,7 @@ img {
 
   100% {
     opacity: 1;
+
     transform:
       translate3d(0, 0, 0)
       rotate(1080deg);
@@ -371,31 +394,37 @@ img {
 }
 
 /* =========================================================
-   HEART EXIT
+   HEART SETTLED
    ========================================================= */
 
-@keyframes introHeartExit {
-  0% {
-    opacity: 1;
-    transform:
-      translate3d(0, 0, 0)
-      rotate(1080deg);
-  }
+.intro__heart-stage.is-settled .intro__heart--white {
+  opacity: 1;
 
-  70% {
-    opacity: 1;
-  }
+  transform:
+    translate3d(0, 0, 0)
+    rotate(1080deg);
 
-  100% {
-    opacity: 0;
-    transform:
-      translate3d(
-        0,
-        calc(50svh + 160%),
-        0
-      )
-      rotate(2160deg);
-  }
+  will-change: opacity;
+}
+
+.intro__heart-stage.is-settled .intro__heart--red {
+  opacity: 0;
+
+  transform:
+    translate3d(0, 0, 0)
+    rotate(1080deg);
+}
+
+/* =========================================================
+   HEART WHITE → RED
+   ========================================================= */
+
+.intro__heart-stage.is-red .intro__heart--white {
+  opacity: 0;
+}
+
+.intro__heart-stage.is-red .intro__heart--red {
+  opacity: 1;
 }
 
 /* =========================================================
@@ -492,8 +521,12 @@ img {
     transition-duration: 250ms;
   }
 
-  .intro__heart-stage.is-entering .intro__heart,
-  .intro__heart-stage.is-exiting .intro__heart {
+  .intro__heart--white,
+  .intro__heart--red {
+    transition-duration: 250ms;
+  }
+
+  .intro__heart-stage.is-entering .intro__heart--white {
     animation-duration: 800ms;
   }
 }
