@@ -93,6 +93,14 @@
        ========================================================= -->
   <link
     rel="preload"
+    href="/assets/logo/life-white.png"
+    as="image"
+    type="image/png"
+    fetchpriority="high"
+  >
+
+  <link
+    rel="preload"
     href="/assets/logo/life-red.png"
     as="image"
     type="image/png"
@@ -154,8 +162,18 @@
            ===================================================== -->
       <div class="intro__heart-stage" id="introHeartStage" aria-hidden="true">
         <img
-          class="intro__heart"
-          id="introHeart"
+          class="intro__heart intro__heart--white"
+          id="introHeartWhite"
+          src="/assets/logo/life-white.png"
+          alt=""
+          decoding="async"
+          fetchpriority="high"
+          draggable="false"
+        >
+
+        <img
+          class="intro__heart intro__heart--red"
+          id="introHeartRed"
           src="/assets/logo/life-red.png"
           alt=""
           decoding="async"
