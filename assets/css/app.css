@@ -23,6 +23,10 @@
   --sequence-overlap-tablet: -12px;
   --sequence-overlap-desktop: -14px;
 
+  --line1-lift-mobile: -14px;
+  --line1-lift-tablet: -16px;
+  --line1-lift-desktop: -18px;
+
   --line-duration: 1500ms;
   --line-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
 
@@ -205,9 +209,14 @@ img {
     opacity 300ms ease-out;
 }
 
-.intro__line--1,
-.intro__line--4 {
+.intro__line--1 {
+  position: relative;
+  top: var(--line1-lift-mobile);
   width: 75%;
+}
+
+.intro__line--4 {
+  width: 56.25%;
 }
 
 .intro__line--2,
@@ -360,6 +369,10 @@ img {
     gap: var(--sequence-gap-tablet);
   }
 
+  .intro__line--1 {
+    top: var(--line1-lift-tablet);
+  }
+
   .intro__line--2,
   .intro__line--3,
   .intro__line--4 {
@@ -388,6 +401,10 @@ img {
     gap: var(--sequence-gap-desktop);
   }
 
+  .intro__line--1 {
+    top: var(--line1-lift-desktop);
+  }
+
   .intro__line--2,
   .intro__line--3,
   .intro__line--4 {
@@ -414,6 +431,10 @@ img {
   .intro__sequence {
     width: min(64vw, 560px);
     gap: 0;
+  }
+
+  .intro__line--1 {
+    top: -10px;
   }
 
   .intro__line--2,
