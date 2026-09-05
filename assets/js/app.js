@@ -330,7 +330,7 @@
     return animation;
   };
 
-  const launchLineExit = async (lineCharacters) => {
+  const animateLineExit = async (lineCharacters) => {
     for (const character of lineCharacters) {
       if (destroyed) {
         return;
@@ -340,6 +340,14 @@
 
       await wait(CHAR_EXIT_STAGGER_MS);
     }
+
+    await wait(
+      Math.max(
+        0,
+        CHAR_EXIT_ANIMATION_MS -
+        CHAR_EXIT_STAGGER_MS
+      )
+    );
   };
 
   /* =========================================================
@@ -390,13 +398,11 @@
       lines[index].classList.remove('is-settled');
       lines[index].classList.add('is-exiting');
 
-      await launchLineExit(characters[index]);
-    }
+      await animateLineExit(characters[index]);
 
-    await wait(CHAR_EXIT_ANIMATION_MS);
-
-    if (destroyed) {
-      return;
+      if (destroyed) {
+        return;
+      }
     }
 
     sequence.classList.add('is-hidden');
