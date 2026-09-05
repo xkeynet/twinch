@@ -84,7 +84,7 @@ body {
   touch-action: manipulation;
 
   font-family:
-    "Plus Jakarta Sans",
+    "Inter",
     Arial,
     sans-serif;
 
@@ -181,14 +181,14 @@ img {
   color: var(--page-foreground);
 
   font-family:
-    "Plus Jakarta Sans",
+    "Inter",
     Arial,
     sans-serif;
 
   font-size: var(--line-size-mobile);
   font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.015em;
   text-align: center;
   white-space: nowrap;
 
