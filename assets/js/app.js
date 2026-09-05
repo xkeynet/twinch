@@ -19,7 +19,7 @@
   const SEQUENCE_FADE_MS = 500;
 
   const HEART_ANIMATION_MS = 2400;
-  const HEART_HOLD_MS = 10000;
+  const HEART_HOLD_MS = 5000;
   const HEART_FADE_MS = 500;
 
   const CHAR_EASING = 'cubic-bezier(0.14, 0.92, 0.18, 1)';
@@ -173,9 +173,6 @@
 
   const resetSequence = () => {
     sequence.classList.remove('is-hidden');
-    sequence.style.opacity = '1';
-    sequence.style.visibility = 'visible';
-
     resetCharacters();
   };
 
@@ -291,6 +288,12 @@
     sequence.classList.add('is-hidden');
 
     await wait(SEQUENCE_FADE_MS);
+
+    if (destroyed) {
+      return;
+    }
+
+    await nextFrame();
   };
 
   /* =========================================================
@@ -329,7 +332,13 @@
 
     await wait(HEART_FADE_MS);
 
+    if (destroyed) {
+      return;
+    }
+
     resetHeart();
+
+    await nextFrame();
   };
 
   /* =========================================================
