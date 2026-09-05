@@ -11,24 +11,20 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
 
-  --sequence-width-mobile: min(88vw, 560px);
-  --sequence-width-tablet: min(72vw, 680px);
-  --sequence-width-desktop: min(52vw, 760px);
+  --sequence-width-mobile: min(90vw, 560px);
+  --sequence-width-tablet: min(78vw, 720px);
+  --sequence-width-desktop: min(64vw, 900px);
 
-  --sequence-gap-mobile: 0px;
-  --sequence-gap-tablet: 0px;
-  --sequence-gap-desktop: 0px;
-
-  --sequence-overlap-mobile: -10px;
-  --sequence-overlap-tablet: -12px;
-  --sequence-overlap-desktop: -14px;
-
-  --line1-lift-mobile: -14px;
-  --line1-lift-tablet: -16px;
-  --line1-lift-desktop: -18px;
+  --sequence-gap-mobile: 4px;
+  --sequence-gap-tablet: 6px;
+  --sequence-gap-desktop: 8px;
 
   --line-duration: 1500ms;
   --line-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
+
+  --line-size-mobile: clamp(25px, 7vw, 36px);
+  --line-size-tablet: clamp(34px, 4.6vw, 48px);
+  --line-size-desktop: clamp(38px, 3vw, 56px);
 
   --sequence-fade-duration: 500ms;
 
@@ -86,11 +82,7 @@ body {
   touch-action: manipulation;
 
   font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
-    "Helvetica Neue",
+    "Chakra Petch",
     Arial,
     sans-serif;
 
@@ -180,13 +172,23 @@ img {
 
 .intro__line {
   width: 100%;
-  height: auto;
 
   margin: 0;
   padding: 0;
 
-  object-fit: contain;
-  object-position: center center;
+  color: var(--page-foreground);
+
+  font-family:
+    "Chakra Petch",
+    Arial,
+    sans-serif;
+
+  font-size: var(--line-size-mobile);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-align: center;
+  white-space: nowrap;
 
   opacity: 0;
 
@@ -209,20 +211,11 @@ img {
     opacity 300ms ease-out;
 }
 
-.intro__line--1 {
-  position: relative;
-  top: var(--line1-lift-mobile);
-  width: 75%;
-}
-
 .intro__line--4 {
-  width: 56.25%;
-}
+  margin-top: 10px;
 
-.intro__line--2,
-.intro__line--3,
-.intro__line--4 {
-  margin-top: var(--sequence-overlap-mobile);
+  font-size: 0.72em;
+  font-weight: 500;
 }
 
 .intro__line.is-visible {
@@ -369,14 +362,13 @@ img {
     gap: var(--sequence-gap-tablet);
   }
 
-  .intro__line--1 {
-    top: var(--line1-lift-tablet);
+  .intro__line {
+    font-size: var(--line-size-tablet);
   }
 
-  .intro__line--2,
-  .intro__line--3,
   .intro__line--4 {
-    margin-top: var(--sequence-overlap-tablet);
+    margin-top: 12px;
+    font-size: calc(var(--line-size-tablet) * 0.72);
   }
 
   .intro__heart-stage {
@@ -401,14 +393,13 @@ img {
     gap: var(--sequence-gap-desktop);
   }
 
-  .intro__line--1 {
-    top: var(--line1-lift-desktop);
+  .intro__line {
+    font-size: var(--line-size-desktop);
   }
 
-  .intro__line--2,
-  .intro__line--3,
   .intro__line--4 {
-    margin-top: var(--sequence-overlap-desktop);
+    margin-top: 14px;
+    font-size: calc(var(--line-size-desktop) * 0.72);
   }
 
   .intro__heart-stage {
@@ -429,18 +420,17 @@ img {
 
 @media (max-height: 520px) and (orientation: landscape) {
   .intro__sequence {
-    width: min(64vw, 560px);
-    gap: 0;
+    width: min(82vw, 700px);
+    gap: 3px;
   }
 
-  .intro__line--1 {
-    top: -10px;
+  .intro__line {
+    font-size: clamp(22px, 4.2vw, 34px);
   }
 
-  .intro__line--2,
-  .intro__line--3,
   .intro__line--4 {
-    margin-top: -8px;
+    margin-top: 6px;
+    font-size: 0.72em;
   }
 
   .intro__heart-stage {
