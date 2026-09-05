@@ -150,16 +150,15 @@
 
     Array.from(text).forEach((character) => {
       const span = document.createElement('span');
+      const isSpace = character === ' ';
 
       span.className = 'intro__char';
       span.setAttribute('aria-hidden', 'true');
 
-      span.textContent =
-        character === ' '
-          ? '\u00A0'
-          : character;
+      span.textContent = isSpace ? '\u00A0' : character;
 
       span.style.display = 'inline-block';
+      span.style.width = isSpace ? '0.22em' : 'auto';
       span.style.opacity = '0';
       span.style.transform =
         `translate3d(${getEnterOffset()}px, 0, 0)`;
