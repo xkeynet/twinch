@@ -11,6 +11,7 @@
 
   const START_DELAY_MS = 500;
 
+  const FIRST_LINE_ENTER_STAGGER_MS = 70;
   const CHAR_ENTER_STAGGER_MS = 45;
   const CHAR_ENTER_ANIMATION_MS = 1100;
   const LINE_GAP_MS = 120;
@@ -19,7 +20,6 @@
 
   const CHAR_EXIT_STAGGER_MS = 40;
   const CHAR_EXIT_ANIMATION_MS = 900;
-  const EXIT_LINE_GAP_MS = 80;
 
   const HEART_ANIMATION_MS = 2400;
   const HEART_COLOR_MS = 520;
@@ -261,7 +261,7 @@
     return animation;
   };
 
-  const animateLineEnter = async (lineCharacters) => {
+  const animateLineEnter = async (lineCharacters, staggerMs) => {
     for (const character of lineCharacters) {
       if (destroyed) {
         return;
@@ -269,14 +269,14 @@
 
       animateCharacterEnter(character);
 
-      await wait(CHAR_ENTER_STAGGER_MS);
+      await wait(staggerMs);
     }
 
     await wait(
       Math.max(
         0,
         CHAR_ENTER_ANIMATION_MS -
-        CHAR_ENTER_STAGGER_MS
+        staggerMs
       )
     );
   };
@@ -330,7 +330,7 @@
     return animation;
   };
 
-  const animateLineExit = async (lineCharacters) => {
+  const launchLineExit = async (lineCharacters) => {
     for (const character of lineCharacters) {
       if (destroyed) {
         return;
@@ -340,14 +340,6 @@
 
       await wait(CHAR_EXIT_STAGGER_MS);
     }
-
-    await wait(
-      Math.max(
-        0,
-        CHAR_EXIT_ANIMATION_MS -
-        CHAR_EXIT_STAGGER_MS
-      )
-    );
   };
 
   /* =========================================================
@@ -366,7 +358,12 @@
 
       lines[index].classList.add('is-visible');
 
-      await animateLineEnter(characters[index]);
+      await animateLineEnter(
+        characters[index],
+        index === 0
+          ? FIRST_LINE_ENTER_STAGGER_MS
+          : CHAR_ENTER_STAGGER_MS
+      );
 
       if (destroyed) {
         return;
@@ -393,15 +390,13 @@
       lines[index].classList.remove('is-settled');
       lines[index].classList.add('is-exiting');
 
-      await animateLineExit(characters[index]);
+      await launchLineExit(characters[index]);
+    }
 
-      if (destroyed) {
-        return;
-      }
+    await wait(CHAR_EXIT_ANIMATION_MS);
 
-      if (index < characters.length - 1) {
-        await wait(EXIT_LINE_GAP_MS);
-      }
+    if (destroyed) {
+      return;
     }
 
     sequence.classList.add('is-hidden');
