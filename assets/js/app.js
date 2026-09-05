@@ -18,8 +18,8 @@
 
   const SEQUENCE_HOLD_MS = 5000;
 
-  const CHAR_EXIT_STAGGER_MS = 30;
-  const CHAR_EXIT_ANIMATION_MS = 750;
+  const CHAR_EXIT_STAGGER_MS = 34;
+  const CHAR_EXIT_ANIMATION_MS = 820;
 
   const HEART_ANIMATION_MS = 2400;
   const HEART_COLOR_MS = 520;
@@ -110,6 +110,23 @@
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(resolve);
       });
+    });
+
+  const waitForAnimation = (animation) =>
+    new Promise((resolve) => {
+      if (!animation) {
+        resolve();
+        return;
+      }
+
+      const finish = () => {
+        animation.removeEventListener('finish', finish);
+        animation.removeEventListener('cancel', finish);
+        resolve();
+      };
+
+      animation.addEventListener('finish', finish, { once: true });
+      animation.addEventListener('cancel', finish, { once: true });
     });
 
   /* =========================================================
@@ -331,23 +348,21 @@
   };
 
   const animateLineExit = async (lineCharacters) => {
-    for (const character of lineCharacters) {
+    let lastAnimation = null;
+
+    for (let index = 0; index < lineCharacters.length; index += 1) {
       if (destroyed) {
         return;
       }
 
-      animateCharacterExit(character);
+      lastAnimation = animateCharacterExit(lineCharacters[index]);
 
-      await wait(CHAR_EXIT_STAGGER_MS);
+      if (index < lineCharacters.length - 1) {
+        await wait(CHAR_EXIT_STAGGER_MS);
+      }
     }
 
-    await wait(
-      Math.max(
-        0,
-        CHAR_EXIT_ANIMATION_MS -
-        CHAR_EXIT_STAGGER_MS
-      )
-    );
+    await waitForAnimation(lastAnimation);
   };
 
   /* =========================================================
