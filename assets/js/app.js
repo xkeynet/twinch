@@ -9,9 +9,9 @@
      TIMING
      ========================================================= */
 
-  const START_DELAY_MS = 500;
+  const START_DELAY_MS = 2200;
 
-  const FIRST_LINE_ENTER_STAGGER_MS = 70;
+  const FIRST_LINE_ENTER_STAGGER_MS = 95;
   const CHAR_ENTER_STAGGER_MS = 45;
   const CHAR_ENTER_ANIMATION_MS = 1100;
   const LINE_GAP_MS = 120;
