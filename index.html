@@ -8,16 +8,24 @@
     content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
   >
 
+  <!-- =========================================================
+       DOCUMENT
+       ========================================================= -->
   <title>Twinch</title>
+
+  <meta name="application-name" content="Twinch">
+  <meta name="apple-mobile-web-app-title" content="Twinch">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- =========================================================
        SEO
        ========================================================= -->
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 
   <meta
     name="description"
-    content="Twinch – už brzy."
+    content="Twinch – již brzy."
   >
 
   <link rel="canonical" href="https://twinch.cz/">
@@ -30,7 +38,9 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Twinch",
-    "url": "https://twinch.cz/"
+    "url": "https://twinch.cz/",
+    "description": "Twinch – již brzy.",
+    "inLanguage": "cs-CZ"
   }
   </script>
 
@@ -40,9 +50,25 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Twinch">
   <meta property="og:title" content="Twinch">
-  <meta property="og:description" content="Twinch – už brzy.">
+
+  <meta
+    property="og:description"
+    content="Twinch – již brzy."
+  >
+
   <meta property="og:url" content="https://twinch.cz/">
-  <meta property="og:image" content="https://twinch.cz/assets/logo/twinch-og.png">
+
+  <meta
+    property="og:image"
+    content="https://twinch.cz/assets/logo/twinch-og.png"
+  >
+
+  <meta
+    property="og:image:secure_url"
+    content="https://twinch.cz/assets/logo/twinch-og.png"
+  >
+
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Twinch">
@@ -53,26 +79,97 @@
        ========================================================= -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Twinch">
-  <meta name="twitter:description" content="Twinch – už brzy.">
-  <meta name="twitter:image" content="https://twinch.cz/assets/logo/twinch-og.png">
+
+  <meta
+    name="twitter:description"
+    content="Twinch – již brzy."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://twinch.cz/assets/logo/twinch-og.png"
+  >
+
   <meta name="twitter:image:alt" content="Twinch">
   <meta name="twitter:url" content="https://twinch.cz/">
 
   <!-- =========================================================
        FAVICONS
        ========================================================= -->
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/logo/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/assets/logo/favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/assets/logo/favicon-64x64.png">
-  <link rel="icon" type="image/png" sizes="128x128" href="/assets/logo/favicon-128x128.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/logo/favicon-192x192.png">
-  <link rel="icon" type="image/png" sizes="256x256" href="/assets/logo/favicon-256x256.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/assets/logo/favicon-512x512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/favicon-180x180.png">
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/assets/logo/favicon-16x16.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/assets/logo/favicon-32x32.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="48x48"
+    href="/assets/logo/favicon-48x48.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="64x64"
+    href="/assets/logo/favicon-64x64.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="96x96"
+    href="/assets/logo/favicon-96x96.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="128x128"
+    href="/assets/logo/favicon-128x128.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="192x192"
+    href="/assets/logo/favicon-192x192.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="256x256"
+    href="/assets/logo/favicon-256x256.png"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="/assets/logo/favicon-512x512.png"
+  >
 
   <!-- =========================================================
-       BROWSER THEME
+       APPLE TOUCH ICON
+       ========================================================= -->
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/assets/logo/favicon-180x180.png"
+  >
+
+  <!-- =========================================================
+       BROWSER / SYSTEM THEME
        ========================================================= -->
   <meta name="theme-color" content="#ffffff">
   <meta name="msapplication-TileColor" content="#ffffff">
@@ -81,8 +178,17 @@
   <!-- =========================================================
        INTER
        ========================================================= -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
@@ -108,11 +214,11 @@
   >
 
   <!-- =========================================================
-       GOOGLE ANALYTICS
+       GOOGLE ANALYTICS — GA4
        ========================================================= -->
   <script
     async
-    src="https://www.googletagmanager.com/gtag/js?id=G-V582S5LGZ3"
+    src="https://www.googletagmanager.com/gtag/js?id=G-1XNG6LNG2H"
   ></script>
 
   <script>
@@ -123,13 +229,16 @@
     }
 
     gtag('js', new Date());
-    gtag('config', 'G-V582S5LGZ3');
+    gtag('config', 'G-1XNG6LNG2H');
   </script>
 
   <!-- =========================================================
        APP CSS
        ========================================================= -->
-  <link rel="stylesheet" href="/assets/css/app.css">
+  <link
+    rel="stylesheet"
+    href="/assets/css/app.css"
+  >
 </head>
 
 <body>
@@ -139,20 +248,35 @@
       <!-- =====================================================
            SLOGAN SEQUENCE
            ===================================================== -->
-      <div class="intro__sequence" id="introSequence">
-        <p class="intro__line intro__line--1" id="introLine1">
+      <div
+        class="intro__sequence"
+        id="introSequence"
+      >
+        <p
+          class="intro__line intro__line--1"
+          id="introLine1"
+        >
           Tinder a Badoo
         </p>
 
-        <p class="intro__line intro__line--2" id="introLine2">
+        <p
+          class="intro__line intro__line--2"
+          id="introLine2"
+        >
           už tě stály dost!
         </p>
 
-        <p class="intro__line intro__line--3" id="introLine3">
+        <p
+          class="intro__line intro__line--3"
+          id="introLine3"
+        >
           Twinch to celé změní
         </p>
 
-        <p class="intro__line intro__line--4" id="introLine4">
+        <p
+          class="intro__line intro__line--4"
+          id="introLine4"
+        >
           ...už brzy
         </p>
       </div>
@@ -160,7 +284,11 @@
       <!-- =====================================================
            HEART
            ===================================================== -->
-      <div class="intro__heart-stage" id="introHeartStage" aria-hidden="true">
+      <div
+        class="intro__heart-stage"
+        id="introHeartStage"
+        aria-hidden="true"
+      >
         <img
           class="intro__heart intro__heart--white"
           id="introHeartWhite"
@@ -185,6 +313,9 @@
     </div>
   </main>
 
+  <!-- =========================================================
+       NOSCRIPT FALLBACK
+       ========================================================= -->
   <noscript>
     <style>
       .intro__sequence,
@@ -200,6 +331,12 @@
     </style>
   </noscript>
 
-  <script src="/assets/js/app.js" defer></script>
+  <!-- =========================================================
+       APP JS
+       ========================================================= -->
+  <script
+    src="/assets/js/app.js"
+    defer
+  ></script>
 </body>
 </html>
