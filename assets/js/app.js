@@ -22,12 +22,12 @@
   const EXIT_LINE_GAP_MS = 80;
 
   const HEART_ANIMATION_MS = 2400;
+  const HEART_COLOR_MS = 520;
   const HEART_HOLD_MS = 5000;
-  const HEART_EXIT_MS = 2200;
+  const HEART_FADE_MS = 500;
 
   const CHAR_ENTER_EASING = 'cubic-bezier(0.14, 0.92, 0.18, 1)';
   const CHAR_EXIT_EASING = 'cubic-bezier(0.4, 0, 0.6, 1)';
-  const HEART_EXIT_EASING = 'cubic-bezier(0.42, 0, 0.58, 1)';
 
   /* =========================================================
      ELEMENTS
@@ -36,7 +36,8 @@
   const intro = document.getElementById('intro');
   const sequence = document.getElementById('introSequence');
   const heartStage = document.getElementById('introHeartStage');
-  const heart = document.getElementById('introHeart');
+  const heartWhite = document.getElementById('introHeartWhite');
+  const heartRed = document.getElementById('introHeartRed');
 
   const lines = [
     document.getElementById('introLine1'),
@@ -49,7 +50,8 @@
     !intro ||
     !sequence ||
     !heartStage ||
-    !heart ||
+    !heartWhite ||
+    !heartRed ||
     lines.some((line) => !line)
   ) {
     return;
@@ -108,17 +110,6 @@
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(resolve);
       });
-    });
-
-  const waitForAnimation = (animation) =>
-    new Promise((resolve) => {
-      const finish = () => {
-        animations.delete(animation);
-        resolve();
-      };
-
-      animation.addEventListener('finish', finish, { once: true });
-      animation.addEventListener('cancel', finish, { once: true });
     });
 
   /* =========================================================
@@ -211,13 +202,9 @@
       'is-visible',
       'is-entering',
       'is-settled',
-      'is-exiting',
+      'is-red',
       'is-hidden'
     );
-
-    heart.style.removeProperty('opacity');
-    heart.style.removeProperty('transform');
-    heart.style.removeProperty('will-change');
   };
 
   const resetAll = () => {
@@ -423,10 +410,10 @@
   };
 
   /* =========================================================
-     HEART ENTER
+     HEART
      ========================================================= */
 
-  const showHeartEnter = async () => {
+  const showHeart = async () => {
     resetHeart();
 
     heartStage.classList.add('is-visible');
@@ -447,84 +434,16 @@
 
     heartStage.classList.remove('is-entering');
     heartStage.classList.add('is-settled');
-  };
-
-  /* =========================================================
-     HEART EXIT
-     ========================================================= */
-
-  const showHeartExit = async () => {
-    if (destroyed) {
-      return;
-    }
-
-    heartStage.classList.remove('is-settled');
-
-    heart.style.opacity = '1';
-    heart.style.transform =
-      'translate3d(0, 0, 0) rotate(1080deg)';
-    heart.style.willChange = 'transform, opacity';
-
-    const viewportHeight = window.innerHeight;
-    const exitDistance = viewportHeight * 0.72;
-
-    const animation = heart.animate(
-      [
-        {
-          opacity: 1,
-          transform:
-            'translate3d(0, 0, 0) rotate(1080deg)'
-        },
-        {
-          opacity: 1,
-          transform:
-            `translate3d(70px, ${exitDistance * 0.28}px, 0) rotate(1350deg)`,
-          offset: 0.34
-        },
-        {
-          opacity: 1,
-          transform:
-            `translate3d(-45px, ${exitDistance * 0.64}px, 0) rotate(1710deg)`,
-          offset: 0.70
-        },
-        {
-          opacity: 0,
-          transform:
-            `translate3d(30px, ${exitDistance}px, 0) rotate(2160deg)`
-        }
-      ],
-      {
-        duration: HEART_EXIT_MS,
-        easing: HEART_EXIT_EASING,
-        fill: 'forwards'
-      }
-    );
-
-    animations.add(animation);
-
-    await waitForAnimation(animation);
-
-    if (destroyed) {
-      return;
-    }
-
-    heartStage.classList.add('is-hidden');
-
-    heart.style.opacity = '0';
-    heart.style.transform =
-      `translate3d(30px, ${exitDistance}px, 0) rotate(2160deg)`;
 
     await nextFrame();
 
-    resetHeart();
-  };
+    if (destroyed) {
+      return;
+    }
 
-  /* =========================================================
-     HEART
-     ========================================================= */
+    heartStage.classList.add('is-red');
 
-  const showHeart = async () => {
-    await showHeartEnter();
+    await wait(HEART_COLOR_MS);
 
     if (destroyed) {
       return;
@@ -536,7 +455,17 @@
       return;
     }
 
-    await showHeartExit();
+    heartStage.classList.add('is-hidden');
+
+    await wait(HEART_FADE_MS);
+
+    if (destroyed) {
+      return;
+    }
+
+    resetHeart();
+
+    await nextFrame();
   };
 
   /* =========================================================
