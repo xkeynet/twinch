@@ -11,18 +11,23 @@
 
   const START_DELAY_MS = 500;
 
-  const CHAR_STAGGER_MS = 70;
-  const CHAR_ANIMATION_MS = 1350;
-  const LINE_GAP_MS = 260;
+  const CHAR_ENTER_STAGGER_MS = 45;
+  const CHAR_ENTER_ANIMATION_MS = 1100;
+  const LINE_GAP_MS = 120;
 
-  const SEQUENCE_HOLD_MS = 10000;
-  const SEQUENCE_FADE_MS = 500;
+  const SEQUENCE_HOLD_MS = 5000;
+
+  const CHAR_EXIT_STAGGER_MS = 40;
+  const CHAR_EXIT_ANIMATION_MS = 900;
+  const EXIT_LINE_GAP_MS = 80;
 
   const HEART_ANIMATION_MS = 2400;
   const HEART_HOLD_MS = 5000;
-  const HEART_FADE_MS = 500;
+  const HEART_EXIT_MS = 2200;
 
-  const CHAR_EASING = 'cubic-bezier(0.14, 0.92, 0.18, 1)';
+  const CHAR_ENTER_EASING = 'cubic-bezier(0.14, 0.92, 0.18, 1)';
+  const CHAR_EXIT_EASING = 'cubic-bezier(0.4, 0, 0.6, 1)';
+  const HEART_EXIT_EASING = 'cubic-bezier(0.42, 0, 0.58, 1)';
 
   /* =========================================================
      ELEMENTS
@@ -31,6 +36,7 @@
   const intro = document.getElementById('intro');
   const sequence = document.getElementById('introSequence');
   const heartStage = document.getElementById('introHeartStage');
+  const heart = document.getElementById('introHeart');
 
   const lines = [
     document.getElementById('introLine1'),
@@ -43,6 +49,7 @@
     !intro ||
     !sequence ||
     !heartStage ||
+    !heart ||
     lines.some((line) => !line)
   ) {
     return;
@@ -103,9 +110,23 @@
       });
     });
 
+  const waitForAnimation = (animation) =>
+    new Promise((resolve) => {
+      const finish = () => {
+        animations.delete(animation);
+        resolve();
+      };
+
+      animation.addEventListener('finish', finish, { once: true });
+      animation.addEventListener('cancel', finish, { once: true });
+    });
+
   /* =========================================================
      CHARACTER ENGINE
      ========================================================= */
+
+  const getEnterOffset = () => window.innerWidth + 180;
+  const getExitOffset = () => -(window.innerWidth + 180);
 
   const prepareLine = (line) => {
     const text = line.textContent.trim();
@@ -133,7 +154,7 @@
       span.style.display = 'inline-block';
       span.style.opacity = '0';
       span.style.transform =
-        `translate3d(${window.innerWidth + 180}px, 0, 0)`;
+        `translate3d(${getEnterOffset()}px, 0, 0)`;
 
       span.style.transformOrigin = '50% 50%';
       span.style.willChange = 'transform, opacity';
@@ -163,7 +184,7 @@
       lineCharacters.forEach((character) => {
         character.style.opacity = '0';
         character.style.transform =
-          `translate3d(${window.innerWidth + 180}px, 0, 0)`;
+          `translate3d(${getEnterOffset()}px, 0, 0)`;
 
         character.style.willChange =
           'transform, opacity';
@@ -173,6 +194,15 @@
 
   const resetSequence = () => {
     sequence.classList.remove('is-hidden');
+
+    lines.forEach((line) => {
+      line.classList.remove(
+        'is-visible',
+        'is-settled',
+        'is-exiting'
+      );
+    });
+
     resetCharacters();
   };
 
@@ -181,8 +211,13 @@
       'is-visible',
       'is-entering',
       'is-settled',
+      'is-exiting',
       'is-hidden'
     );
+
+    heart.style.removeProperty('opacity');
+    heart.style.removeProperty('transform');
+    heart.style.removeProperty('will-change');
   };
 
   const resetAll = () => {
@@ -191,20 +226,22 @@
   };
 
   /* =========================================================
-     CHARACTER ANIMATION
+     CHARACTER ENTER
      ========================================================= */
 
-  const animateCharacter = (character) => {
+  const animateCharacterEnter = (character) => {
+    character.style.willChange = 'transform, opacity';
+
     const animation = character.animate(
       [
         {
           opacity: 0,
           transform:
-            `translate3d(${window.innerWidth + 180}px, 0, 0)`
+            `translate3d(${getEnterOffset()}px, 0, 0)`
         },
         {
           opacity: 1,
-          offset: 0.12
+          offset: 0.08
         },
         {
           opacity: 1,
@@ -212,8 +249,8 @@
         }
       ],
       {
-        duration: CHAR_ANIMATION_MS,
-        easing: CHAR_EASING,
+        duration: CHAR_ENTER_ANIMATION_MS,
+        easing: CHAR_ENTER_EASING,
         fill: 'forwards'
       }
     );
@@ -237,21 +274,91 @@
     return animation;
   };
 
-  const animateLine = async (lineCharacters) => {
+  const animateLineEnter = async (lineCharacters) => {
     for (const character of lineCharacters) {
       if (destroyed) {
         return;
       }
 
-      animateCharacter(character);
+      animateCharacterEnter(character);
 
-      await wait(CHAR_STAGGER_MS);
+      await wait(CHAR_ENTER_STAGGER_MS);
     }
 
     await wait(
       Math.max(
         0,
-        CHAR_ANIMATION_MS - CHAR_STAGGER_MS
+        CHAR_ENTER_ANIMATION_MS -
+        CHAR_ENTER_STAGGER_MS
+      )
+    );
+  };
+
+  /* =========================================================
+     CHARACTER EXIT
+     ========================================================= */
+
+  const animateCharacterExit = (character) => {
+    character.style.willChange = 'transform, opacity';
+
+    const animation = character.animate(
+      [
+        {
+          opacity: 1,
+          transform: 'translate3d(0, 0, 0)'
+        },
+        {
+          opacity: 1,
+          offset: 0.72
+        },
+        {
+          opacity: 0,
+          transform:
+            `translate3d(${getExitOffset()}px, 0, 0)`
+        }
+      ],
+      {
+        duration: CHAR_EXIT_ANIMATION_MS,
+        easing: CHAR_EXIT_EASING,
+        fill: 'forwards'
+      }
+    );
+
+    animations.add(animation);
+
+    animation.addEventListener(
+      'finish',
+      () => {
+        animations.delete(animation);
+
+        character.style.opacity = '0';
+        character.style.transform =
+          `translate3d(${getExitOffset()}px, 0, 0)`;
+
+        character.style.willChange = 'auto';
+      },
+      { once: true }
+    );
+
+    return animation;
+  };
+
+  const animateLineExit = async (lineCharacters) => {
+    for (const character of lineCharacters) {
+      if (destroyed) {
+        return;
+      }
+
+      animateCharacterExit(character);
+
+      await wait(CHAR_EXIT_STAGGER_MS);
+    }
+
+    await wait(
+      Math.max(
+        0,
+        CHAR_EXIT_ANIMATION_MS -
+        CHAR_EXIT_STAGGER_MS
       )
     );
   };
@@ -265,18 +372,24 @@
 
     await nextFrame();
 
-    for (const lineCharacters of characters) {
+    for (let index = 0; index < characters.length; index += 1) {
       if (destroyed) {
         return;
       }
 
-      await animateLine(lineCharacters);
+      lines[index].classList.add('is-visible');
+
+      await animateLineEnter(characters[index]);
 
       if (destroyed) {
         return;
       }
 
-      await wait(LINE_GAP_MS);
+      lines[index].classList.add('is-settled');
+
+      if (index < characters.length - 1) {
+        await wait(LINE_GAP_MS);
+      }
     }
 
     await wait(SEQUENCE_HOLD_MS);
@@ -285,22 +398,35 @@
       return;
     }
 
-    sequence.classList.add('is-hidden');
+    for (let index = 0; index < characters.length; index += 1) {
+      if (destroyed) {
+        return;
+      }
 
-    await wait(SEQUENCE_FADE_MS);
+      lines[index].classList.remove('is-settled');
+      lines[index].classList.add('is-exiting');
 
-    if (destroyed) {
-      return;
+      await animateLineExit(characters[index]);
+
+      if (destroyed) {
+        return;
+      }
+
+      if (index < characters.length - 1) {
+        await wait(EXIT_LINE_GAP_MS);
+      }
     }
+
+    sequence.classList.add('is-hidden');
 
     await nextFrame();
   };
 
   /* =========================================================
-     HEART
+     HEART ENTER
      ========================================================= */
 
-  const showHeart = async () => {
+  const showHeartEnter = async () => {
     resetHeart();
 
     heartStage.classList.add('is-visible');
@@ -321,8 +447,62 @@
 
     heartStage.classList.remove('is-entering');
     heartStage.classList.add('is-settled');
+  };
 
-    await wait(HEART_HOLD_MS);
+  /* =========================================================
+     HEART EXIT
+     ========================================================= */
+
+  const showHeartExit = async () => {
+    if (destroyed) {
+      return;
+    }
+
+    heartStage.classList.remove('is-settled');
+
+    heart.style.opacity = '1';
+    heart.style.transform =
+      'translate3d(0, 0, 0) rotate(1080deg)';
+    heart.style.willChange = 'transform, opacity';
+
+    const viewportHeight = window.innerHeight;
+    const exitDistance = viewportHeight * 0.72;
+
+    const animation = heart.animate(
+      [
+        {
+          opacity: 1,
+          transform:
+            'translate3d(0, 0, 0) rotate(1080deg)'
+        },
+        {
+          opacity: 1,
+          transform:
+            `translate3d(70px, ${exitDistance * 0.28}px, 0) rotate(1350deg)`,
+          offset: 0.34
+        },
+        {
+          opacity: 1,
+          transform:
+            `translate3d(-45px, ${exitDistance * 0.64}px, 0) rotate(1710deg)`,
+          offset: 0.70
+        },
+        {
+          opacity: 0,
+          transform:
+            `translate3d(30px, ${exitDistance}px, 0) rotate(2160deg)`
+        }
+      ],
+      {
+        duration: HEART_EXIT_MS,
+        easing: HEART_EXIT_EASING,
+        fill: 'forwards'
+      }
+    );
+
+    animations.add(animation);
+
+    await waitForAnimation(animation);
 
     if (destroyed) {
       return;
@@ -330,15 +510,33 @@
 
     heartStage.classList.add('is-hidden');
 
-    await wait(HEART_FADE_MS);
+    heart.style.opacity = '0';
+    heart.style.transform =
+      `translate3d(30px, ${exitDistance}px, 0) rotate(2160deg)`;
+
+    await nextFrame();
+
+    resetHeart();
+  };
+
+  /* =========================================================
+     HEART
+     ========================================================= */
+
+  const showHeart = async () => {
+    await showHeartEnter();
 
     if (destroyed) {
       return;
     }
 
-    resetHeart();
+    await wait(HEART_HOLD_MS);
 
-    await nextFrame();
+    if (destroyed) {
+      return;
+    }
+
+    await showHeartExit();
   };
 
   /* =========================================================
