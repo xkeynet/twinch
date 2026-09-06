@@ -28,9 +28,9 @@
 
   --sequence-fade-duration: 500ms;
 
-  --heart-width-mobile: min(38vw, 190px);
-  --heart-width-tablet: min(25vw, 230px);
-  --heart-width-desktop: min(16vw, 260px);
+  --heart-width-mobile: min(28.5vw, 142.5px);
+  --heart-width-tablet: min(18.75vw, 172.5px);
+  --heart-width-desktop: min(12vw, 195px);
 
   --heart-stop-mobile: -4vh;
   --heart-stop-tablet: -5vh;
@@ -494,7 +494,7 @@ img {
   }
 
   .intro__heart-stage {
-    width: min(22vw, 150px);
+    width: min(16.5vw, 112.5px);
 
     transform:
       translate3d(
