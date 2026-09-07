@@ -32,12 +32,12 @@
   --wordmark-width-tablet: min(46vw, 420px);
   --wordmark-width-desktop: min(34vw, 520px);
 
-  --wordmark-stop-mobile: 8vh;
-  --wordmark-stop-tablet: 8vh;
-  --wordmark-stop-desktop: 8vh;
+  --wordmark-stop-mobile: calc(8vh - 30px);
+  --wordmark-stop-tablet: calc(8vh - 30px);
+  --wordmark-stop-desktop: calc(8vh - 30px);
 
   --wordmark-duration: 1500ms;
-  --wordmark-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
+  --wordmark-easing: cubic-bezier(0.4, 0, 0.2, 1);
 
   --heart-width-mobile: min(21.375vw, 106.875px);
   --heart-width-tablet: min(14.0625vw, 129.375px);
