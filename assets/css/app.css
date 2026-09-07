@@ -52,6 +52,9 @@
 
   --heart-color-duration: 520ms;
   --heart-fade-duration: 500ms;
+
+  --split-exit-duration: 1100ms;
+  --split-exit-easing: cubic-bezier(0.55, 0, 1, 0.45);
 }
 
 /* =========================================================
@@ -553,6 +556,70 @@ img {
 }
 
 /* =========================================================
+   SPLIT EXIT
+   ========================================================= */
+
+.intro__wordmark-stage.is-settled.is-exiting {
+  animation:
+    introWordmarkExitRight
+    var(--split-exit-duration)
+    var(--split-exit-easing)
+    forwards;
+
+  will-change: transform;
+}
+
+.intro__heart-stage.is-settled.is-exiting {
+  animation:
+    introHeartExitLeft
+    var(--split-exit-duration)
+    var(--split-exit-easing)
+    forwards;
+
+  will-change: transform;
+}
+
+@keyframes introWordmarkExitRight {
+  0% {
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% + var(--wordmark-stop-mobile)),
+        0
+      );
+  }
+
+  100% {
+    transform:
+      translate3d(
+        calc(100vw + 100%),
+        calc(-50% + var(--wordmark-stop-mobile)),
+        0
+      );
+  }
+}
+
+@keyframes introHeartExitLeft {
+  0% {
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% + var(--heart-stop-mobile)),
+        0
+      );
+  }
+
+  100% {
+    transform:
+      translate3d(
+        calc(-100vw - 100%),
+        calc(-50% + var(--heart-stop-mobile)),
+        0
+      );
+  }
+}
+
+/* =========================================================
    TABLET
    ========================================================= */
 
@@ -583,6 +650,10 @@ img {
     animation-name: introWordmarkEnterTablet;
   }
 
+  .intro__wordmark-stage.is-settled.is-exiting {
+    animation-name: introWordmarkExitRightTablet;
+  }
+
   @keyframes introWordmarkEnterTablet {
     0% {
       opacity: 0;
@@ -611,6 +682,26 @@ img {
     }
   }
 
+  @keyframes introWordmarkExitRightTablet {
+    0% {
+      transform:
+        translate3d(
+          -50%,
+          calc(-50% + var(--wordmark-stop-tablet)),
+          0
+        );
+    }
+
+    100% {
+      transform:
+        translate3d(
+          calc(100vw + 100%),
+          calc(-50% + var(--wordmark-stop-tablet)),
+          0
+        );
+    }
+  }
+
   .intro__heart-stage {
     width: var(--heart-width-tablet);
 
@@ -620,6 +711,30 @@ img {
         calc(-50% + var(--heart-stop-tablet)),
         0
       );
+  }
+
+  .intro__heart-stage.is-settled.is-exiting {
+    animation-name: introHeartExitLeftTablet;
+  }
+
+  @keyframes introHeartExitLeftTablet {
+    0% {
+      transform:
+        translate3d(
+          -50%,
+          calc(-50% + var(--heart-stop-tablet)),
+          0
+        );
+    }
+
+    100% {
+      transform:
+        translate3d(
+          calc(-100vw - 100%),
+          calc(-50% + var(--heart-stop-tablet)),
+          0
+        );
+    }
   }
 }
 
@@ -654,6 +769,10 @@ img {
     animation-name: introWordmarkEnterDesktop;
   }
 
+  .intro__wordmark-stage.is-settled.is-exiting {
+    animation-name: introWordmarkExitRightDesktop;
+  }
+
   @keyframes introWordmarkEnterDesktop {
     0% {
       opacity: 0;
@@ -682,6 +801,26 @@ img {
     }
   }
 
+  @keyframes introWordmarkExitRightDesktop {
+    0% {
+      transform:
+        translate3d(
+          -50%,
+          calc(-50% + var(--wordmark-stop-desktop)),
+          0
+        );
+    }
+
+    100% {
+      transform:
+        translate3d(
+          calc(100vw + 100%),
+          calc(-50% + var(--wordmark-stop-desktop)),
+          0
+        );
+    }
+  }
+
   .intro__heart-stage {
     width: var(--heart-width-desktop);
 
@@ -691,6 +830,30 @@ img {
         calc(-50% + var(--heart-stop-desktop)),
         0
       );
+  }
+
+  .intro__heart-stage.is-settled.is-exiting {
+    animation-name: introHeartExitLeftDesktop;
+  }
+
+  @keyframes introHeartExitLeftDesktop {
+    0% {
+      transform:
+        translate3d(
+          -50%,
+          calc(-50% + var(--heart-stop-desktop)),
+          0
+        );
+    }
+
+    100% {
+      transform:
+        translate3d(
+          calc(-100vw - 100%),
+          calc(-50% + var(--heart-stop-desktop)),
+          0
+        );
+    }
   }
 }
 
@@ -721,6 +884,30 @@ img {
       );
   }
 
+  .intro__wordmark-stage.is-settled.is-exiting {
+    animation-name: introWordmarkExitRightLandscape;
+  }
+
+  @keyframes introWordmarkExitRightLandscape {
+    0% {
+      transform:
+        translate3d(
+          -50%,
+          8%,
+          0
+        );
+    }
+
+    100% {
+      transform:
+        translate3d(
+          calc(100vw + 100%),
+          8%,
+          0
+        );
+    }
+  }
+
   .intro__heart-stage {
     width: min(12.375vw, 84.375px);
 
@@ -730,6 +917,30 @@ img {
         -90%,
         0
       );
+  }
+
+  .intro__heart-stage.is-settled.is-exiting {
+    animation-name: introHeartExitLeftLandscape;
+  }
+
+  @keyframes introHeartExitLeftLandscape {
+    0% {
+      transform:
+        translate3d(
+          -50%,
+          -90%,
+          0
+        );
+    }
+
+    100% {
+      transform:
+        translate3d(
+          calc(-100vw - 100%),
+          -90%,
+          0
+        );
+    }
   }
 }
 
@@ -761,5 +972,10 @@ img {
 
   .intro__heart-stage.is-entering .intro__heart--white {
     animation-duration: 800ms;
+  }
+
+  .intro__wordmark-stage.is-settled.is-exiting,
+  .intro__heart-stage.is-settled.is-exiting {
+    animation-duration: 600ms;
   }
 }
