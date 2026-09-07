@@ -21,6 +21,8 @@
   const CHAR_EXIT_STAGGER_MS = 34;
   const CHAR_EXIT_ANIMATION_MS = 820;
 
+  const WORDMARK_ANIMATION_MS = 1500;
+
   const HEART_ANIMATION_MS = 2400;
   const HEART_COLOR_MS = 520;
   const HEART_HOLD_MS = 5000;
@@ -35,6 +37,8 @@
 
   const intro = document.getElementById('intro');
   const sequence = document.getElementById('introSequence');
+  const wordmarkStage = document.getElementById('introWordmarkStage');
+  const wordmark = document.getElementById('introWordmark');
   const heartStage = document.getElementById('introHeartStage');
   const heartWhite = document.getElementById('introHeartWhite');
   const heartRed = document.getElementById('introHeartRed');
@@ -49,6 +53,8 @@
   if (
     !intro ||
     !sequence ||
+    !wordmarkStage ||
+    !wordmark ||
     !heartStage ||
     !heartWhite ||
     !heartRed ||
@@ -213,6 +219,17 @@
     resetCharacters();
   };
 
+  const resetWordmark = () => {
+    wordmarkStage.hidden = false;
+
+    wordmarkStage.classList.remove(
+      'is-visible',
+      'is-entering',
+      'is-settled',
+      'is-hidden'
+    );
+  };
+
   const resetHeart = () => {
     heartStage.classList.remove(
       'is-visible',
@@ -225,6 +242,7 @@
 
   const resetAll = () => {
     resetSequence();
+    resetWordmark();
     resetHeart();
   };
 
@@ -425,6 +443,30 @@
   };
 
   /* =========================================================
+     WORDMARK
+     ========================================================= */
+
+  const showWordmark = async () => {
+    resetWordmark();
+
+    wordmarkStage.classList.add(
+      'is-visible',
+      'is-entering'
+    );
+
+    await wait(WORDMARK_ANIMATION_MS);
+
+    if (destroyed) {
+      return;
+    }
+
+    wordmarkStage.classList.remove('is-entering');
+    wordmarkStage.classList.add('is-settled');
+
+    await nextFrame();
+  };
+
+  /* =========================================================
      HEART
      ========================================================= */
 
@@ -471,6 +513,7 @@
     }
 
     heartStage.classList.add('is-hidden');
+    wordmarkStage.classList.add('is-hidden');
 
     await wait(HEART_FADE_MS);
 
@@ -479,6 +522,7 @@
     }
 
     resetHeart();
+    resetWordmark();
 
     await nextFrame();
   };
@@ -492,6 +536,12 @@
 
     while (!destroyed) {
       await showSequence();
+
+      if (destroyed) {
+        break;
+      }
+
+      await showWordmark();
 
       if (destroyed) {
         break;
