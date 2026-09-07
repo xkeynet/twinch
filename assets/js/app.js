@@ -26,7 +26,7 @@
   const HEART_ANIMATION_MS = 2400;
   const HEART_COLOR_MS = 520;
   const HEART_HOLD_MS = 5000;
-  const HEART_FADE_MS = 500;
+  const SPLIT_EXIT_MS = 1100;
 
   const CHAR_ENTER_EASING = 'cubic-bezier(0.14, 0.92, 0.18, 1)';
   const CHAR_EXIT_EASING = 'cubic-bezier(0.4, 0, 0.6, 1)';
@@ -226,6 +226,7 @@
       'is-visible',
       'is-entering',
       'is-settled',
+      'is-exiting',
       'is-hidden'
     );
   };
@@ -236,6 +237,7 @@
       'is-entering',
       'is-settled',
       'is-red',
+      'is-exiting',
       'is-hidden'
     );
   };
@@ -512,10 +514,10 @@
       return;
     }
 
-    heartStage.classList.add('is-hidden');
-    wordmarkStage.classList.add('is-hidden');
+    heartStage.classList.add('is-exiting');
+    wordmarkStage.classList.add('is-exiting');
 
-    await wait(HEART_FADE_MS);
+    await wait(SPLIT_EXIT_MS);
 
     if (destroyed) {
       return;
