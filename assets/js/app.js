@@ -523,15 +523,28 @@
       return;
     }
 
+    heartStage.style.transition = 'none';
+    heartStage.style.opacity = '0';
     heartStage.style.visibility = 'hidden';
+
+    wordmarkStage.style.transition = 'none';
+    wordmarkStage.style.opacity = '0';
     wordmarkStage.style.visibility = 'hidden';
 
     resetHeart();
     resetWordmark();
 
+    void heartStage.offsetWidth;
+    void wordmarkStage.offsetWidth;
+
     await nextFrame();
 
+    heartStage.style.transition = '';
+    heartStage.style.opacity = '';
     heartStage.style.visibility = '';
+
+    wordmarkStage.style.transition = '';
+    wordmarkStage.style.opacity = '';
     wordmarkStage.style.visibility = '';
 
     await nextFrame();
