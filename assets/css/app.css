@@ -28,13 +28,24 @@
 
   --sequence-fade-duration: 500ms;
 
+  --wordmark-width-mobile: min(62vw, 320px);
+  --wordmark-width-tablet: min(46vw, 420px);
+  --wordmark-width-desktop: min(34vw, 520px);
+
+  --wordmark-stop-mobile: 8vh;
+  --wordmark-stop-tablet: 8vh;
+  --wordmark-stop-desktop: 8vh;
+
+  --wordmark-duration: 1500ms;
+  --wordmark-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
+
   --heart-width-mobile: min(28.5vw, 142.5px);
   --heart-width-tablet: min(18.75vw, 172.5px);
   --heart-width-desktop: min(12vw, 195px);
 
-  --heart-stop-mobile: -4vh;
-  --heart-stop-tablet: -5vh;
-  --heart-stop-desktop: -6vh;
+  --heart-stop-mobile: -8vh;
+  --heart-stop-tablet: -9vh;
+  --heart-stop-desktop: -10vh;
 
   --heart-duration: 2400ms;
   --heart-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
@@ -240,6 +251,120 @@ img {
 }
 
 /* =========================================================
+   TWINCH WORDMARK STAGE
+   ========================================================= */
+
+.intro__wordmark-stage {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: var(--wordmark-width-mobile);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform:
+    translate3d(
+      -50%,
+      calc(50svh + 120%),
+      0
+    );
+
+  transform-origin: 50% 50%;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  will-change: transform, opacity;
+}
+
+.intro__wordmark-stage.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.intro__wordmark-stage.is-entering {
+  animation:
+    introWordmarkEnter
+    var(--wordmark-duration)
+    var(--wordmark-easing)
+    forwards;
+}
+
+.intro__wordmark-stage.is-settled {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translate3d(
+      -50%,
+      calc(-50% + var(--wordmark-stop-mobile)),
+      0
+    );
+
+  will-change: auto;
+}
+
+.intro__wordmark-stage.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* =========================================================
+   TWINCH WORDMARK
+   ========================================================= */
+
+.intro__wordmark {
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+  object-position: center center;
+
+  transform-origin: 50% 50%;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* =========================================================
+   WORDMARK ENTER
+   ========================================================= */
+
+@keyframes introWordmarkEnter {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(
+        -50%,
+        calc(50svh + 120%),
+        0
+      );
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% + var(--wordmark-stop-mobile)),
+        0
+      );
+  }
+}
+
+/* =========================================================
    HEART STAGE
    ========================================================= */
 
@@ -441,6 +566,51 @@ img {
     font-size: var(--line-size-tablet);
   }
 
+  .intro__wordmark-stage {
+    width: var(--wordmark-width-tablet);
+  }
+
+  .intro__wordmark-stage.is-settled {
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% + var(--wordmark-stop-tablet)),
+        0
+      );
+  }
+
+  .intro__wordmark-stage.is-entering {
+    animation-name: introWordmarkEnterTablet;
+  }
+
+  @keyframes introWordmarkEnterTablet {
+    0% {
+      opacity: 0;
+
+      transform:
+        translate3d(
+          -50%,
+          calc(50svh + 120%),
+          0
+        );
+    }
+
+    8% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+
+      transform:
+        translate3d(
+          -50%,
+          calc(-50% + var(--wordmark-stop-tablet)),
+          0
+        );
+    }
+  }
+
   .intro__heart-stage {
     width: var(--heart-width-tablet);
 
@@ -465,6 +635,51 @@ img {
 
   .intro__line {
     font-size: var(--line-size-desktop);
+  }
+
+  .intro__wordmark-stage {
+    width: var(--wordmark-width-desktop);
+  }
+
+  .intro__wordmark-stage.is-settled {
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% + var(--wordmark-stop-desktop)),
+        0
+      );
+  }
+
+  .intro__wordmark-stage.is-entering {
+    animation-name: introWordmarkEnterDesktop;
+  }
+
+  @keyframes introWordmarkEnterDesktop {
+    0% {
+      opacity: 0;
+
+      transform:
+        translate3d(
+          -50%,
+          calc(50svh + 120%),
+          0
+        );
+    }
+
+    8% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+
+      transform:
+        translate3d(
+          -50%,
+          calc(-50% + var(--wordmark-stop-desktop)),
+          0
+        );
+    }
   }
 
   .intro__heart-stage {
@@ -493,13 +708,26 @@ img {
     font-size: clamp(25px, 4.8vw, 38px);
   }
 
+  .intro__wordmark-stage {
+    width: min(38vw, 280px);
+  }
+
+  .intro__wordmark-stage.is-settled {
+    transform:
+      translate3d(
+        -50%,
+        8%,
+        0
+      );
+  }
+
   .intro__heart-stage {
     width: min(16.5vw, 112.5px);
 
     transform:
       translate3d(
         -50%,
-        -54%,
+        -90%,
         0
       );
   }
@@ -517,8 +745,13 @@ img {
   }
 
   .intro__sequence,
+  .intro__wordmark-stage,
   .intro__heart-stage {
     transition-duration: 250ms;
+  }
+
+  .intro__wordmark-stage.is-entering {
+    animation-duration: 800ms;
   }
 
   .intro__heart--white,
