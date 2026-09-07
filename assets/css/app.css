@@ -39,9 +39,9 @@
   --wordmark-duration: 1500ms;
   --wordmark-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
 
-  --heart-width-mobile: min(28.5vw, 142.5px);
-  --heart-width-tablet: min(18.75vw, 172.5px);
-  --heart-width-desktop: min(12vw, 195px);
+  --heart-width-mobile: min(21.375vw, 106.875px);
+  --heart-width-tablet: min(14.0625vw, 129.375px);
+  --heart-width-desktop: min(9vw, 146.25px);
 
   --heart-stop-mobile: -8vh;
   --heart-stop-tablet: -9vh;
@@ -722,7 +722,7 @@ img {
   }
 
   .intro__heart-stage {
-    width: min(16.5vw, 112.5px);
+    width: min(12.375vw, 84.375px);
 
     transform:
       translate3d(
