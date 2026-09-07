@@ -523,8 +523,16 @@
       return;
     }
 
+    heartStage.style.visibility = 'hidden';
+    wordmarkStage.style.visibility = 'hidden';
+
     resetHeart();
     resetWordmark();
+
+    await nextFrame();
+
+    heartStage.style.visibility = '';
+    wordmarkStage.style.visibility = '';
 
     await nextFrame();
   };
