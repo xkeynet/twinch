@@ -3,7 +3,7 @@
    ========================================================= */
 
 :root {
-  --page-background: #9146FF;
+  --page-background: #38B6FF;
   --page-foreground: #ffffff;
 
   --safe-top: env(safe-area-inset-top, 0px);
@@ -548,11 +548,11 @@ img {
    ========================================================= */
 
 .intro__heart-stage.is-red .intro__heart--white {
-  opacity: 0;
+  opacity: 1;
 }
 
 .intro__heart-stage.is-red .intro__heart--red {
-  opacity: 1;
+  opacity: 0;
 }
 
 /* =========================================================
