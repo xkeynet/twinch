@@ -24,7 +24,7 @@
   const WORDMARK_ANIMATION_MS = 1500;
 
   const HEART_ANIMATION_MS = 2400;
-  const HEART_COLOR_MS = 520;
+  const HEART_SETTLE_DELAY_MS = 520;
   const HEART_HOLD_MS = 5000;
   const SPLIT_EXIT_MS = 1100;
 
@@ -41,7 +41,6 @@
   const wordmark = document.getElementById('introWordmark');
   const heartStage = document.getElementById('introHeartStage');
   const heartWhite = document.getElementById('introHeartWhite');
-  const heartRed = document.getElementById('introHeartRed');
 
   const lines = [
     document.getElementById('introLine1'),
@@ -57,7 +56,6 @@
     !wordmark ||
     !heartStage ||
     !heartWhite ||
-    !heartRed ||
     lines.some((line) => !line)
   ) {
     return;
@@ -236,7 +234,6 @@
       'is-visible',
       'is-entering',
       'is-settled',
-      'is-red',
       'is-exiting',
       'is-hidden'
     );
@@ -500,9 +497,7 @@
       return;
     }
 
-    heartStage.classList.add('is-red');
-
-    await wait(HEART_COLOR_MS);
+    await wait(HEART_SETTLE_DELAY_MS);
 
     if (destroyed) {
       return;
