@@ -28,9 +28,9 @@
 
   --sequence-fade-duration: 500ms;
 
-  --wordmark-width-mobile: min(62vw, 320px);
-  --wordmark-width-tablet: min(46vw, 420px);
-  --wordmark-width-desktop: min(34vw, 520px);
+  --wordmark-width-mobile: 320px;
+  --wordmark-width-tablet: 420px;
+  --wordmark-width-desktop: 520px;
 
   --wordmark-stop-mobile: calc(8vh - 70px);
   --wordmark-stop-tablet: calc(8vh - 64px);
@@ -39,9 +39,9 @@
   --wordmark-duration: 1500ms;
   --wordmark-easing: cubic-bezier(0.4, 0, 0.2, 1);
 
-  --heart-width-mobile: min(21.375vw, 106.875px);
-  --heart-width-tablet: min(14.0625vw, 129.375px);
-  --heart-width-desktop: min(9vw, 146.25px);
+  --heart-width-mobile: 120px;
+  --heart-width-tablet: 130px;
+  --heart-width-desktop: 145px;
 
   --heart-stop-mobile: -8vh;
   --heart-stop-tablet: -9vh;
@@ -49,8 +49,6 @@
 
   --heart-duration: 2400ms;
   --heart-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
-
-  --heart-color-duration: 520ms;
   --heart-fade-duration: 500ms;
 
   --split-exit-duration: 1100ms;
@@ -368,7 +366,7 @@ img {
 }
 
 /* =========================================================
-   HEART STAGE
+   QUOTE STAGE
    ========================================================= */
 
 .intro__heart-stage {
@@ -415,7 +413,7 @@ img {
 }
 
 /* =========================================================
-   HEART — SHARED
+   QUOTE
    ========================================================= */
 
 .intro__heart {
@@ -439,12 +437,8 @@ img {
   will-change: transform, opacity;
 }
 
-/* =========================================================
-   WHITE HEART
-   ========================================================= */
-
 .intro__heart--white {
-  z-index: 2;
+  z-index: 1;
 
   opacity: 0;
 
@@ -455,32 +449,10 @@ img {
       0
     )
     rotate(0deg);
-
-  transition:
-    opacity var(--heart-color-duration) ease;
 }
 
 /* =========================================================
-   RED HEART
-   ========================================================= */
-
-.intro__heart--red {
-  z-index: 1;
-
-  opacity: 0;
-
-  transform:
-    translate3d(0, 0, 0)
-    rotate(1080deg);
-
-  transition:
-    opacity var(--heart-color-duration) ease;
-
-  will-change: opacity;
-}
-
-/* =========================================================
-   HEART ENTER + ROTATION
+   QUOTE ENTER + ROTATION
    ========================================================= */
 
 .intro__heart-stage.is-entering .intro__heart--white {
@@ -522,7 +494,7 @@ img {
 }
 
 /* =========================================================
-   HEART SETTLED
+   QUOTE SETTLED
    ========================================================= */
 
 .intro__heart-stage.is-settled .intro__heart--white {
@@ -532,27 +504,7 @@ img {
     translate3d(0, 0, 0)
     rotate(1080deg);
 
-  will-change: opacity;
-}
-
-.intro__heart-stage.is-settled .intro__heart--red {
-  opacity: 0;
-
-  transform:
-    translate3d(0, 0, 0)
-    rotate(1080deg);
-}
-
-/* =========================================================
-   HEART WHITE → RED
-   ========================================================= */
-
-.intro__heart-stage.is-red .intro__heart--white {
-  opacity: 1;
-}
-
-.intro__heart-stage.is-red .intro__heart--red {
-  opacity: 0;
+  will-change: auto;
 }
 
 /* =========================================================
@@ -872,7 +824,7 @@ img {
   }
 
   .intro__wordmark-stage {
-    width: min(38vw, 280px);
+    width: 280px;
   }
 
   .intro__wordmark-stage.is-settled {
@@ -909,7 +861,7 @@ img {
   }
 
   .intro__heart-stage {
-    width: min(12.375vw, 84.375px);
+    width: 85px;
 
     transform:
       translate3d(
@@ -963,11 +915,6 @@ img {
 
   .intro__wordmark-stage.is-entering {
     animation-duration: 800ms;
-  }
-
-  .intro__heart--white,
-  .intro__heart--red {
-    transition-duration: 250ms;
   }
 
   .intro__heart-stage.is-entering .intro__heart--white {
