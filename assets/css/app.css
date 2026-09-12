@@ -32,14 +32,14 @@
   --wordmark-width-tablet: 420px;
   --wordmark-width-desktop: 520px;
 
-  --wordmark-stop-mobile: calc(8vh - 70px);
+  --wordmark-stop-mobile: calc(8vh - 80px);
   --wordmark-stop-tablet: calc(8vh - 64px);
   --wordmark-stop-desktop: calc(8vh - 64px);
 
   --wordmark-duration: 1500ms;
   --wordmark-easing: cubic-bezier(0.4, 0, 0.2, 1);
 
-  --heart-width-mobile: 100px;
+  --heart-width-mobile: 70px;
   --heart-width-tablet: 130px;
   --heart-width-desktop: 145px;
 
