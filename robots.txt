@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://twinch.tv/sitemap.xml
+Sitemap: https://twinch.cz/sitemap.xml
