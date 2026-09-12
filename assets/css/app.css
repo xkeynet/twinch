@@ -28,7 +28,7 @@
 
   --sequence-fade-duration: 500ms;
 
-  --wordmark-width-mobile: 280px;
+  --wordmark-width-mobile: 240px;
   --wordmark-width-tablet: 420px;
   --wordmark-width-desktop: 520px;
 
@@ -39,7 +39,7 @@
   --wordmark-duration: 1500ms;
   --wordmark-easing: cubic-bezier(0.4, 0, 0.2, 1);
 
-  --heart-width-mobile: 90px;
+  --heart-width-mobile: 100px;
   --heart-width-tablet: 130px;
   --heart-width-desktop: 145px;
 
