@@ -28,11 +28,11 @@
 
   --sequence-fade-duration: 500ms;
 
-  --wordmark-width-mobile: 280px;
+  --wordmark-width-mobile: 290px;
   --wordmark-width-tablet: 420px;
   --wordmark-width-desktop: 520px;
 
-  --wordmark-stop-mobile: calc(8vh - 60px);
+  --wordmark-stop-mobile: calc(8vh - 54px);
   --wordmark-stop-tablet: calc(8vh - 64px);
   --wordmark-stop-desktop: calc(8vh - 64px);
 
