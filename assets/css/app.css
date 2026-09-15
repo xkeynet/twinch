@@ -11,23 +11,6 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
 
-  --sequence-width-mobile: min(92vw, 600px);
-  --sequence-width-tablet: min(82vw, 760px);
-  --sequence-width-desktop: min(68vw, 960px);
-
-  --sequence-gap-mobile: 10px;
-  --sequence-gap-tablet: 12px;
-  --sequence-gap-desktop: 14px;
-
-  --line-duration: 1500ms;
-  --line-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
-
-  --line-size-mobile: clamp(29px, 8vw, 42px);
-  --line-size-tablet: clamp(38px, 5.2vw, 54px);
-  --line-size-desktop: clamp(44px, 3.4vw, 62px);
-
-  --sequence-fade-duration: 500ms;
-
   --wordmark-width-mobile: 300px;
   --wordmark-width-tablet: 420px;
   --wordmark-width-desktop: 520px;
@@ -141,114 +124,6 @@ img {
   height: 100%;
 
   overflow: hidden;
-}
-
-/* =========================================================
-   SLOGAN SEQUENCE
-   ========================================================= */
-
-.intro__sequence {
-  position: absolute;
-
-  top: 50%;
-  left: 50%;
-
-  width: var(--sequence-width-mobile);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--sequence-gap-mobile);
-
-  opacity: 1;
-  visibility: visible;
-
-  transform: translate3d(-50%, -50%, 0);
-  transform-origin: 50% 50%;
-
-  transition:
-    opacity var(--sequence-fade-duration) ease,
-    visibility 0s linear var(--sequence-fade-duration);
-
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.intro__sequence.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* =========================================================
-   SLOGAN LINES
-   ========================================================= */
-
-.intro__line {
-  width: 100%;
-
-  margin: 0;
-  padding: 0;
-
-  color: var(--page-foreground);
-
-  font-family:
-    "Inter",
-    Arial,
-    sans-serif;
-
-  font-size: var(--line-size-mobile);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.015em;
-  text-align: center;
-  white-space: nowrap;
-
-  opacity: 0;
-
-  transform:
-    translate3d(
-      calc(100vw + 120%),
-      0,
-      0
-    );
-
-  transform-origin: 50% 50%;
-
-  will-change: transform, opacity;
-
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-
-  transition:
-    transform var(--line-duration) var(--line-easing),
-    opacity 300ms ease-out;
-}
-
-.intro__line.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-.intro__line.is-settled {
-  will-change: auto;
-}
-
-.intro__line.is-exiting {
-  will-change: transform, opacity;
-}
-
-/* =========================================================
-   CHARACTERS
-   ========================================================= */
-
-.intro__char {
-  display: inline-block;
-
-  transform-origin: 50% 50%;
-
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 /* =========================================================
@@ -576,15 +451,6 @@ img {
    ========================================================= */
 
 @media (min-width: 768px) and (max-width: 1199px) {
-  .intro__sequence {
-    width: var(--sequence-width-tablet);
-    gap: var(--sequence-gap-tablet);
-  }
-
-  .intro__line {
-    font-size: var(--line-size-tablet);
-  }
-
   .intro__wordmark-stage {
     width: var(--wordmark-width-tablet);
   }
@@ -695,15 +561,6 @@ img {
    ========================================================= */
 
 @media (min-width: 1200px) {
-  .intro__sequence {
-    width: var(--sequence-width-desktop);
-    gap: var(--sequence-gap-desktop);
-  }
-
-  .intro__line {
-    font-size: var(--line-size-desktop);
-  }
-
   .intro__wordmark-stage {
     width: var(--wordmark-width-desktop);
   }
@@ -814,15 +671,6 @@ img {
    ========================================================= */
 
 @media (max-height: 520px) and (orientation: landscape) {
-  .intro__sequence {
-    width: min(86vw, 740px);
-    gap: 8px;
-  }
-
-  .intro__line {
-    font-size: clamp(25px, 4.8vw, 38px);
-  }
-
   .intro__wordmark-stage {
     width: 280px;
   }
@@ -901,13 +749,6 @@ img {
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .intro__line {
-    transition:
-      transform 500ms ease-out,
-      opacity 250ms ease-out;
-  }
-
-  .intro__sequence,
   .intro__wordmark-stage,
   .intro__heart-stage {
     transition-duration: 250ms;
