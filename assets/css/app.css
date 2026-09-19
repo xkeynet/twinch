@@ -11,18 +11,18 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
 
-  --wordmark-width-mobile: 320px;
+  --wordmark-width-mobile: 300px;
   --wordmark-width-tablet: 420px;
   --wordmark-width-desktop: 520px;
 
-  --wordmark-stop-mobile: calc(8vh - 64px);
+  --wordmark-stop-mobile: calc(8vh - 80px);
   --wordmark-stop-tablet: calc(8vh - 64px);
   --wordmark-stop-desktop: calc(8vh - 64px);
 
   --wordmark-duration: 1500ms;
   --wordmark-easing: cubic-bezier(0.4, 0, 0.2, 1);
 
-  --heart-width-mobile: 86px;
+  --heart-width-mobile: 76px;
   --heart-width-tablet: 130px;
   --heart-width-desktop: 145px;
 
