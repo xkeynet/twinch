@@ -34,6 +34,8 @@
   --heart-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
   --heart-fade-duration: 500ms;
 
+  --heart-color-duration: 420ms;
+
   --split-exit-duration: 1100ms;
   --split-exit-easing: cubic-bezier(0.55, 0, 1, 0.45);
 }
@@ -241,7 +243,7 @@ img {
 }
 
 /* =========================================================
-   QUOTE STAGE
+   HEART STAGE
    ========================================================= */
 
 .intro__heart-stage {
@@ -288,7 +290,51 @@ img {
 }
 
 /* =========================================================
-   QUOTE
+   RED HEART OVERLAY
+   ========================================================= */
+
+.intro__heart-stage::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: url("/assets/logo/twinch-quote-red.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+
+  opacity: 0;
+
+  transform:
+    translate3d(0, 0, 0)
+    rotate(1080deg);
+
+  transform-origin: 50% 50%;
+
+  transition:
+    opacity var(--heart-color-duration)
+    cubic-bezier(0.4, 0, 0.2, 1);
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  pointer-events: none;
+
+  will-change: opacity;
+}
+
+.intro__heart-stage.is-settled::after {
+  opacity: 1;
+}
+
+/* =========================================================
+   HEART
    ========================================================= */
 
 .intro__heart {
@@ -327,7 +373,7 @@ img {
 }
 
 /* =========================================================
-   QUOTE ENTER + ROTATION
+   HEART ENTER + ROTATION
    ========================================================= */
 
 .intro__heart-stage.is-entering .intro__heart--white {
@@ -369,7 +415,7 @@ img {
 }
 
 /* =========================================================
-   QUOTE SETTLED
+   HEART SETTLED
    ========================================================= */
 
 .intro__heart-stage.is-settled .intro__heart--white {
@@ -760,6 +806,10 @@ img {
 
   .intro__heart-stage.is-entering .intro__heart--white {
     animation-duration: 800ms;
+  }
+
+  .intro__heart-stage::after {
+    transition-duration: 250ms;
   }
 
   .intro__wordmark-stage.is-settled.is-exiting,
