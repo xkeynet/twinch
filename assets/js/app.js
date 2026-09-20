@@ -1,7 +1,7 @@
 'use strict';
 
 /* =========================================================
-   TWINCH — LANDING LOOP
+   TWINCH — LANDING
    ========================================================= */
 
 (() => {
@@ -183,62 +183,56 @@
     wordmarkStage.classList.add('is-exiting');
 
     await wait(SPLIT_EXIT_MS);
+  };
 
+  /* =========================================================
+     ENTER APPLICATION
+     ========================================================= */
+
+  const enterApplication = async () => {
     if (destroyed) {
       return;
     }
 
-    heartStage.style.transition = 'none';
-    heartStage.style.opacity = '0';
-    heartStage.style.visibility = 'hidden';
+    document.documentElement.classList.add('is-entered');
 
-    wordmarkStage.style.transition = 'none';
-    wordmarkStage.style.opacity = '0';
-    wordmarkStage.style.visibility = 'hidden';
+    const themeColor = document.querySelector(
+      'meta[name="theme-color"]'
+    );
 
-    resetHeart();
-    resetWordmark();
+    if (themeColor) {
+      themeColor.setAttribute('content', '#000000');
+    }
 
-    void heartStage.offsetWidth;
-    void wordmarkStage.offsetWidth;
-
-    await nextFrame();
-
-    heartStage.style.transition = '';
-    heartStage.style.opacity = '';
-    heartStage.style.visibility = '';
-
-    wordmarkStage.style.transition = '';
-    wordmarkStage.style.opacity = '';
-    wordmarkStage.style.visibility = '';
+    intro.style.display = 'none';
 
     await nextFrame();
   };
 
   /* =========================================================
-     LOOP
+     RUN
      ========================================================= */
 
-  const runLoop = async () => {
+  const run = async () => {
     await wait(START_DELAY_MS);
 
-    while (!destroyed) {
-      await showWordmark();
-
-      if (destroyed) {
-        break;
-      }
-
-      await showHeart();
-
-      if (destroyed) {
-        break;
-      }
-
-      resetAll();
-
-      await nextFrame();
+    if (destroyed) {
+      return;
     }
+
+    await showWordmark();
+
+    if (destroyed) {
+      return;
+    }
+
+    await showHeart();
+
+    if (destroyed) {
+      return;
+    }
+
+    await enterApplication();
   };
 
   /* =========================================================
@@ -246,7 +240,7 @@
      ========================================================= */
 
   resetAll();
-  runLoop();
+  run();
 
   /* =========================================================
      CLEANUP
