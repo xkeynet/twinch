@@ -146,14 +146,9 @@
    ========================================================= */
 
 .add-plus-svg {
-  width: 52px;
-  height: 32px;
-
-  transform: translateY(0px);
-}
-
-[aria-label="Add"] {
   width: 60px;
+  height: auto;
+  transform: translateY(-2px);
 }
 
 /* =========================================================
