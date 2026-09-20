@@ -13,8 +13,8 @@
      HOME — VELIKOST A POLOHA
      ========================================================= */
 
-  --homeW:24px;            /* ŠÍŘKA IKONY HOME */
-  --homeH:24px;            /* VÝŠKA IKONY HOME */
+  --homeW:25px;            /* ŠÍŘKA IKONY HOME */
+  --homeH:25px;            /* VÝŠKA IKONY HOME */
   --homeX:0px;             /* POSUN HOME: - = DOLEVA / + = DOPRAVA */
   --homeY:-1px;            /* POSUN HOME: - = NAHORU / + = DOLŮ */
 
@@ -22,8 +22,8 @@
      SEARCH — VELIKOST A POLOHA
      ========================================================= */
 
-  --searchW:28px;          /* ŠÍŘKA IKONY SEARCH */
-  --searchH:28px;          /* VÝŠKA IKONY SEARCH */
+  --searchW:25px;          /* ŠÍŘKA IKONY SEARCH */
+  --searchH:25px;          /* VÝŠKA IKONY SEARCH */
   --searchX:0px;           /* POSUN SEARCH: - = DOLEVA / + = DOPRAVA */
   --searchY:-1px;          /* POSUN SEARCH: - = NAHORU / + = DOLŮ */
 
