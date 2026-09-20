@@ -37,31 +37,27 @@
       '#000000'
     );
 
-    const theme =
-      document.querySelector('meta[name="theme-color"]');
-
-    if (theme) {
-      theme.content = '#000000';
-    }
-
     app.hidden = false;
+
     intro.hidden = true;
+    intro.style.display = 'none';
   };
 
-  const observer = new MutationObserver(() => {
-    const isExiting =
-      wordmark.classList.contains('is-exiting') &&
-      quote.classList.contains('is-exiting');
+  const observer =
+    new MutationObserver(() => {
+      const isExiting =
+        wordmark.classList.contains('is-exiting') &&
+        quote.classList.contains('is-exiting');
 
-    if (isExiting) {
-      exiting = true;
-      return;
-    }
+      if (isExiting) {
+        exiting = true;
+        return;
+      }
 
-    if (exiting) {
-      enter();
-    }
-  });
+      if (exiting) {
+        enter();
+      }
+    });
 
   observer.observe(wordmark, {
     attributes: true,
