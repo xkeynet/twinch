@@ -528,3 +528,23 @@ body.device-non-master.device-small .seek-time {
   font-size:26px;               /* VELIKOST TIMERU NA MALÉM DISPLEJI */
   bottom:40px;                  /* POLOHA TIMERU NA MALÉM DISPLEJI */
 }
+
+/* =========================================================
+   TOP NAV — BACKGROUND BAR
+   ========================================================= */
+
+.top-brand::before {
+  content:"";
+
+  position:fixed;
+  left:0;
+  right:0;
+
+  top:0;
+  height:calc(env(safe-area-inset-top) + 76px); /* VÝŠKA HORNÍHO PRUHU */
+
+  background:#121315; /* STEJNÁ BARVA JAKO SPODNÍ NAVBAR */
+
+  pointer-events:none;
+  z-index:-1;
+}
