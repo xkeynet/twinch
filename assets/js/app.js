@@ -203,7 +203,7 @@
     );
 
     if (themeColor) {
-      themeColor.setAttribute('content', '#000000');
+      themeColor.setAttribute('content', '#121315');
     }
 
     app.hidden = false;
