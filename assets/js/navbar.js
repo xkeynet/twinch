@@ -10,15 +10,15 @@
      ========================================================= */
 
   const intro = document.getElementById('intro');
+  const wordmarkStage = document.getElementById('introWordmarkStage');
   const heartStage = document.getElementById('introHeartStage');
   const twinchApp = document.getElementById('twinchApp');
-  const bottomNav = document.getElementById('bottomNav');
 
   if (
     !intro ||
+    !wordmarkStage ||
     !heartStage ||
-    !twinchApp ||
-    !bottomNav
+    !twinchApp
   ) {
     return;
   }
@@ -28,6 +28,7 @@
      ========================================================= */
 
   let entered = false;
+  let exitStarted = false;
 
   /* =========================================================
      ENTER MAIN APP
@@ -40,9 +41,10 @@
 
     entered = true;
 
+    observer.disconnect();
+
     intro.hidden = true;
     twinchApp.hidden = false;
-    bottomNav.hidden = false;
   };
 
   /* =========================================================
@@ -50,18 +52,36 @@
      ========================================================= */
 
   const observer = new MutationObserver(() => {
+    if (entered) {
+      return;
+    }
+
+    const isExiting =
+      heartStage.classList.contains('is-exiting') &&
+      wordmarkStage.classList.contains('is-exiting');
+
+    if (isExiting) {
+      exitStarted = true;
+      return;
+    }
+
     if (
-      heartStage.style.opacity === '0' &&
-      heartStage.style.visibility === 'hidden'
+      exitStarted &&
+      !heartStage.classList.contains('is-exiting') &&
+      !wordmarkStage.classList.contains('is-exiting')
     ) {
-      observer.disconnect();
       enterMainApp();
     }
   });
 
   observer.observe(heartStage, {
     attributes: true,
-    attributeFilter: ['style']
+    attributeFilter: ['class']
+  });
+
+  observer.observe(wordmarkStage, {
+    attributes: true,
+    attributeFilter: ['class']
   });
 
   /* =========================================================
