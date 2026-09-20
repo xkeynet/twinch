@@ -6,9 +6,9 @@
   fill="none"
 >
   <path
-    fill="#FFFFFF"
+    fill="#8FBFFA"
     fill-rule="evenodd"
-    d="M12 .318L23.25 10.443V23.25H.75V10.443L12 .318ZM3.25 11.557V20.75H20.75V11.557L12 3.682L3.25 11.557Z"
+    d="M23 10.555L12 .655L1 10.555V23H23Z"
     clip-rule="evenodd"
   />
 </svg>
