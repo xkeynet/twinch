@@ -27,13 +27,15 @@
   const wordmark = document.getElementById('introWordmark');
   const heartStage = document.getElementById('introHeartStage');
   const heartWhite = document.getElementById('introHeartWhite');
+  const app = document.getElementById('twinchApp');
 
   if (
     !intro ||
     !wordmarkStage ||
     !wordmark ||
     !heartStage ||
-    !heartWhite
+    !heartWhite ||
+    !app
   ) {
     return;
   }
@@ -204,6 +206,7 @@
       themeColor.setAttribute('content', '#000000');
     }
 
+    app.hidden = false;
     intro.style.display = 'none';
 
     await nextFrame();
