@@ -11,20 +11,50 @@
     stroke-width="2"
   >
     <path
-      fill="#467BFF"
-      stroke="#FFFFFF"
+      fill="#FFFFFF"
+      <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+>
+  <g
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="2"
+  >
+    <path
+      fill="#FFFFFF"
+      stroke="#467BFF"
       d="M2 5C2 4.447715 2.447715 4 3 4H17C17.5523 4 18 4.447715 18 5V9.5L22 6.5V18L18 15V19C18 19.5523 17.5523 20 17 20H3C2.447715 20 2 19.5523 2 19V5Z"
     />
     <path
-      stroke="#FFFFFF"
+      stroke="#467BFF"
       d="M5 8V10"
     />
     <path
-      stroke="#FFFFFF"
+      stroke="#467BFF"
       d="M7.5 7V11"
     />
     <path
-      stroke="#FFFFFF"
+      stroke="#467BFF"
+      d="M10 8V10"
+    />
+  </g>
+</svg>="#467BFF"
+      d="M2 5C2 4.447715 2.447715 4 3 4H17C17.5523 4 18 4.447715 18 5V9.5L22 6.5V18L18 15V19C18 19.5523 17.5523 20 17 20H3C2.447715 20 2 19.5523 2 19V5Z"
+    />
+    <path
+      stroke="#467BFF"
+      d="M5 8V10"
+    />
+    <path
+      stroke="#467BFF"
+      d="M7.5 7V11"
+    />
+    <path
+      stroke="#467BFF"
       d="M10 8V10"
     />
   </g>
