@@ -22,8 +22,8 @@
      CAMERA — VELIKOST A POLOHA
      ========================================================= */
 
-  --camW:27px;             /* ŠÍŘKA IKONY KAMERY */
-  --camH:27px;             /* VÝŠKA IKONY KAMERY */
+  --camW:26px;             /* ŠÍŘKA IKONY KAMERY */
+  --camH:26px;             /* VÝŠKA IKONY KAMERY */
   --camX:0px;              /* POSUN KAMERY: - = DOLEVA / + = DOPRAVA */
   --camY:-4px;             /* POSUN KAMERY: - = NAHORU / + = DOLŮ */
 
@@ -31,8 +31,8 @@
      HEART — VELIKOST A POLOHA
      ========================================================= */
 
-  --heartNavW:27px;        /* ŠÍŘKA IKONY SRDCE */
-  --heartNavH:27px;        /* VÝŠKA IKONY SRDCE */
+  --heartNavW:26px;        /* ŠÍŘKA IKONY SRDCE */
+  --heartNavH:26px;        /* VÝŠKA IKONY SRDCE */
   --heartNavX:0px;         /* POSUN SRDCE: - = DOLEVA / + = DOPRAVA */
   --heartNavY:-4px;        /* POSUN SRDCE: - = NAHORU / + = DOLŮ */
 
@@ -40,8 +40,8 @@
      HAMBURGER — VELIKOST A POLOHA
      ========================================================= */
 
-  --hamburgerW:27px;       /* ŠÍŘKA IKONY HAMBURGER */
-  --hamburgerH:27px;       /* VÝŠKA IKONY HAMBURGER */
+  --hamburgerW:28px;       /* ŠÍŘKA IKONY HAMBURGER */
+  --hamburgerH:28px;       /* VÝŠKA IKONY HAMBURGER */
   --hamburgerX:0px;        /* POSUN HAMBURGERU: - = DOLEVA / + = DOPRAVA */
   --hamburgerY:-4px;       /* POSUN HAMBURGERU: - = NAHORU / + = DOLŮ */
 
