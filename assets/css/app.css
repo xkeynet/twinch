@@ -93,7 +93,10 @@ body {
    APP ENTERED
    ========================================================= */
 
-html.is-entered,
+html.is-entered {
+  background: #121315;
+}
+
 html.is-entered body {
   background: #000000;
 }
