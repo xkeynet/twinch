@@ -93,10 +93,7 @@ body {
    APP ENTERED
    ========================================================= */
 
-html.is-entered {
-  background: #121315;
-}
-
+html.is-entered,
 html.is-entered body {
   background: #000000;
 }
@@ -836,15 +833,27 @@ img {
 
 .top-brand {
   position: fixed;
-  top: calc(env(safe-area-inset-top) + 10px);
-  left: 4px;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: calc(env(safe-area-inset-top) + 64px);
+
+  background: #121315;
+
   z-index: 10;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   margin: 0;
-  padding: 0;
+
+  padding:
+    calc(env(safe-area-inset-top) + 10px)
+    0
+    0
+    4px;
 
   pointer-events: none;
 }
