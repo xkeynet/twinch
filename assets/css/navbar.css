@@ -13,8 +13,8 @@
      HOME — VELIKOST A POLOHA
      ========================================================= */
 
-  --homeW:24px;            /* ŠÍŘKA IKONY HOME */
-  --homeH:24px;            /* VÝŠKA IKONY HOME */
+  --homeW:27px;            /* ŠÍŘKA IKONY HOME */
+  --homeH:27px;            /* VÝŠKA IKONY HOME */
   --homeX:0px;             /* POSUN HOME: - = DOLEVA / + = DOPRAVA */
   --homeY:0px;            /* POSUN HOME: - = NAHORU / + = DOLŮ */
 
