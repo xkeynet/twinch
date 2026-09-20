@@ -1,1 +1,363 @@
+/* =========================================================
+   TWINCH — NAVBAR / SEEK / TIMER
+   ========================================================= */
 
+:root {
+  --navPadX:12px;
+  --navIconBox:48px;
+  --navH:78px;
+  --iconSide:32px;
+  --iconBottom:28px;
+}
+
+/* =========================================================
+   BOTTOM NAV
+   ========================================================= */
+
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  z-index: 2;
+
+  background: transparent;
+
+  padding:
+    0
+    var(--navPadX)
+    env(safe-area-inset-bottom);
+
+  height:
+    calc(
+      var(--navIconBox) +
+      env(safe-area-inset-bottom)
+    );
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  isolation: isolate;
+}
+
+.nav::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 43px;
+
+  background: rgba(0,0,0,.90);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+.nav ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  width: 100%;
+  max-width: 700px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav button {
+  appearance: none;
+
+  background: transparent;
+  border: 0;
+
+  width: var(--navIconBox);
+  height: var(--navIconBox);
+
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+
+  outline: none;
+  box-shadow: none;
+
+  transform: translateZ(0);
+
+  backface-visibility: hidden;
+
+  will-change: transform;
+}
+
+/* =========================================================
+   NAV ICONS
+   ========================================================= */
+
+.nav-icon {
+  display: block;
+
+  filter:
+    brightness(0)
+    invert(1);
+}
+
+[aria-label="Home"] .nav-icon {
+  width: 27px;
+  height: 27px;
+
+  transform: translateY(-2px);
+}
+
+[aria-label="Search"] .nav-icon {
+  width: 27px;
+  height: 27px;
+
+  transform: translateY(-2px);
+}
+
+[aria-label="Messages"] .nav-icon {
+  width: 27px;
+  height: 27px;
+
+  transform: translateY(-1px);
+}
+
+[aria-label="Profile"] .nav-icon {
+  width: 27px;
+  height: 27px;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   PLUS
+   ========================================================= */
+
+.add-plus-svg {
+  width: 46px;
+  height: 28px;
+
+  transform: translateY(2px);
+}
+
+/* =========================================================
+   ORIGINAL ICON COLOR OVERRIDES
+   ========================================================= */
+
+[aria-label="Search"] .nav-icon,
+[aria-label="Search"] img,
+[aria-label="Messages"] .nav-icon,
+[aria-label="Messages"] img,
+[aria-label="Profile"] .nav-icon,
+[aria-label="Profile"] img {
+  filter: none !important;
+}
+
+/* =========================================================
+   iOS LONG PRESS PROTECTION
+   ========================================================= */
+
+.nav img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   VIDEO SEEK BAR
+   ========================================================= */
+
+.seek-wrap {
+  position: absolute;
+
+  left: var(--navPadX);
+  right: var(--navPadX);
+
+  bottom: calc(var(--navIconBox) - 5px);
+  top: auto;
+
+  height: 36px;
+
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+
+  padding-bottom: 0;
+
+  z-index: 3;
+
+  pointer-events: auto;
+
+  touch-action: none;
+}
+
+.seek-pill {
+  width: 100%;
+  height: 3px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.16);
+
+  position: relative;
+
+  overflow: visible;
+
+  transition:
+    height 140ms ease,
+    background 140ms ease;
+
+  transform: translateZ(0);
+
+  backface-visibility: hidden;
+}
+
+.seek-pill.is-active {
+  height: 10px;
+
+  background: rgba(255,255,255,.16);
+}
+
+.seek-fill {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 0%;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.50);
+
+  transition:
+    background 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.seek-pill.is-active .seek-fill {
+  background: rgba(255,255,255,.90);
+
+  box-shadow:
+    0 0 6px
+    rgba(255,255,255,.25);
+}
+
+/* =========================================================
+   TIMER
+   ========================================================= */
+
+.seek-time {
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  bottom: 60px;
+
+  font-family:
+    "Manrope",
+    system-ui,
+    sans-serif;
+
+  font-size: 30px;
+  font-weight: 600;
+
+  letter-spacing: 0;
+
+  font-variant-numeric: tabular-nums;
+
+  color: rgba(255,255,255,.90);
+
+  text-shadow:
+    0 2px 14px
+    rgba(0,0,0,.60);
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: geometricPrecision;
+
+  backface-visibility: hidden;
+
+  will-change: opacity;
+
+  opacity: 0;
+
+  transition:
+    opacity 140ms ease;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  white-space: nowrap;
+}
+
+.seek-time.is-active {
+  opacity: 1;
+}
+
+.seek-time .t-cur {
+  color: rgba(255,255,255,.90);
+
+  font-weight: 500;
+}
+
+.seek-time .t-sep {
+  color: rgba(255,255,255,.60);
+
+  font-weight: 500;
+
+  font-size: .68em;
+
+  line-height: 1.25;
+
+  letter-spacing: 0;
+
+  padding:
+    0
+    18px;
+
+  position: relative;
+
+  top: -2px;
+
+  transform:
+    rotate(4deg)
+    scaleY(1.18);
+
+  display: inline-block;
+}
+
+.seek-time .t-tot {
+  color: rgba(255,255,255,.60);
+
+  font-weight: 500;
+}
+
+/* =========================================================
+   SMALL DEVICES — TIMER
+   ========================================================= */
+
+body.device-non-master.device-small .seek-time {
+  font-size: 26px;
+
+  bottom: 40px;
+}
