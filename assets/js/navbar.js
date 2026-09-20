@@ -32,8 +32,10 @@
     entered = true;
     observer.disconnect();
 
-    document.documentElement.style.background = '#000';
-    document.body.style.background = '#000';
+    document.documentElement.style.setProperty(
+      '--page-background',
+      '#000000'
+    );
 
     const theme =
       document.querySelector('meta[name="theme-color"]');
