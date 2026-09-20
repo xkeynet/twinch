@@ -530,26 +530,6 @@ body.device-non-master.device-small .seek-time {
 }
 
 /* =========================================================
-   TOP NAV — BACKGROUND BAR
-   ========================================================= */
-
-.top-brand::before {
-  content:"";
-
-  position:fixed;
-  left:0;
-  right:0;
-
-  top:0;
-  height:calc(env(safe-area-inset-top) + 58px); /* VÝŠKA HORNÍHO PRUHU */
-
-  background:#121315; /* STEJNÁ BARVA JAKO SPODNÍ NAVBAR */
-
-  pointer-events:none;
-  z-index:-1;
-}
-
-/* =========================================================
    TOP NAV — GUEST STATE
    ========================================================= */
 
