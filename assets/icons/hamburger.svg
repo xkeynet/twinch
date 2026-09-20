@@ -3,25 +3,10 @@
   width="24"
   height="24"
   viewBox="0 0 24 24"
-  fill="none"
+  fill="#FFFFFF"
 >
   <path
-    d="M4 7L7 7M20 7L11 7"
-    stroke="#FFFFFF"
-    stroke-width="2"
-    stroke-linecap="round"
-  />
-  <path
-    d="M20 17H17M4 17L13 17"
-    stroke="#FFFFFF"
-    stroke-width="2"
-    stroke-linecap="round"
-  />
-  <path
-    d="M4 12H7L20 12"
-    stroke="#FFFFFF"
-    stroke-width="2"
-    stroke-linecap="round"
+    d="M18 7.1765625V8.9765625H6V7.1765625H18ZM6 12.5765625H18V10.7765625H6V12.5765625ZM6 16.1765625H18V14.3765625H6V16.1765625Z"
+    fill-rule="evenodd"
   />
 </svg>
-
