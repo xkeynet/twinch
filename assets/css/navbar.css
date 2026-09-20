@@ -43,7 +43,7 @@
   --messagesW:27px;        /* ŠÍŘKA IKONY MESSAGES */
   --messagesH:27px;        /* VÝŠKA IKONY MESSAGES */
   --messagesX:0px;         /* POSUN MESSAGES: - = DOLEVA / + = DOPRAVA */
-  --messagesY:-1px;        /* POSUN MESSAGES: - = NAHORU / + = DOLŮ */
+  --messagesY:-2px;        /* POSUN MESSAGES: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      PROFILE — VELIKOST A POLOHA
