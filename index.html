@@ -169,10 +169,12 @@
     content="#467BFF"
     id="themeColor"
   >
+
   <meta
     name="msapplication-TileColor"
     content="#467BFF"
   >
+
   <meta
     name="color-scheme"
     content="light dark"
@@ -307,7 +309,139 @@
     class="twinch-app"
     id="twinchApp"
     hidden
-  ></main>
+  >
+    <!-- =======================================================
+         PLAY OVERLAY
+         ======================================================= -->
+    <img
+      id="playOverlay"
+      src="/assets/icons/play.svg"
+      alt=""
+      aria-hidden="true"
+      draggable="false"
+    >
+
+    <!-- =======================================================
+         BOTTOM NAVIGATION
+         ======================================================= -->
+    <nav
+      class="nav"
+      aria-label="Primary navigation"
+    >
+      <!-- =====================================================
+           VIDEO SEEK
+           ===================================================== -->
+      <div
+        class="seek-wrap"
+        id="seekWrap"
+        aria-hidden="true"
+      >
+        <div
+          class="seek-pill"
+          id="seekPill"
+        >
+          <div
+            class="seek-fill"
+            id="seekFill"
+          ></div>
+        </div>
+      </div>
+
+      <!-- =====================================================
+           VIDEO TIMER
+           ===================================================== -->
+      <div
+        class="seek-time"
+        id="seekTime"
+        aria-hidden="true"
+      >
+        <span class="t-cur">00:00</span>
+        <span class="t-sep"> / </span>
+        <span class="t-tot">00:00</span>
+      </div>
+
+      <!-- =====================================================
+           NAV ITEMS
+           ===================================================== -->
+      <ul>
+        <li>
+          <button
+            type="button"
+            aria-label="Home"
+          >
+            <img
+              class="nav-icon"
+              src="/assets/icons/home.svg"
+              alt=""
+              aria-hidden="true"
+              draggable="false"
+            >
+          </button>
+        </li>
+
+        <li>
+          <button
+            type="button"
+            aria-label="Search"
+          >
+            <img
+              class="nav-icon"
+              src="/assets/icons/search.svg"
+              alt=""
+              aria-hidden="true"
+              draggable="false"
+            >
+          </button>
+        </li>
+
+        <li>
+          <button
+            type="button"
+            aria-label="Add"
+          >
+            <img
+              class="add-plus-svg"
+              src="/assets/icons/plus.svg"
+              alt=""
+              aria-hidden="true"
+              draggable="false"
+            >
+          </button>
+        </li>
+
+        <li>
+          <button
+            type="button"
+            aria-label="Messages"
+          >
+            <img
+              class="nav-icon"
+              src="/assets/icons/messages.svg"
+              alt=""
+              aria-hidden="true"
+              draggable="false"
+            >
+          </button>
+        </li>
+
+        <li>
+          <button
+            type="button"
+            id="profileBtn"
+            aria-label="Profile"
+          >
+            <img
+              class="nav-icon"
+              src="/assets/icons/user.svg"
+              alt=""
+              aria-hidden="true"
+              draggable="false"
+            >
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </main>
 
   <!-- =========================================================
        NOSCRIPT FALLBACK
