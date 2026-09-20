@@ -144,10 +144,6 @@
   transform-origin:center center;
 }
 
-.nav-icon {
-  filter:brightness(0) invert(1); /* ZÁKLADNÍ PŘEVOD IKONY NA BÍLOU */
-}
-
 /* =========================================================
    HOME — SIZE / POSITION
    ========================================================= */
@@ -196,19 +192,6 @@
   width:var(--profileW);    /* ŠÍŘKA PROFILE */
   height:var(--profileH);   /* VÝŠKA PROFILE */
   transform:translate(var(--profileX), var(--profileY)); /* DOLEVA/DOPRAVA + NAHORU/DOLŮ */
-}
-
-/* =========================================================
-   ORIGINAL ICON COLOR OVERRIDES
-   ========================================================= */
-
-[aria-label="Search"] .nav-icon,
-[aria-label="Search"] img,
-[aria-label="Messages"] .nav-icon,
-[aria-label="Messages"] img,
-[aria-label="Profile"] .nav-icon,
-[aria-label="Profile"] img {
-  filter:none !important;   /* TYTO SVG SI ZACHOVÁVAJÍ VLASTNÍ BARVY */
 }
 
 /* =========================================================
