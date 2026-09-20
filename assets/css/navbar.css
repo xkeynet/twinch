@@ -541,7 +541,7 @@ body.device-non-master.device-small .seek-time {
   right:0;
 
   top:0;
-  height:calc(env(safe-area-inset-top) + 64px); /* VÝŠKA HORNÍHO PRUHU */
+  height:calc(env(safe-area-inset-top) + 58px); /* VÝŠKA HORNÍHO PRUHU */
 
   background:#121315; /* STEJNÁ BARVA JAKO SPODNÍ NAVBAR */
 
