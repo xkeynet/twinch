@@ -81,7 +81,7 @@
   right:0;
   bottom:0;
   height:43px;             /* VÝŠKA ČERNÉHO PODKLADU POD IKONAMI */
-  background:rgba(0,0,0,.90); /* BARVA / PRŮHLEDNOST PODKLADU */
+  background:#1F2125;      /* BARVA / PRŮHLEDNOST PODKLADU */
   pointer-events:none;
   z-index:-1;
 }
