@@ -3,12 +3,9 @@
   width="24"
   height="24"
   viewBox="0 0 24 24"
-  fill="none"
+  fill="#FFFFFF"
 >
   <path
-    d="M12 7.5V16.5M7.5 12H16.5"
-    stroke="#FFFFFF"
-    stroke-width="2"
-    stroke-linecap="square"
+    d="M14.6639 9.36503H24V14.7014H14.6639V24H9.33919V14.7014H0V9.36503H9.33919V0H14.6639V9.36503Z"
   />
 </svg>
