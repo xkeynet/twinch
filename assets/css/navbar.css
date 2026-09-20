@@ -54,7 +54,7 @@
 
   --hamburgerW:28px;       /* ŠÍŘKA IKONY HAMBURGER */
   --hamburgerH:28px;       /* VÝŠKA IKONY HAMBURGER */
-  --hamburgerX:0px;        /* POSUN HAMBURGERU: - = DOLEVA / + = DOPRAVA */
+  --hamburgerX:8px;        /* POSUN HAMBURGERU: - = DOLEVA / + = DOPRAVA */
   --hamburgerY:-4px;       /* POSUN HAMBURGERU: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
