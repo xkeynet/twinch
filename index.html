@@ -235,6 +235,11 @@
 
   <link
     rel="stylesheet"
+    href="/assets/css/navbar.css"
+  >
+
+  <link
+    rel="stylesheet"
     href="/assets/safety/block.css"
   >
 </head>
@@ -286,6 +291,15 @@
   </main>
 
   <!-- =========================================================
+       MAIN APP
+       ========================================================= -->
+  <main
+    class="twinch-app"
+    id="twinchApp"
+    hidden
+  ></main>
+
+  <!-- =========================================================
        NOSCRIPT FALLBACK
        ========================================================= -->
   <noscript>
@@ -313,6 +327,11 @@
 
   <script
     src="/assets/js/app.js"
+    defer
+  ></script>
+
+  <script
+    src="/assets/js/navbar.js"
     defer
   ></script>
 </body>
