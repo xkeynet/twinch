@@ -32,10 +32,14 @@
     entered = true;
     observer.disconnect();
 
-    document.documentElement.style.setProperty(
-      '--page-background',
-      '#000000'
-    );
+    document.documentElement.classList.add('is-app');
+
+    const theme =
+      document.querySelector('meta[name="theme-color"]');
+
+    if (theme) {
+      theme.content = '#000000';
+    }
 
     app.hidden = false;
 
