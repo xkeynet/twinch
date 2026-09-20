@@ -833,7 +833,7 @@ img {
 
 .top-brand {
   position: fixed;
-  top: calc(env(safe-area-inset-top) + 16px);
+  top: calc(env(safe-area-inset-top) + 12px);
   left: 8px;
   z-index: 10;
 
