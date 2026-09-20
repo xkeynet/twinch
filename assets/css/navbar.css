@@ -25,7 +25,7 @@
   --camW:30px;             /* ŠÍŘKA IKONY KAMERY */
   --camH:30px;             /* VÝŠKA IKONY KAMERY */
   --camX:0px;              /* POSUN KAMERY: - = DOLEVA / + = DOPRAVA */
-  --camY:-2px;              /* POSUN KAMERY: - = NAHORU / + = DOLŮ */
+  --camY:-2px;             /* POSUN KAMERY: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      HEART — VELIKOST A POLOHA
@@ -34,7 +34,7 @@
   --heartNavW:30px;        /* ŠÍŘKA IKONY SRDCE */
   --heartNavH:30px;        /* VÝŠKA IKONY SRDCE */
   --heartNavX:0px;         /* POSUN SRDCE: - = DOLEVA / + = DOPRAVA */
-  --heartNavY:-2px;         /* POSUN SRDCE: - = NAHORU / + = DOLŮ */
+  --heartNavY:-2px;        /* POSUN SRDCE: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      HAMBURGER — VELIKOST A POLOHA
@@ -43,7 +43,7 @@
   --hamburgerW:27px;       /* ŠÍŘKA IKONY HAMBURGER */
   --hamburgerH:27px;       /* VÝŠKA IKONY HAMBURGER */
   --hamburgerX:0px;        /* POSUN HAMBURGERU: - = DOLEVA / + = DOPRAVA */
-  --hamburgerY:-2px;        /* POSUN HAMBURGERU: - = NAHORU / + = DOLŮ */
+  --hamburgerY:-2px;       /* POSUN HAMBURGERU: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      HOME — VELIKOST A POLOHA
@@ -166,7 +166,7 @@
    CAMERA — SIZE / POSITION
    ========================================================= */
 
-[aria-label="Live"] .top-nav__icon {
+[aria-label="Camera"] .top-nav__icon {
   width:var(--camW);
   height:var(--camH);
   transform:translate(var(--camX), var(--camY));
@@ -176,7 +176,7 @@
    HEART — SIZE / POSITION
    ========================================================= */
 
-[aria-label="Activity"] .top-nav__icon {
+[aria-label="Heart"] .top-nav__icon {
   width:var(--heartNavW);
   height:var(--heartNavH);
   transform:translate(var(--heartNavX), var(--heartNavY));
@@ -337,13 +337,13 @@
 
 .nav img,
 #playOverlay {
-  -webkit-user-drag:none;    /* ZAKÁŽE TAŽENÍ OBRÁZKU NA iOS */
+  -webkit-user-drag:none;     /* ZAKÁŽE TAŽENÍ OBRÁZKU NA iOS */
   -webkit-touch-callout:none; /* ZAKÁŽE LONG-PRESS MENU NA iOS */
-  user-select:none;          /* ZAKÁŽE OZNAČENÍ */
+  user-select:none;           /* ZAKÁŽE OZNAČENÍ */
 }
 
 .nav img {
-  pointer-events:none;       /* TAP ZPRACOVÁVÁ BUTTON, NE IMG */
+  pointer-events:none;        /* TAP ZPRACOVÁVÁ BUTTON, NE IMG */
 }
 
 /* =========================================================
@@ -405,12 +405,12 @@
 
 .seek-time {
   position:absolute;
-  left:50%;                  /* VODOROVNÝ STŘED TIMERU */
+  left:50%;                   /* VODOROVNÝ STŘED TIMERU */
   transform:translateX(-50%); /* PŘESNÉ VYCENTROVÁNÍ TIMERU */
-  bottom:60px;               /* POLOHA TIMERU OD SPODKU: VĚTŠÍ = VÝŠ */
+  bottom:60px;                /* POLOHA TIMERU OD SPODKU: VĚTŠÍ = VÝŠ */
   font-family:"Manrope",system-ui,sans-serif;
-  font-size:30px;            /* VELIKOST ČASU */
-  font-weight:600;           /* TLOUŠŤKA PÍSMA ČASU */
+  font-size:30px;             /* VELIKOST ČASU */
+  font-weight:600;            /* TLOUŠŤKA PÍSMA ČASU */
   letter-spacing:0;
   font-variant-numeric:tabular-nums;
   color:rgba(255,255,255,.90); /* BARVA ČASU */
@@ -419,7 +419,7 @@
   text-rendering:geometricPrecision;
   backface-visibility:hidden;
   will-change:opacity;
-  opacity:0;                 /* TIMER JE V KLIDU SKRYTÝ */
+  opacity:0;                  /* TIMER JE V KLIDU SKRYTÝ */
   transition:opacity 140ms ease; /* RYCHLOST ZOBRAZENÍ / SKRYTÍ */
   pointer-events:none;
   user-select:none;
@@ -427,7 +427,7 @@
 }
 
 .seek-time.is-active {
-  opacity:1;                 /* TIMER VIDITELNÝ PŘI AKTIVNÍM SEEKU */
+  opacity:1;                  /* TIMER VIDITELNÝ PŘI AKTIVNÍM SEEKU */
 }
 
 .seek-time .t-cur {
