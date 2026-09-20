@@ -13,8 +13,8 @@
      HOME — VELIKOST A POLOHA
      ========================================================= */
 
-  --homeW:27px;            /* ŠÍŘKA IKONY HOME */
-  --homeH:27px;            /* VÝŠKA IKONY HOME */
+  --homeW:28px;            /* ŠÍŘKA IKONY HOME */
+  --homeH:28px;            /* VÝŠKA IKONY HOME */
   --homeX:0px;             /* POSUN HOME: - = DOLEVA / + = DOPRAVA */
   --homeY:-2px;            /* POSUN HOME: - = NAHORU / + = DOLŮ */
 
@@ -22,8 +22,8 @@
      SEARCH — VELIKOST A POLOHA
      ========================================================= */
 
-  --searchW:27px;          /* ŠÍŘKA IKONY SEARCH */
-  --searchH:27px;          /* VÝŠKA IKONY SEARCH */
+  --searchW:28px;          /* ŠÍŘKA IKONY SEARCH */
+  --searchH:28px;          /* VÝŠKA IKONY SEARCH */
   --searchX:0px;           /* POSUN SEARCH: - = DOLEVA / + = DOPRAVA */
   --searchY:-2px;          /* POSUN SEARCH: - = NAHORU / + = DOLŮ */
 
@@ -31,17 +31,17 @@
      ADD / PLUS — VELIKOST A POLOHA
      ========================================================= */
 
-  --addW:46px;             /* ŠÍŘKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
+  --addW:28px;             /* ŠÍŘKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
   --addH:28px;             /* VÝŠKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
   --addX:0px;              /* POSUN PLUS: - = DOLEVA / + = DOPRAVA */
-  --addY:0px;             /* POSUN PLUS: - = NAHORU / + = DOLŮ */
+  --addY:-2px;             /* POSUN PLUS: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      MESSAGES — VELIKOST A POLOHA
      ========================================================= */
 
-  --messagesW:27px;        /* ŠÍŘKA IKONY MESSAGES */
-  --messagesH:27px;        /* VÝŠKA IKONY MESSAGES */
+  --messagesW:28px;        /* ŠÍŘKA IKONY MESSAGES */
+  --messagesH:28px;        /* VÝŠKA IKONY MESSAGES */
   --messagesX:0px;         /* POSUN MESSAGES: - = DOLEVA / + = DOPRAVA */
   --messagesY:-2px;        /* POSUN MESSAGES: - = NAHORU / + = DOLŮ */
 
@@ -49,8 +49,8 @@
      PROFILE — VELIKOST A POLOHA
      ========================================================= */
 
-  --profileW:27px;         /* ŠÍŘKA IKONY PROFILE */
-  --profileH:27px;         /* VÝŠKA IKONY PROFILE */
+  --profileW:28px;         /* ŠÍŘKA IKONY PROFILE */
+  --profileH:28px;         /* VÝŠKA IKONY PROFILE */
   --profileX:0px;          /* POSUN PROFILE: - = DOLEVA / + = DOPRAVA */
   --profileY:-2px;         /* POSUN PROFILE: - = NAHORU / + = DOLŮ */
 }
