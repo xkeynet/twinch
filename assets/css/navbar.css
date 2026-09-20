@@ -10,13 +10,49 @@
   --iconBottom:28px;       /* REFERENČNÍ SPODNÍ ODSAZENÍ IKON */
 
   /* =========================================================
+     TOP NAV — SPOLEČNÉ NASTAVENÍ
+     ========================================================= */
+
+  --topNavRight:16px;      /* ODSAZENÍ HORNÍCH IKON OD PRAVÉHO OKRAJE */
+  --topNavTop:16px;        /* ODSAZENÍ HORNÍCH IKON POD iOS SAFE AREA */
+  --topNavIconBox:44px;    /* KLIKACÍ PROSTOR KAŽDÉ HORNÍ IKONY */
+  --topNavGap:4px;         /* MEZERA MEZI HORNÍMI TLAČÍTKY */
+
+  /* =========================================================
+     CAMERA — VELIKOST A POLOHA
+     ========================================================= */
+
+  --camW:27px;             /* ŠÍŘKA IKONY KAMERY */
+  --camH:27px;             /* VÝŠKA IKONY KAMERY */
+  --camX:0px;              /* POSUN KAMERY: - = DOLEVA / + = DOPRAVA */
+  --camY:0px;              /* POSUN KAMERY: - = NAHORU / + = DOLŮ */
+
+  /* =========================================================
+     HEART — VELIKOST A POLOHA
+     ========================================================= */
+
+  --heartNavW:27px;        /* ŠÍŘKA IKONY SRDCE */
+  --heartNavH:27px;        /* VÝŠKA IKONY SRDCE */
+  --heartNavX:0px;         /* POSUN SRDCE: - = DOLEVA / + = DOPRAVA */
+  --heartNavY:0px;         /* POSUN SRDCE: - = NAHORU / + = DOLŮ */
+
+  /* =========================================================
+     HAMBURGER — VELIKOST A POLOHA
+     ========================================================= */
+
+  --hamburgerW:27px;       /* ŠÍŘKA IKONY HAMBURGER */
+  --hamburgerH:27px;       /* VÝŠKA IKONY HAMBURGER */
+  --hamburgerX:0px;        /* POSUN HAMBURGERU: - = DOLEVA / + = DOPRAVA */
+  --hamburgerY:0px;        /* POSUN HAMBURGERU: - = NAHORU / + = DOLŮ */
+
+  /* =========================================================
      HOME — VELIKOST A POLOHA
      ========================================================= */
 
   --homeW:27px;            /* ŠÍŘKA IKONY HOME */
   --homeH:27px;            /* VÝŠKA IKONY HOME */
   --homeX:0px;             /* POSUN HOME: - = DOLEVA / + = DOPRAVA */
-  --homeY:0px;            /* POSUN HOME: - = NAHORU / + = DOLŮ */
+  --homeY:0px;             /* POSUN HOME: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      SEARCH — VELIKOST A POLOHA
@@ -25,16 +61,16 @@
   --searchW:27px;          /* ŠÍŘKA IKONY SEARCH */
   --searchH:27px;          /* VÝŠKA IKONY SEARCH */
   --searchX:0px;           /* POSUN SEARCH: - = DOLEVA / + = DOPRAVA */
-  --searchY:0px;          /* POSUN SEARCH: - = NAHORU / + = DOLŮ */
+  --searchY:0px;           /* POSUN SEARCH: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      ADD / PLUS — VELIKOST A POLOHA
      ========================================================= */
 
-  --addW:27px;             /* ŠÍŘKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
-  --addH:27px;             /* VÝŠKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
+  --addW:27px;             /* ŠÍŘKA PLUS IKONY */
+  --addH:27px;             /* VÝŠKA PLUS IKONY */
   --addX:0px;              /* POSUN PLUS: - = DOLEVA / + = DOPRAVA */
-  --addY:0px;             /* POSUN PLUS: - = NAHORU / + = DOLŮ */
+  --addY:0px;              /* POSUN PLUS: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      MESSAGES — VELIKOST A POLOHA
@@ -43,7 +79,7 @@
   --messagesW:27px;        /* ŠÍŘKA IKONY MESSAGES */
   --messagesH:27px;        /* VÝŠKA IKONY MESSAGES */
   --messagesX:0px;         /* POSUN MESSAGES: - = DOLEVA / + = DOPRAVA */
-  --messagesY:0px;        /* POSUN MESSAGES: - = NAHORU / + = DOLŮ */
+  --messagesY:0px;         /* POSUN MESSAGES: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      PROFILE — VELIKOST A POLOHA
@@ -53,6 +89,107 @@
   --profileH:27px;         /* VÝŠKA IKONY PROFILE */
   --profileX:0px;          /* POSUN PROFILE: - = DOLEVA / + = DOPRAVA */
   --profileY:-1px;         /* POSUN PROFILE: - = NAHORU / + = DOLŮ */
+}
+
+/* =========================================================
+   TOP NAV
+   ========================================================= */
+
+.top-nav {
+  position:fixed;
+  top:calc(env(safe-area-inset-top) + var(--topNavTop));
+  right:var(--topNavRight);
+  z-index:10;
+
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:var(--topNavGap);
+
+  margin:0;
+  padding:0;
+
+  background:transparent;
+}
+
+.top-nav button {
+  appearance:none;
+  background:transparent;
+  border:0;
+
+  width:var(--topNavIconBox);
+  height:var(--topNavIconBox);
+
+  margin:0;
+  padding:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+
+  -webkit-tap-highlight-color:transparent;
+
+  outline:none;
+  box-shadow:none;
+
+  overflow:visible;
+
+  transform:translateZ(0);
+  backface-visibility:hidden;
+}
+
+.top-nav button img {
+  display:block;
+
+  max-width:none;
+  max-height:none;
+  min-width:0;
+  min-height:0;
+
+  flex:none;
+
+  object-fit:contain;
+  box-sizing:content-box;
+
+  transform-origin:center center;
+
+  pointer-events:none;
+
+  -webkit-user-drag:none;
+  -webkit-touch-callout:none;
+  user-select:none;
+}
+
+/* =========================================================
+   CAMERA — SIZE / POSITION
+   ========================================================= */
+
+[aria-label="Live"] .top-nav__icon {
+  width:var(--camW);
+  height:var(--camH);
+  transform:translate(var(--camX), var(--camY));
+}
+
+/* =========================================================
+   HEART — SIZE / POSITION
+   ========================================================= */
+
+[aria-label="Activity"] .top-nav__icon {
+  width:var(--heartNavW);
+  height:var(--heartNavH);
+  transform:translate(var(--heartNavX), var(--heartNavY));
+}
+
+/* =========================================================
+   HAMBURGER — SIZE / POSITION
+   ========================================================= */
+
+[aria-label="Menu"] .top-nav__icon {
+  width:var(--hamburgerW);
+  height:var(--hamburgerH);
+  transform:translate(var(--hamburgerX), var(--hamburgerY));
 }
 
 /* =========================================================
