@@ -5,118 +5,69 @@
    ========================================================= */
 
 (() => {
-  /* =========================================================
-     ELEMENTS
-     ========================================================= */
+  const intro =
+    document.getElementById('intro');
 
-  const intro = document.getElementById('intro');
-  const wordmarkStage = document.getElementById('introWordmarkStage');
-  const heartStage = document.getElementById('introHeartStage');
-  const twinchApp = document.getElementById('twinchApp');
+  const wordmark =
+    document.getElementById('introWordmarkStage');
 
-  const themeColor = document.querySelector(
-    'meta[name="theme-color"]'
-  );
+  const quote =
+    document.getElementById('introHeartStage');
 
-  const tileColor = document.querySelector(
-    'meta[name="msapplication-TileColor"]'
-  );
+  const app =
+    document.getElementById('twinchApp');
 
-  if (
-    !intro ||
-    !wordmarkStage ||
-    !heartStage ||
-    !twinchApp
-  ) {
+  if (!intro || !wordmark || !quote || !app) {
     return;
   }
 
-  /* =========================================================
-     STATE
-     ========================================================= */
-
+  let exiting = false;
   let entered = false;
-  let exitStarted = false;
 
-  /* =========================================================
-     ENTER MAIN APP
-     ========================================================= */
-
-  const enterMainApp = () => {
+  const enter = () => {
     if (entered) {
       return;
     }
 
     entered = true;
-
     observer.disconnect();
 
-    /* Browser / Safari chrome */
-    if (themeColor) {
-      themeColor.setAttribute('content', '#000000');
+    document.documentElement.style.background = '#000';
+    document.body.style.background = '#000';
+
+    const theme =
+      document.querySelector('meta[name="theme-color"]');
+
+    if (theme) {
+      theme.content = '#000000';
     }
 
-    if (tileColor) {
-      tileColor.setAttribute('content', '#000000');
-    }
-
-    /* Page background */
-    document.documentElement.style.backgroundColor = '#000000';
-    document.body.style.backgroundColor = '#000000';
-
-    /* Intro off */
+    app.hidden = false;
     intro.hidden = true;
-
-    /* Main black environment on */
-    twinchApp.hidden = false;
   };
 
-  /* =========================================================
-     INTRO EXIT WATCH
-     ========================================================= */
-
   const observer = new MutationObserver(() => {
-    if (entered) {
-      return;
-    }
-
     const isExiting =
-      heartStage.classList.contains('is-exiting') &&
-      wordmarkStage.classList.contains('is-exiting');
+      wordmark.classList.contains('is-exiting') &&
+      quote.classList.contains('is-exiting');
 
     if (isExiting) {
-      exitStarted = true;
+      exiting = true;
       return;
     }
 
-    if (
-      exitStarted &&
-      !heartStage.classList.contains('is-exiting') &&
-      !wordmarkStage.classList.contains('is-exiting')
-    ) {
-      enterMainApp();
+    if (exiting) {
+      enter();
     }
   });
 
-  observer.observe(heartStage, {
+  observer.observe(wordmark, {
     attributes: true,
     attributeFilter: ['class']
   });
 
-  observer.observe(wordmarkStage, {
+  observer.observe(quote, {
     attributes: true,
     attributeFilter: ['class']
   });
-
-  /* =========================================================
-     CLEANUP
-     ========================================================= */
-
-  window.addEventListener(
-    'pagehide',
-    () => {
-      observer.disconnect();
-    },
-    { once: true }
-  );
 })();
