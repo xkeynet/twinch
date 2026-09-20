@@ -146,10 +146,10 @@
    ========================================================= */
 
 .add-plus-svg {
-  width: 52px;
-  height: 32px;
+  width: 60px;
+  height: 36px;
 
-  transform: translateY(2px);
+  transform: translateY(0px);
 }
 
 /* =========================================================
