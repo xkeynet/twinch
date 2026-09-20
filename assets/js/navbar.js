@@ -14,6 +14,14 @@
   const heartStage = document.getElementById('introHeartStage');
   const twinchApp = document.getElementById('twinchApp');
 
+  const themeColor = document.querySelector(
+    'meta[name="theme-color"]'
+  );
+
+  const tileColor = document.querySelector(
+    'meta[name="msapplication-TileColor"]'
+  );
+
   if (
     !intro ||
     !wordmarkStage ||
@@ -43,7 +51,23 @@
 
     observer.disconnect();
 
+    /* Browser / Safari chrome */
+    if (themeColor) {
+      themeColor.setAttribute('content', '#000000');
+    }
+
+    if (tileColor) {
+      tileColor.setAttribute('content', '#000000');
+    }
+
+    /* Page background */
+    document.documentElement.style.backgroundColor = '#000000';
+    document.body.style.backgroundColor = '#000000';
+
+    /* Intro off */
     intro.hidden = true;
+
+    /* Main black environment on */
     twinchApp.hidden = false;
   };
 
