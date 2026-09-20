@@ -3,10 +3,11 @@
   width="24"
   height="24"
   viewBox="0 0 24 24"
+  fill="none"
 >
   <path
-    fill="#FFFFFF"
-    stroke="#467BFF"
+    fill="none"
+    stroke="#FFFFFF"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-width="2"
