@@ -89,6 +89,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* =========================================================
+   APP ENTERED
+   ========================================================= */
+
+html.is-entered,
+html.is-entered body {
+  background: #000000;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -817,13 +826,3 @@ img {
     animation-duration: 600ms;
   }
 }
-
-/* =========================================================
-   MAIN APP — BLACK STATE
-   ========================================================= */
-
-html.is-app,
-html.is-app body {
-  background: #000000;
-}
-
