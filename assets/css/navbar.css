@@ -3,41 +3,56 @@
    ========================================================= */
 
 :root {
-  --navPadX:12px;
-  --navIconBox:48px;
-  --navH:78px;
-  --iconSide:32px;
-  --iconBottom:28px;
+  --navPadX:12px;          /* ODSAZENÍ NAVBARU OD LEVÉHO A PRAVÉHO OKRAJE */
+  --navIconBox:48px;       /* VELIKOST PROSTORU PRO KAŽDOU NAVIGAČNÍ IKONU */
+  --navH:78px;             /* REFERENČNÍ VÝŠKA NAVBARU */
+  --iconSide:32px;         /* REFERENČNÍ VELIKOST IKON */
+  --iconBottom:28px;       /* REFERENČNÍ SPODNÍ ODSAZENÍ IKON */
 
-  /* HOME */
-  --homeW:27px;
-  --homeH:27px;
-  --homeX:0px;
-  --homeY:-2px;
+  /* =========================================================
+     HOME — VELIKOST A POLOHA
+     ========================================================= */
 
-  /* SEARCH */
-  --searchW:27px;
-  --searchH:27px;
-  --searchX:0px;
-  --searchY:-2px;
+  --homeW:27px;            /* ŠÍŘKA IKONY HOME */
+  --homeH:27px;            /* VÝŠKA IKONY HOME */
+  --homeX:0px;             /* POSUN HOME: - = DOLEVA / + = DOPRAVA */
+  --homeY:-2px;            /* POSUN HOME: - = NAHORU / + = DOLŮ */
 
-  /* ADD */
-  --addW:60px;
-  --addH:auto;
-  --addX:0px;
-  --addY:-2px;
+  /* =========================================================
+     SEARCH — VELIKOST A POLOHA
+     ========================================================= */
 
-  /* MESSAGES */
-  --messagesW:27px;
-  --messagesH:27px;
-  --messagesX:0px;
-  --messagesY:-1px;
+  --searchW:27px;          /* ŠÍŘKA IKONY SEARCH */
+  --searchH:27px;          /* VÝŠKA IKONY SEARCH */
+  --searchX:0px;           /* POSUN SEARCH: - = DOLEVA / + = DOPRAVA */
+  --searchY:-2px;          /* POSUN SEARCH: - = NAHORU / + = DOLŮ */
 
-  /* PROFILE */
-  --profileW:27px;
-  --profileH:27px;
-  --profileX:0px;
-  --profileY:-2px;
+  /* =========================================================
+     ADD / PLUS — VELIKOST A POLOHA
+     ========================================================= */
+
+  --addW:64px;             /* ŠÍŘKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
+  --addH:39px;             /* VÝŠKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
+  --addX:0px;              /* POSUN PLUS: - = DOLEVA / + = DOPRAVA */
+  --addY:-2px;             /* POSUN PLUS: - = NAHORU / + = DOLŮ */
+
+  /* =========================================================
+     MESSAGES — VELIKOST A POLOHA
+     ========================================================= */
+
+  --messagesW:27px;        /* ŠÍŘKA IKONY MESSAGES */
+  --messagesH:27px;        /* VÝŠKA IKONY MESSAGES */
+  --messagesX:0px;         /* POSUN MESSAGES: - = DOLEVA / + = DOPRAVA */
+  --messagesY:-1px;        /* POSUN MESSAGES: - = NAHORU / + = DOLŮ */
+
+  /* =========================================================
+     PROFILE — VELIKOST A POLOHA
+     ========================================================= */
+
+  --profileW:27px;         /* ŠÍŘKA IKONY PROFILE */
+  --profileH:27px;         /* VÝŠKA IKONY PROFILE */
+  --profileX:0px;          /* POSUN PROFILE: - = DOLEVA / + = DOPRAVA */
+  --profileY:-2px;         /* POSUN PROFILE: - = NAHORU / + = DOLŮ */
 }
 
 /* =========================================================
@@ -45,14 +60,14 @@
    ========================================================= */
 
 .nav {
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:-6px;
-  z-index:2;
-  background:transparent;
-  padding:0 var(--navPadX) env(safe-area-inset-bottom);
-  height:calc(var(--navIconBox) + env(safe-area-inset-bottom));
+  position:fixed;          /* NAVBAR JE PŘIPEVNĚNÝ K DISPLEJI */
+  left:0;                  /* LEVÝ OKRAJ NAVBARU */
+  right:0;                 /* PRAVÝ OKRAJ NAVBARU */
+  bottom:-6px;             /* CELÝ NAVBAR: - = NÍŽ / + = VÝŠ */
+  z-index:2;               /* VRSTVA NAVBARU */
+  background:transparent;  /* HLAVNÍ NAVBAR JE PRŮHLEDNÝ */
+  padding:0 var(--navPadX) env(safe-area-inset-bottom); /* BOČNÍ ODSAZENÍ + iOS SAFE AREA */
+  height:calc(var(--navIconBox) + env(safe-area-inset-bottom)); /* VÝŠKA NAVBARU */
   display:flex;
   align-items:flex-end;
   justify-content:center;
@@ -65,8 +80,8 @@
   left:0;
   right:0;
   bottom:0;
-  height:43px;
-  background:rgba(0,0,0,.90);
+  height:43px;             /* VÝŠKA ČERNÉHO PODKLADU POD IKONAMI */
+  background:rgba(0,0,0,.90); /* BARVA / PRŮHLEDNOST PODKLADU */
   pointer-events:none;
   z-index:-1;
 }
@@ -75,29 +90,29 @@
   margin:0;
   padding:0;
   list-style:none;
-  width:100%;
-  max-width:700px;
+  width:100%;              /* NAVIGAČNÍ IKONY VYUŽIJÍ CELOU DOSTUPNOU ŠÍŘKU */
+  max-width:700px;         /* MAXIMÁLNÍ ROZTAŽENÍ NAVIGACE */
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:space-between; /* ROVNOMĚRNÉ ROZLOŽENÍ IKON */
 }
 
 .nav li {
-  width:var(--navIconBox);
-  height:var(--navIconBox);
+  width:var(--navIconBox);  /* ŠÍŘKA PROSTORU JEDNÉ IKONY */
+  height:var(--navIconBox); /* VÝŠKA PROSTORU JEDNÉ IKONY */
   display:flex;
   align-items:center;
   justify-content:center;
   flex:0 0 var(--navIconBox);
-  overflow:visible;
+  overflow:visible;         /* DOVOLÍ VĚTŠÍ IKONĚ PŘESÁHNOUT 48px PROSTOR */
 }
 
 .nav button {
   appearance:none;
   background:transparent;
   border:0;
-  width:var(--navIconBox);
-  height:var(--navIconBox);
+  width:var(--navIconBox);  /* KLIKACÍ ŠÍŘKA TLAČÍTKA */
+  height:var(--navIconBox); /* KLIKACÍ VÝŠKA TLAČÍTKA */
   padding:0;
   margin:0;
   color:#fff;
@@ -108,7 +123,7 @@
   -webkit-tap-highlight-color:transparent;
   outline:none;
   box-shadow:none;
-  overflow:visible;
+  overflow:visible;         /* DOVOLÍ IKONĚ BÝT VĚTŠÍ NEŽ TLAČÍTKO */
   transform:translateZ(0);
   backface-visibility:hidden;
 }
@@ -119,18 +134,18 @@
 
 .nav button img {
   display:block;
-  max-width:none;
-  max-height:none;
+  max-width:none;           /* NEOMEZOVAT MAXIMÁLNÍ ŠÍŘKU IKONY */
+  max-height:none;          /* NEOMEZOVAT MAXIMÁLNÍ VÝŠKU IKONY */
   min-width:0;
   min-height:0;
   flex:none;
-  object-fit:contain;
+  object-fit:contain;       /* ZACHOVÁNÍ KRESBY UVNITŘ ROZMĚRŮ */
   box-sizing:content-box;
   transform-origin:center center;
 }
 
 .nav-icon {
-  filter:brightness(0) invert(1);
+  filter:brightness(0) invert(1); /* ZÁKLADNÍ PŘEVOD IKONY NA BÍLOU */
 }
 
 /* =========================================================
@@ -138,9 +153,9 @@
    ========================================================= */
 
 [aria-label="Home"] .nav-icon {
-  width:var(--homeW);
-  height:var(--homeH);
-  transform:translate(var(--homeX), var(--homeY));
+  width:var(--homeW);       /* ŠÍŘKA HOME */
+  height:var(--homeH);      /* VÝŠKA HOME */
+  transform:translate(var(--homeX), var(--homeY)); /* DOLEVA/DOPRAVA + NAHORU/DOLŮ */
 }
 
 /* =========================================================
@@ -148,9 +163,9 @@
    ========================================================= */
 
 [aria-label="Search"] .nav-icon {
-  width:var(--searchW);
-  height:var(--searchH);
-  transform:translate(var(--searchX), var(--searchY));
+  width:var(--searchW);     /* ŠÍŘKA SEARCH */
+  height:var(--searchH);    /* VÝŠKA SEARCH */
+  transform:translate(var(--searchX), var(--searchY)); /* DOLEVA/DOPRAVA + NAHORU/DOLŮ */
 }
 
 /* =========================================================
@@ -158,9 +173,9 @@
    ========================================================= */
 
 [aria-label="Add"] .add-plus-svg {
-  width:var(--addW);
-  height:var(--addH);
-  transform:translate(var(--addX), var(--addY));
+  width:var(--addW);        /* ŠÍŘKA CELÉHO PLUS TLAČÍTKA */
+  height:var(--addH);       /* VÝŠKA CELÉHO PLUS TLAČÍTKA */
+  transform:translate(var(--addX), var(--addY)); /* DOLEVA/DOPRAVA + NAHORU/DOLŮ */
 }
 
 /* =========================================================
@@ -168,9 +183,9 @@
    ========================================================= */
 
 [aria-label="Messages"] .nav-icon {
-  width:var(--messagesW);
-  height:var(--messagesH);
-  transform:translate(var(--messagesX), var(--messagesY));
+  width:var(--messagesW);   /* ŠÍŘKA MESSAGES */
+  height:var(--messagesH);  /* VÝŠKA MESSAGES */
+  transform:translate(var(--messagesX), var(--messagesY)); /* DOLEVA/DOPRAVA + NAHORU/DOLŮ */
 }
 
 /* =========================================================
@@ -178,9 +193,9 @@
    ========================================================= */
 
 [aria-label="Profile"] .nav-icon {
-  width:var(--profileW);
-  height:var(--profileH);
-  transform:translate(var(--profileX), var(--profileY));
+  width:var(--profileW);    /* ŠÍŘKA PROFILE */
+  height:var(--profileH);   /* VÝŠKA PROFILE */
+  transform:translate(var(--profileX), var(--profileY)); /* DOLEVA/DOPRAVA + NAHORU/DOLŮ */
 }
 
 /* =========================================================
@@ -193,7 +208,7 @@
 [aria-label="Messages"] img,
 [aria-label="Profile"] .nav-icon,
 [aria-label="Profile"] img {
-  filter:none !important;
+  filter:none !important;   /* TYTO SVG SI ZACHOVÁVAJÍ VLASTNÍ BARVY */
 }
 
 /* =========================================================
@@ -202,13 +217,13 @@
 
 .nav img,
 #playOverlay {
-  -webkit-user-drag:none;
-  -webkit-touch-callout:none;
-  user-select:none;
+  -webkit-user-drag:none;    /* ZAKÁŽE TAŽENÍ OBRÁZKU NA iOS */
+  -webkit-touch-callout:none; /* ZAKÁŽE LONG-PRESS MENU NA iOS */
+  user-select:none;          /* ZAKÁŽE OZNAČENÍ */
 }
 
 .nav img {
-  pointer-events:none;
+  pointer-events:none;       /* TAP ZPRACOVÁVÁ BUTTON, NE IMG */
 }
 
 /* =========================================================
@@ -217,25 +232,25 @@
 
 .seek-wrap {
   position:absolute;
-  left:var(--navPadX);
-  right:var(--navPadX);
-  bottom:calc(var(--navIconBox) - 5px);
+  left:var(--navPadX);       /* LEVÝ OKRAJ SEEK BARU */
+  right:var(--navPadX);      /* PRAVÝ OKRAJ SEEK BARU */
+  bottom:calc(var(--navIconBox) - 5px); /* VÝŠKOVÁ POLOHA SEEK BARU NAD IKONAMI */
   top:auto;
-  height:36px;
-  display:none;
+  height:36px;               /* DOTYKOVÁ VÝŠKA SEEK OBLASTI */
+  display:none;              /* JS PŘEPÍNÁ ZOBRAZENÍ SEEK BARU */
   align-items:flex-end;
   justify-content:center;
   padding-bottom:0;
   z-index:3;
   pointer-events:auto;
-  touch-action:none;
+  touch-action:none;         /* VLASTNÍ SCRUBBING BEZ SCROLL GESTA */
 }
 
 .seek-pill {
-  width:100%;
-  height:3px;
-  border-radius:999px;
-  background:rgba(255,255,255,.16);
+  width:100%;                /* ŠÍŘKA VIDITELNÉ LINKY SEEK BARU */
+  height:3px;                /* ZÁKLADNÍ TLOUŠŤKA SEEK LINKY */
+  border-radius:999px;       /* PLNĚ ZAOBLENÉ KONCE */
+  background:rgba(255,255,255,.16); /* BARVA PRÁZDNÉ ČÁSTI SEEK BARU */
   position:relative;
   overflow:visible;
   transition:height 140ms ease, background 140ms ease;
@@ -244,7 +259,7 @@
 }
 
 .seek-pill.is-active {
-  height:10px;
+  height:10px;               /* TLOUŠŤKA SEEK BARU PŘI DOTYKU / SCRUBBINGU */
   background:rgba(255,255,255,.16);
 }
 
@@ -253,15 +268,15 @@
   left:0;
   top:0;
   bottom:0;
-  width:0%;
+  width:0%;                  /* AKTUÁLNÍ PRŮBĚH VIDEA — MĚNÍ JS */
   border-radius:999px;
-  background:rgba(255,255,255,.50);
+  background:rgba(255,255,255,.50); /* BARVA PŘEHRANÉ ČÁSTI */
   transition:background 120ms ease, box-shadow 120ms ease;
 }
 
 .seek-pill.is-active .seek-fill {
-  background:rgba(255,255,255,.90);
-  box-shadow:0 0 6px rgba(255,255,255,.25);
+  background:rgba(255,255,255,.90); /* BARVA PŘEHRANÉ ČÁSTI PŘI SCRUBBINGU */
+  box-shadow:0 0 6px rgba(255,255,255,.25); /* JEMNÁ ZÁŘE PŘI SCRUBBINGU */
 }
 
 /* =========================================================
@@ -270,52 +285,52 @@
 
 .seek-time {
   position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:60px;
+  left:50%;                  /* VODOROVNÝ STŘED TIMERU */
+  transform:translateX(-50%); /* PŘESNÉ VYCENTROVÁNÍ TIMERU */
+  bottom:60px;               /* POLOHA TIMERU OD SPODKU: VĚTŠÍ = VÝŠ */
   font-family:"Manrope",system-ui,sans-serif;
-  font-size:30px;
-  font-weight:600;
+  font-size:30px;            /* VELIKOST ČASU */
+  font-weight:600;           /* TLOUŠŤKA PÍSMA ČASU */
   letter-spacing:0;
   font-variant-numeric:tabular-nums;
-  color:rgba(255,255,255,.90);
+  color:rgba(255,255,255,.90); /* BARVA ČASU */
   text-shadow:0 2px 14px rgba(0,0,0,.60);
   -webkit-font-smoothing:antialiased;
   text-rendering:geometricPrecision;
   backface-visibility:hidden;
   will-change:opacity;
-  opacity:0;
-  transition:opacity 140ms ease;
+  opacity:0;                 /* TIMER JE V KLIDU SKRYTÝ */
+  transition:opacity 140ms ease; /* RYCHLOST ZOBRAZENÍ / SKRYTÍ */
   pointer-events:none;
   user-select:none;
   white-space:nowrap;
 }
 
 .seek-time.is-active {
-  opacity:1;
+  opacity:1;                 /* TIMER VIDITELNÝ PŘI AKTIVNÍM SEEKU */
 }
 
 .seek-time .t-cur {
-  color:rgba(255,255,255,.90);
-  font-weight:500;
+  color:rgba(255,255,255,.90); /* BARVA AKTUÁLNÍHO ČASU */
+  font-weight:500;              /* TLOUŠŤKA AKTUÁLNÍHO ČASU */
 }
 
 .seek-time .t-sep {
-  color:rgba(255,255,255,.60);
+  color:rgba(255,255,255,.60); /* BARVA LOMÍTKA */
   font-weight:500;
-  font-size:.68em;
+  font-size:.68em;              /* VELIKOST LOMÍTKA */
   line-height:1.25;
   letter-spacing:0;
-  padding:0 18px;
+  padding:0 18px;               /* MEZERA KOLEM LOMÍTKA */
   position:relative;
-  top:-2px;
+  top:-2px;                     /* POSUN LOMÍTKA: - = NAHORU / + = DOLŮ */
   transform:rotate(4deg) scaleY(1.18);
   display:inline-block;
 }
 
 .seek-time .t-tot {
-  color:rgba(255,255,255,.60);
-  font-weight:500;
+  color:rgba(255,255,255,.60); /* BARVA CELKOVÉHO ČASU */
+  font-weight:500;              /* TLOUŠŤKA CELKOVÉHO ČASU */
 }
 
 /* =========================================================
@@ -324,18 +339,18 @@
 
 #playOverlay {
   position:absolute;
-  top:50%;
-  left:50%;
+  top:50%;                      /* SVISLÝ STŘED PLAY IKONY */
+  left:50%;                     /* VODOROVNÝ STŘED PLAY IKONY */
   transform:translate(-50%,-50%);
-  width:56px;
-  height:56px;
+  width:56px;                   /* ŠÍŘKA PLAY IKONY */
+  height:56px;                  /* VÝŠKA PLAY IKONY */
   display:block !important;
   object-fit:contain;
-  opacity:0;
+  opacity:0;                    /* PLAY IKONA JE VE VÝCHOZÍM STAVU SKRYTÁ */
   pointer-events:none;
   z-index:2;
-  transition:opacity 140ms ease;
-  filter:drop-shadow(0 4px 12px rgba(0,0,0,.25));
+  transition:opacity 140ms ease; /* RYCHLOST ZOBRAZENÍ / SKRYTÍ */
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.25)); /* STÍN PLAY IKONY */
   background:transparent !important;
   backface-visibility:hidden;
   will-change:transform,opacity;
@@ -346,6 +361,6 @@
    ========================================================= */
 
 body.device-non-master.device-small .seek-time {
-  font-size:26px;
-  bottom:40px;
+  font-size:26px;               /* VELIKOST TIMERU NA MALÉM DISPLEJI */
+  bottom:40px;                  /* POLOHA TIMERU NA MALÉM DISPLEJI */
 }
