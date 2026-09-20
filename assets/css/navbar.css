@@ -31,8 +31,8 @@
      ADD / PLUS — VELIKOST A POLOHA
      ========================================================= */
 
-  --addW:27px;             /* ŠÍŘKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
-  --addH:27px;             /* VÝŠKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
+  --addW:25px;             /* ŠÍŘKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
+  --addH:25px;             /* VÝŠKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
   --addX:0px;              /* POSUN PLUS: - = DOLEVA / + = DOPRAVA */
   --addY:0px;             /* POSUN PLUS: - = NAHORU / + = DOLŮ */
 
