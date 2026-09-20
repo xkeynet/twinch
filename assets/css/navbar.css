@@ -34,8 +34,8 @@
      CAMERA — VELIKOST A POLOHA
      ========================================================= */
 
-  --camW:26px;             /* ŠÍŘKA IKONY KAMERY */
-  --camH:26px;             /* VÝŠKA IKONY KAMERY */
+  --camW:24px;             /* ŠÍŘKA IKONY KAMERY */
+  --camH:24px;             /* VÝŠKA IKONY KAMERY */
   --camX:0px;              /* POSUN KAMERY: - = DOLEVA / + = DOPRAVA */
   --camY:-8px;             /* POSUN KAMERY: - = NAHORU / + = DOLŮ */
 
@@ -43,8 +43,8 @@
      HEART — VELIKOST A POLOHA
      ========================================================= */
 
-  --heartNavW:26px;        /* ŠÍŘKA IKONY SRDCE */
-  --heartNavH:26px;        /* VÝŠKA IKONY SRDCE */
+  --heartNavW:24px;        /* ŠÍŘKA IKONY SRDCE */
+  --heartNavH:24px;        /* VÝŠKA IKONY SRDCE */
   --heartNavX:0px;         /* POSUN SRDCE: - = DOLEVA / + = DOPRAVA */
   --heartNavY:-8px;        /* POSUN SRDCE: - = NAHORU / + = DOLŮ */
 
@@ -61,8 +61,8 @@
      HOME — VELIKOST A POLOHA
      ========================================================= */
 
-  --homeW:27px;            /* ŠÍŘKA IKONY HOME */
-  --homeH:27px;            /* VÝŠKA IKONY HOME */
+  --homeW:26px;            /* ŠÍŘKA IKONY HOME */
+  --homeH:26px;            /* VÝŠKA IKONY HOME */
   --homeX:0px;             /* POSUN HOME: - = DOLEVA / + = DOPRAVA */
   --homeY:0px;             /* POSUN HOME: - = NAHORU / + = DOLŮ */
 
@@ -70,8 +70,8 @@
      SEARCH — VELIKOST A POLOHA
      ========================================================= */
 
-  --searchW:27px;          /* ŠÍŘKA IKONY SEARCH */
-  --searchH:27px;          /* VÝŠKA IKONY SEARCH */
+  --searchW:26px;          /* ŠÍŘKA IKONY SEARCH */
+  --searchH:26px;          /* VÝŠKA IKONY SEARCH */
   --searchX:0px;           /* POSUN SEARCH: - = DOLEVA / + = DOPRAVA */
   --searchY:0px;           /* POSUN SEARCH: - = NAHORU / + = DOLŮ */
 
@@ -79,8 +79,8 @@
      ADD / PLUS — VELIKOST A POLOHA
      ========================================================= */
 
-  --addW:27px;             /* ŠÍŘKA PLUS IKONY */
-  --addH:27px;             /* VÝŠKA PLUS IKONY */
+  --addW:25px;             /* ŠÍŘKA PLUS IKONY */
+  --addH:25px;             /* VÝŠKA PLUS IKONY */
   --addX:0px;              /* POSUN PLUS: - = DOLEVA / + = DOPRAVA */
   --addY:0px;              /* POSUN PLUS: - = NAHORU / + = DOLŮ */
 
@@ -88,8 +88,8 @@
      MESSAGES — VELIKOST A POLOHA
      ========================================================= */
 
-  --messagesW:27px;        /* ŠÍŘKA IKONY MESSAGES */
-  --messagesH:27px;        /* VÝŠKA IKONY MESSAGES */
+  --messagesW:26px;        /* ŠÍŘKA IKONY MESSAGES */
+  --messagesH:26px;        /* VÝŠKA IKONY MESSAGES */
   --messagesX:0px;         /* POSUN MESSAGES: - = DOLEVA / + = DOPRAVA */
   --messagesY:0px;         /* POSUN MESSAGES: - = NAHORU / + = DOLŮ */
 
@@ -97,8 +97,8 @@
      PROFILE — VELIKOST A POLOHA
      ========================================================= */
 
-  --profileW:27px;         /* ŠÍŘKA IKONY PROFILE */
-  --profileH:27px;         /* VÝŠKA IKONY PROFILE */
+  --profileW:26px;         /* ŠÍŘKA IKONY PROFILE */
+  --profileH:26px;         /* VÝŠKA IKONY PROFILE */
   --profileX:0px;          /* POSUN PROFILE: - = DOLEVA / + = DOPRAVA */
   --profileY:-2px;         /* POSUN PROFILE: - = NAHORU / + = DOLŮ */
 }
