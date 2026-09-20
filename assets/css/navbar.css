@@ -16,7 +16,19 @@
   --topNavRight:16px;      /* ODSAZENÍ HORNÍCH IKON OD PRAVÉHO OKRAJE */
   --topNavTop:16px;        /* ODSAZENÍ HORNÍCH IKON POD iOS SAFE AREA */
   --topNavIconBox:44px;    /* KLIKACÍ PROSTOR KAŽDÉ HORNÍ IKONY */
-  --topNavGap:4px;         /* MEZERA MEZI HORNÍMI TLAČÍTKY */
+  --topNavGap:4px;         /* MEZERA MEZI PILULKOU A HORNÍMI TLAČÍTKY */
+
+  /* =========================================================
+     REGISTER PILL — VELIKOST A POLOHA
+     ========================================================= */
+
+  --registerH:38px;        /* VÝŠKA PILULKY */
+  --registerPadX:18px;     /* VNITŘNÍ ODSAZENÍ TEXTU VLEVO / VPRAVO */
+  --registerX:0px;         /* POSUN PILULKY: - = DOLEVA / + = DOPRAVA */
+  --registerY:-4px;        /* POSUN PILULKY: - = NAHORU / + = DOLŮ */
+  --registerFontSize:14px; /* VELIKOST TEXTU */
+  --registerFontWeight:600;/* TLOUŠŤKA TEXTU */
+  --registerRadius:999px;  /* ZAOBLENÍ PILULKY */
 
   /* =========================================================
      CAMERA — VELIKOST A POLOHA
@@ -160,6 +172,38 @@
   -webkit-user-drag:none;
   -webkit-touch-callout:none;
   user-select:none;
+}
+
+/* =========================================================
+   REGISTER PILL — SIZE / POSITION / STYLE
+   ========================================================= */
+
+.top-nav .top-nav__register {
+  width:auto;
+  height:var(--registerH);
+
+  padding:0 var(--registerPadX);
+
+  flex:0 0 auto;
+
+  background:#467BFF;
+  color:#FFFFFF;
+
+  border:0;
+  border-radius:var(--registerRadius);
+
+  font-family:"Inter",system-ui,sans-serif;
+  font-size:var(--registerFontSize);
+  font-weight:var(--registerFontWeight);
+  line-height:1;
+  letter-spacing:0;
+
+  white-space:nowrap;
+
+  transform:translate(var(--registerX), var(--registerY));
+
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
 }
 
 /* =========================================================
