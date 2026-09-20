@@ -826,3 +826,38 @@ img {
     animation-duration: 600ms;
   }
 }
+
+/* =========================================================
+   TWINCH — TOP BRAND
+   ========================================================= */
+
+.top-brand {
+  position: fixed;
+  top: calc(env(safe-area-inset-top) + 16px);
+  left: 16px;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  pointer-events: none;
+}
+
+.top-brand__logo {
+  display: block;
+
+  width: 118px;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
