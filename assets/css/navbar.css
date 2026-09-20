@@ -88,7 +88,7 @@
   --profileW:27px;         /* ŠÍŘKA IKONY PROFILE */
   --profileH:27px;         /* VÝŠKA IKONY PROFILE */
   --profileX:0px;          /* POSUN PROFILE: - = DOLEVA / + = DOPRAVA */
-  --profileY:-1px;         /* POSUN PROFILE: - = NAHORU / + = DOLŮ */
+  --profileY:-2px;         /* POSUN PROFILE: - = NAHORU / + = DOLŮ */
 }
 
 /* =========================================================
