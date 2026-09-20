@@ -16,7 +16,7 @@
   --homeW:28px;            /* ŠÍŘKA IKONY HOME */
   --homeH:28px;            /* VÝŠKA IKONY HOME */
   --homeX:0px;             /* POSUN HOME: - = DOLEVA / + = DOPRAVA */
-  --homeY:-2px;            /* POSUN HOME: - = NAHORU / + = DOLŮ */
+  --homeY:-1px;            /* POSUN HOME: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      SEARCH — VELIKOST A POLOHA
@@ -25,7 +25,7 @@
   --searchW:28px;          /* ŠÍŘKA IKONY SEARCH */
   --searchH:28px;          /* VÝŠKA IKONY SEARCH */
   --searchX:0px;           /* POSUN SEARCH: - = DOLEVA / + = DOPRAVA */
-  --searchY:-2px;          /* POSUN SEARCH: - = NAHORU / + = DOLŮ */
+  --searchY:-1px;          /* POSUN SEARCH: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      ADD / PLUS — VELIKOST A POLOHA
@@ -34,7 +34,7 @@
   --addW:27px;             /* ŠÍŘKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
   --addH:27px;             /* VÝŠKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
   --addX:0px;              /* POSUN PLUS: - = DOLEVA / + = DOPRAVA */
-  --addY:0px;             /* POSUN PLUS: - = NAHORU / + = DOLŮ */
+  --addY:1px;             /* POSUN PLUS: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      MESSAGES — VELIKOST A POLOHA
@@ -43,7 +43,7 @@
   --messagesW:28px;        /* ŠÍŘKA IKONY MESSAGES */
   --messagesH:28px;        /* VÝŠKA IKONY MESSAGES */
   --messagesX:0px;         /* POSUN MESSAGES: - = DOLEVA / + = DOPRAVA */
-  --messagesY:-1px;        /* POSUN MESSAGES: - = NAHORU / + = DOLŮ */
+  --messagesY:0px;        /* POSUN MESSAGES: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      PROFILE — VELIKOST A POLOHA
@@ -52,7 +52,7 @@
   --profileW:28px;         /* ŠÍŘKA IKONY PROFILE */
   --profileH:28px;         /* VÝŠKA IKONY PROFILE */
   --profileX:0px;          /* POSUN PROFILE: - = DOLEVA / + = DOPRAVA */
-  --profileY:-2px;         /* POSUN PROFILE: - = NAHORU / + = DOLŮ */
+  --profileY:-1px;         /* POSUN PROFILE: - = NAHORU / + = DOLŮ */
 }
 
 /* =========================================================
