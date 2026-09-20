@@ -553,13 +553,19 @@ body.device-non-master.device-small .seek-time {
    TOP NAV — GUEST STATE
    ========================================================= */
 
-/* KAMERA + SRDCE ZŮSTÁVAJÍ V HTML, ALE JSOU SKRYTÉ */
+/* =========================================================
+   CAMERA + HEART — DOČASNĚ SKRYTÉ
+   ========================================================= */
+
 .top-nav__button--camera,
 .top-nav__button--heart {
-  display:none;
+  display:none !important;
 }
 
-/* REGISTRAČNÍ PILULKA — PŘESNÝ STŘED DISPLEJE */
+/* =========================================================
+   REGISTER — PŘESNÝ STŘED DISPLEJE
+   ========================================================= */
+
 .top-nav .top-nav__register {
   position:fixed;
   left:50%;
@@ -568,5 +574,3 @@ body.device-non-master.device-small .seek-time {
 
   width:auto;
 }
-
-/* HAMBURGER ZŮSTÁVÁ VPRAVO */
