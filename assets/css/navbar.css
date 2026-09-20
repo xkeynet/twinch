@@ -34,7 +34,7 @@
   --addW:28px;             /* ŠÍŘKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
   --addH:28px;             /* VÝŠKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
   --addX:0px;              /* POSUN PLUS: - = DOLEVA / + = DOPRAVA */
-  --addY:-2px;             /* POSUN PLUS: - = NAHORU / + = DOLŮ */
+  --addY:0px;             /* POSUN PLUS: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      MESSAGES — VELIKOST A POLOHA
