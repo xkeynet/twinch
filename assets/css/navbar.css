@@ -22,8 +22,8 @@
      SEARCH — VELIKOST A POLOHA
      ========================================================= */
 
-  --searchW:26px;          /* ŠÍŘKA IKONY SEARCH */
-  --searchH:26px;          /* VÝŠKA IKONY SEARCH */
+  --searchW:27px;          /* ŠÍŘKA IKONY SEARCH */
+  --searchH:27px;          /* VÝŠKA IKONY SEARCH */
   --searchX:0px;           /* POSUN SEARCH: - = DOLEVA / + = DOPRAVA */
   --searchY:0px;          /* POSUN SEARCH: - = NAHORU / + = DOLŮ */
 
@@ -31,8 +31,8 @@
      ADD / PLUS — VELIKOST A POLOHA
      ========================================================= */
 
-  --addW:24px;             /* ŠÍŘKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
-  --addH:24px;             /* VÝŠKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
+  --addW:27px;             /* ŠÍŘKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
+  --addH:27px;             /* VÝŠKA CELÉHO BÍLÉHO PLUS TLAČÍTKA */
   --addX:0px;              /* POSUN PLUS: - = DOLEVA / + = DOPRAVA */
   --addY:0px;             /* POSUN PLUS: - = NAHORU / + = DOLŮ */
 
@@ -40,8 +40,8 @@
      MESSAGES — VELIKOST A POLOHA
      ========================================================= */
 
-  --messagesW:26px;        /* ŠÍŘKA IKONY MESSAGES */
-  --messagesH:26px;        /* VÝŠKA IKONY MESSAGES */
+  --messagesW:27px;        /* ŠÍŘKA IKONY MESSAGES */
+  --messagesH:27px;        /* VÝŠKA IKONY MESSAGES */
   --messagesX:0px;         /* POSUN MESSAGES: - = DOLEVA / + = DOPRAVA */
   --messagesY:0px;        /* POSUN MESSAGES: - = NAHORU / + = DOLŮ */
 
@@ -49,8 +49,8 @@
      PROFILE — VELIKOST A POLOHA
      ========================================================= */
 
-  --profileW:25px;         /* ŠÍŘKA IKONY PROFILE */
-  --profileH:25px;         /* VÝŠKA IKONY PROFILE */
+  --profileW:27px;         /* ŠÍŘKA IKONY PROFILE */
+  --profileH:27px;         /* VÝŠKA IKONY PROFILE */
   --profileX:0px;          /* POSUN PROFILE: - = DOLEVA / + = DOPRAVA */
   --profileY:-1px;         /* POSUN PROFILE: - = NAHORU / + = DOLŮ */
 }
