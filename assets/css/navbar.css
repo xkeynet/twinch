@@ -25,7 +25,7 @@
   --registerH:38px;        /* VÝŠKA PILULKY */
   --registerPadX:18px;     /* VNITŘNÍ ODSAZENÍ TEXTU VLEVO / VPRAVO */
   --registerX:0px;         /* POSUN PILULKY: - = DOLEVA / + = DOPRAVA */
-  --registerY:-4px;        /* POSUN PILULKY: - = NAHORU / + = DOLŮ */
+  --registerY:-8px;        /* POSUN PILULKY: - = NAHORU / + = DOLŮ */
   --registerFontSize:14px; /* VELIKOST TEXTU */
   --registerFontWeight:600;/* TLOUŠŤKA TEXTU */
   --registerRadius:999px;  /* ZAOBLENÍ PILULKY */
@@ -37,7 +37,7 @@
   --camW:26px;             /* ŠÍŘKA IKONY KAMERY */
   --camH:26px;             /* VÝŠKA IKONY KAMERY */
   --camX:0px;              /* POSUN KAMERY: - = DOLEVA / + = DOPRAVA */
-  --camY:-4px;             /* POSUN KAMERY: - = NAHORU / + = DOLŮ */
+  --camY:-8px;             /* POSUN KAMERY: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      HEART — VELIKOST A POLOHA
@@ -46,7 +46,7 @@
   --heartNavW:26px;        /* ŠÍŘKA IKONY SRDCE */
   --heartNavH:26px;        /* VÝŠKA IKONY SRDCE */
   --heartNavX:0px;         /* POSUN SRDCE: - = DOLEVA / + = DOPRAVA */
-  --heartNavY:-4px;        /* POSUN SRDCE: - = NAHORU / + = DOLŮ */
+  --heartNavY:-8px;        /* POSUN SRDCE: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      HAMBURGER — VELIKOST A POLOHA
@@ -55,7 +55,7 @@
   --hamburgerW:28px;       /* ŠÍŘKA IKONY HAMBURGER */
   --hamburgerH:28px;       /* VÝŠKA IKONY HAMBURGER */
   --hamburgerX:8px;        /* POSUN HAMBURGERU: - = DOLEVA / + = DOPRAVA */
-  --hamburgerY:-4px;       /* POSUN HAMBURGERU: - = NAHORU / + = DOLŮ */
+  --hamburgerY:-8px;       /* POSUN HAMBURGERU: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      HOME — VELIKOST A POLOHA
