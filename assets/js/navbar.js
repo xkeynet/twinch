@@ -720,7 +720,7 @@
   if (initialVideo) {
     bindVideo(initialVideo);
   } else {
-    showSeek(false);
+    showSeek(true);
     showPlayOverlay(false);
   }
 
