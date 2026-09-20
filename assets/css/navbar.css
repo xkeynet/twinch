@@ -169,12 +169,15 @@
    iOS LONG PRESS PROTECTION
    ========================================================= */
 
-.nav img {
+.nav img,
+#playOverlay {
   -webkit-user-drag: none;
   -webkit-touch-callout: none;
 
   user-select: none;
+}
 
+.nav img {
   pointer-events: none;
 }
 
@@ -350,6 +353,48 @@
   color: rgba(255,255,255,.60);
 
   font-weight: 500;
+}
+
+/* =========================================================
+   PLAY OVERLAY
+   ========================================================= */
+
+#playOverlay {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%,-50%);
+
+  width: 56px;
+  height: 56px;
+
+  display: block !important;
+
+  object-fit: contain;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 2;
+
+  transition:
+    opacity 140ms ease;
+
+  filter:
+    drop-shadow(
+      0 4px 12px rgba(0,0,0,.25)
+    );
+
+  background: transparent !important;
+
+  backface-visibility: hidden;
+
+  will-change:
+    transform,
+    opacity;
 }
 
 /* =========================================================
