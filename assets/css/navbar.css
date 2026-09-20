@@ -24,7 +24,7 @@
 
   --registerH:38px;        /* VÝŠKA PILULKY */
   --registerPadX:18px;     /* VNITŘNÍ ODSAZENÍ TEXTU VLEVO / VPRAVO */
-  --registerX:0px;         /* POSUN PILULKY: - = DOLEVA / + = DOPRAVA */
+  --registerX:8px;         /* POSUN PILULKY: - = DOLEVA / + = DOPRAVA */
   --registerY:-8px;        /* POSUN PILULKY: - = NAHORU / + = DOLŮ */
   --registerFontSize:14px; /* VELIKOST TEXTU */
   --registerFontWeight:600;/* TLOUŠŤKA TEXTU */
