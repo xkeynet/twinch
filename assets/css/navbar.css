@@ -37,7 +37,7 @@
   --publicChatW:30px;      /* ŠÍŘKA IKONY VEŘEJNÉ KOMUNIKACE */
   --publicChatH:30px;      /* VÝŠKA IKONY VEŘEJNÉ KOMUNIKACE */
   --publicChatX:0px;       /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
-  --publicChatY:-2px;      /* SVISLE: - = NAHORU / + = DOLŮ */
+  --publicChatY:-4px;      /* SVISLE: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      HAMBURGER — VELIKOST A POLOHA
