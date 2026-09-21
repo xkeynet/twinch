@@ -79,8 +79,8 @@
      ADD / PLUS — VELIKOST A POLOHA
      ========================================================= */
 
-  --addW:25px;             /* ŠÍŘKA PLUS IKONY */
-  --addH:25px;             /* VÝŠKA PLUS IKONY */
+  --addW:24px;             /* ŠÍŘKA PLUS IKONY */
+  --addH:24px;             /* VÝŠKA PLUS IKONY */
   --addX:0px;              /* POSUN PLUS: - = DOLEVA / + = DOPRAVA */
   --addY:0px;              /* POSUN PLUS: - = NAHORU / + = DOLŮ */
 
