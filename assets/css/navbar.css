@@ -16,7 +16,7 @@
   --topNavRight:16px;      /* ODSAZENÍ HORNÍCH IKON OD PRAVÉHO OKRAJE */
   --topNavTop:16px;        /* ODSAZENÍ HORNÍCH IKON POD iOS SAFE AREA */
   --topNavIconBox:44px;    /* KLIKACÍ PROSTOR KAŽDÉ HORNÍ IKONY */
-  --topNavGap:4px;         /* MEZERA MEZI PILULKOU A HORNÍMI TLAČÍTKY */
+  --topNavGap:4px;         /* MEZERA MEZI HORNÍMI TLAČÍTKY */
 
   /* =========================================================
      REGISTER PILL — VELIKOST A POLOHA
@@ -31,22 +31,13 @@
   --registerRadius:999px;  /* ZAOBLENÍ PILULKY */
 
   /* =========================================================
-     CAMERA — VELIKOST A POLOHA
+     PUBLIC CHAT — VELIKOST A POLOHA
      ========================================================= */
 
-  --camW:24px;             /* ŠÍŘKA IKONY KAMERY */
-  --camH:24px;             /* VÝŠKA IKONY KAMERY */
-  --camX:0px;              /* POSUN KAMERY: - = DOLEVA / + = DOPRAVA */
-  --camY:-8px;             /* POSUN KAMERY: - = NAHORU / + = DOLŮ */
-
-  /* =========================================================
-     HEART — VELIKOST A POLOHA
-     ========================================================= */
-
-  --heartNavW:24px;        /* ŠÍŘKA IKONY SRDCE */
-  --heartNavH:24px;        /* VÝŠKA IKONY SRDCE */
-  --heartNavX:0px;         /* POSUN SRDCE: - = DOLEVA / + = DOPRAVA */
-  --heartNavY:-8px;        /* POSUN SRDCE: - = NAHORU / + = DOLŮ */
+  --publicChatW:28px;      /* ŠÍŘKA IKONY VEŘEJNÉ KOMUNIKACE */
+  --publicChatH:28px;      /* VÝŠKA IKONY VEŘEJNÉ KOMUNIKACE */
+  --publicChatX:0px;       /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
+  --publicChatY:-8px;      /* SVISLE: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
      HAMBURGER — VELIKOST A POLOHA
@@ -54,7 +45,7 @@
 
   --hamburgerW:28px;       /* ŠÍŘKA IKONY HAMBURGER */
   --hamburgerH:28px;       /* VÝŠKA IKONY HAMBURGER */
-  --hamburgerX:16px;        /* POSUN HAMBURGERU: - = DOLEVA / + = DOPRAVA */
+  --hamburgerX:16px;       /* POSUN HAMBURGERU: - = DOLEVA / + = DOPRAVA */
   --hamburgerY:-8px;       /* POSUN HAMBURGERU: - = NAHORU / + = DOLŮ */
 
   /* =========================================================
@@ -207,23 +198,13 @@
 }
 
 /* =========================================================
-   CAMERA — SIZE / POSITION
+   PUBLIC CHAT — SIZE / POSITION
    ========================================================= */
 
-[aria-label="Camera"] .top-nav__icon {
-  width:var(--camW);
-  height:var(--camH);
-  transform:translate(var(--camX), var(--camY));
-}
-
-/* =========================================================
-   HEART — SIZE / POSITION
-   ========================================================= */
-
-[aria-label="Heart"] .top-nav__icon {
-  width:var(--heartNavW);
-  height:var(--heartNavH);
-  transform:translate(var(--heartNavX), var(--heartNavY));
+[aria-label="Veřejná komunikace"] .top-nav__icon {
+  width:var(--publicChatW);
+  height:var(--publicChatH);
+  transform:translate(var(--publicChatX), var(--publicChatY));
 }
 
 /* =========================================================
@@ -532,15 +513,6 @@ body.device-non-master.device-small .seek-time {
 /* =========================================================
    TOP NAV — GUEST STATE
    ========================================================= */
-
-/* =========================================================
-   CAMERA + HEART — DOČASNĚ SKRYTÉ
-   ========================================================= */
-
-.top-nav__button--camera,
-.top-nav__button--heart {
-  display:none !important;
-}
 
 /* =========================================================
    REGISTER — PŘESNÝ STŘED DISPLEJE
