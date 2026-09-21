@@ -38,6 +38,8 @@
 
   --split-exit-duration: 1100ms;
   --split-exit-easing: cubic-bezier(0.55, 0, 1, 0.45);
+
+  --landscape-lock-icon-size: 100px;
 }
 
 /* =========================================================
@@ -872,4 +874,57 @@ img {
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
+}
+
+/* =========================================================
+   TWINCH — LANDSCAPE LOCK
+   ========================================================= */
+
+.landscape-lock {
+  display: none;
+}
+
+@media (orientation: landscape) and (max-height: 520px) {
+  .landscape-lock {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
+
+    z-index: 999999;
+
+    display: grid;
+    place-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    background: #000000;
+
+    overflow: hidden;
+
+    pointer-events: auto;
+  }
+
+  .landscape-lock__icon {
+    display: block;
+
+    width: var(--landscape-lock-icon-size);
+    height: var(--landscape-lock-icon-size);
+
+    margin: 0;
+    padding: 0;
+
+    object-fit: contain;
+    object-position: center center;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+
+    pointer-events: none;
+  }
 }
