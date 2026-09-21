@@ -43,8 +43,8 @@
      HAMBURGER — VELIKOST A POLOHA
      ========================================================= */
 
-  --hamburgerW:28px;       /* ŠÍŘKA IKONY HAMBURGER */
-  --hamburgerH:28px;       /* VÝŠKA IKONY HAMBURGER */
+  --hamburgerW:30px;       /* ŠÍŘKA IKONY HAMBURGER */
+  --hamburgerH:30px;       /* VÝŠKA IKONY HAMBURGER */
   --hamburgerX:16px;       /* POSUN HAMBURGERU: - = DOLEVA / + = DOPRAVA */
   --hamburgerY:-8px;       /* POSUN HAMBURGERU: - = NAHORU / + = DOLŮ */
 
