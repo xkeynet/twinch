@@ -34,8 +34,8 @@
      PUBLIC CHAT — VELIKOST A POLOHA
      ========================================================= */
 
-  --publicChatW:30px;      /* ŠÍŘKA IKONY VEŘEJNÉ KOMUNIKACE */
-  --publicChatH:30px;      /* VÝŠKA IKONY VEŘEJNÉ KOMUNIKACE */
+  --publicChatW:32px;      /* ŠÍŘKA IKONY VEŘEJNÉ KOMUNIKACE */
+  --publicChatH:32px;      /* VÝŠKA IKONY VEŘEJNÉ KOMUNIKACE */
   --publicChatX:-10px;       /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
   --publicChatY:-6px;      /* SVISLE: - = NAHORU / + = DOLŮ */
 
