@@ -35,7 +35,7 @@
 
   --startChatH:38px;        /* VÝŠKA PILULKY */
   --startChatPadX:18px;     /* VNITŘNÍ ODSAZENÍ TEXTU VLEVO / VPRAVO */
-  --startChatX:6px;         /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
+  --startChatX:8px;         /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
   --startChatY:-8px;        /* SVISLE: - = NAHORU / + = DOLŮ */
   --startChatFontSize:14px; /* VELIKOST TEXTU */
   --startChatFontWeight:600;/* TLOUŠŤKA TEXTU */
