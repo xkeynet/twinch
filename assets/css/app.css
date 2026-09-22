@@ -848,7 +848,7 @@ img {
   left: 0;
   right: 0;
 
-  height: calc(env(safe-area-inset-top) + 56px);
+  height: calc(env(safe-area-inset-top) + 58px);
 
   background: #121315;
 
