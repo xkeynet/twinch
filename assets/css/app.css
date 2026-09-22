@@ -46,7 +46,7 @@
      ========================================================= */
 
   --topLogoW:120px;      /* ŠÍŘKA LOGA */
-  --topLogoX:4px;        /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
+  --topLogoX:2px;        /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
   --topLogoY:0px;        /* SVISLE: - = NAHORU / + = DOLŮ */
 }
 
