@@ -40,6 +40,14 @@
   --split-exit-easing: cubic-bezier(0.55, 0, 1, 0.45);
 
   --landscape-lock-icon-size: 100px;
+
+  /* =========================================================
+     TOP TWINCH LOGO — VELIKOST A POLOHA
+     ========================================================= */
+
+  --topLogoW:120px;      /* ŠÍŘKA LOGA */
+  --topLogoX:0px;        /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
+  --topLogoY:0px;        /* SVISLE: - = NAHORU / + = DOLŮ */
 }
 
 /* =========================================================
@@ -860,16 +868,25 @@ img {
   pointer-events: none;
 }
 
+/* =========================================================
+   TOP TWINCH LOGO — SIZE / POSITION
+   ========================================================= */
+
 .top-brand__logo {
   display: block;
 
-  width: 120px;
+  width: var(--topLogoW);
   height: auto;
 
   margin: 0;
   padding: 0;
 
   object-fit: contain;
+
+  transform: translate(
+    var(--topLogoX),
+    var(--topLogoY)
+  );
 
   user-select: none;
   -webkit-user-select: none;
