@@ -13,9 +13,9 @@
      TOP NAV — SPOLEČNÉ NASTAVENÍ
      ========================================================= */
 
-  --topNavRight:16px;      /* ODSAZENÍ HORNÍCH IKON OD PRAVÉHO OKRAJE */
-  --topNavTop:16px;        /* ODSAZENÍ HORNÍCH IKON POD iOS SAFE AREA */
-  --topNavIconBox:44px;    /* KLIKACÍ PROSTOR KAŽDÉ HORNÍ IKONY */
+  --topNavRight:16px;      /* ODSAZENÍ HORNÍ NAVIGACE OD PRAVÉHO OKRAJE */
+  --topNavTop:16px;        /* ODSAZENÍ HORNÍ NAVIGACE POD iOS SAFE AREA */
+  --topNavIconBox:44px;    /* REFERENČNÍ VÝŠKA HORNÍCH TLAČÍTEK */
   --topNavGap:4px;         /* MEZERA MEZI HORNÍMI TLAČÍTKY */
 
   /* =========================================================
@@ -30,22 +30,16 @@
   --registerRadius:999px;  /* ZAOBLENÍ PILULKY */
 
   /* =========================================================
-     PUBLIC CHAT — VELIKOST A POLOHA
+     START CHAT PILL — VELIKOST A POLOHA
      ========================================================= */
 
-  --publicChatW:32px;      /* ŠÍŘKA IKONY VEŘEJNÉ KOMUNIKACE */
-  --publicChatH:32px;      /* VÝŠKA IKONY VEŘEJNÉ KOMUNIKACE */
-  --publicChatX:-10px;       /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
-  --publicChatY:-6px;      /* SVISLE: - = NAHORU / + = DOLŮ */
-
-  /* =========================================================
-     HAMBURGER — VELIKOST A POLOHA
-     ========================================================= */
-
-  --hamburgerW:30px;       /* ŠÍŘKA IKONY HAMBURGER */
-  --hamburgerH:30px;       /* VÝŠKA IKONY HAMBURGER */
-  --hamburgerX:16px;       /* POSUN HAMBURGERU: - = DOLEVA / + = DOPRAVA */
-  --hamburgerY:-8px;       /* POSUN HAMBURGERU: - = NAHORU / + = DOLŮ */
+  --startChatH:38px;        /* VÝŠKA PILULKY */
+  --startChatPadX:18px;     /* VNITŘNÍ ODSAZENÍ TEXTU VLEVO / VPRAVO */
+  --startChatX:0px;         /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
+  --startChatY:-8px;        /* SVISLE: - = NAHORU / + = DOLŮ */
+  --startChatFontSize:14px; /* VELIKOST TEXTU */
+  --startChatFontWeight:600;/* TLOUŠŤKA TEXTU */
+  --startChatRadius:999px;  /* ZAOBLENÍ PILULKY */
 
   /* =========================================================
      HOME — VELIKOST A POLOHA
@@ -190,30 +184,40 @@
 
   white-space:nowrap;
 
-  transform:translate(var(--registerX), var(--registerY));
-
   -webkit-font-smoothing:antialiased;
   text-rendering:geometricPrecision;
 }
 
 /* =========================================================
-   PUBLIC CHAT — SIZE / POSITION
+   START CHAT PILL — SIZE / POSITION / STYLE
    ========================================================= */
 
-[aria-label="Veřejná komunikace"] .top-nav__icon {
-  width:var(--publicChatW);
-  height:var(--publicChatH);
-  transform:translate(var(--publicChatX), var(--publicChatY));
-}
+.top-nav .top-nav__chat {
+  width:auto;
+  height:var(--startChatH);
 
-/* =========================================================
-   HAMBURGER — SIZE / POSITION
-   ========================================================= */
+  padding:0 var(--startChatPadX);
 
-[aria-label="Menu"] .top-nav__icon {
-  width:var(--hamburgerW);
-  height:var(--hamburgerH);
-  transform:translate(var(--hamburgerX), var(--hamburgerY));
+  flex:0 0 auto;
+
+  background:#9146FF;
+  color:#FFFFFF;
+
+  border:0;
+  border-radius:var(--startChatRadius);
+
+  font-family:"Inter",system-ui,sans-serif;
+  font-size:var(--startChatFontSize);
+  font-weight:var(--startChatFontWeight);
+  line-height:1;
+  letter-spacing:0;
+
+  white-space:nowrap;
+
+  transform:translate(var(--startChatX), var(--startChatY));
+
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
 }
 
 /* =========================================================
