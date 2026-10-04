@@ -45,9 +45,9 @@
      TOP TWINCH LOGO — VELIKOST A POLOHA
      ========================================================= */
 
-  --topLogoW:120px;      /* ŠÍŘKA LOGA */
+  --topLogoW:110px;      /* ŠÍŘKA LOGA */
   --topLogoX:0px;        /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
-  --topLogoY:-4px;        /* SVISLE: - = NAHORU / + = DOLŮ */
+  --topLogoY:0px;        /* SVISLE: - = NAHORU / + = DOLŮ */
 }
 
 /* =========================================================
