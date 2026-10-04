@@ -3,8 +3,8 @@
    ========================================================= */
 
 :root {
-  --page-background: #24A3FF;
-  --page-foreground: #ffffff;
+  --page-background: #FE2C55;
+  --page-foreground: #FFFFFF;
 
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
