@@ -3,7 +3,7 @@
    ========================================================= */
 
 :root {
-  --page-background: #FFFC00;
+  --page-background: #467BFF;
   --page-foreground: #FFFFFF;
 
   --safe-top: env(safe-area-inset-top, 0px);
