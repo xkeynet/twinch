@@ -200,8 +200,8 @@
 
   flex:0 0 auto;
 
-  background:#01FF76;
-  color:#FFFFFF;
+  background:#000000;
+  color:#01FF76;
 
   border:0;
   border-radius:var(--startChatRadius);
