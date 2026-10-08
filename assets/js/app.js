@@ -9,32 +9,23 @@
      TIMING
      ========================================================= */
 
-  const START_DELAY_MS = 2200;
-
-  const WORDMARK_ANIMATION_MS = 1500;
-
-  const HEART_ANIMATION_MS = 2400;
-  const HEART_SETTLE_DELAY_MS = 520;
-  const HEART_HOLD_MS = 5000;
-  const SPLIT_EXIT_MS = 1100;
+  const GHOST_ANIMATION_MS = 1200;
+  const GHOST_HOLD_MS = 500;
+  const GHOST_EXIT_MS = 900;
 
   /* =========================================================
      ELEMENTS
      ========================================================= */
 
   const intro = document.getElementById('intro');
-  const wordmarkStage = document.getElementById('introWordmarkStage');
-  const wordmark = document.getElementById('introWordmark');
-  const heartStage = document.getElementById('introHeartStage');
-  const heartWhite = document.getElementById('introHeartWhite');
+  const ghostStage = document.getElementById('introHeartStage');
+  const ghost = document.getElementById('introHeartWhite');
   const app = document.getElementById('twinchApp');
 
   if (
     !intro ||
-    !wordmarkStage ||
-    !wordmark ||
-    !heartStage ||
-    !heartWhite ||
+    !ghostStage ||
+    !ghost ||
     !app
   ) {
     return;
@@ -86,10 +77,8 @@
      RESET
      ========================================================= */
 
-  const resetWordmark = () => {
-    wordmarkStage.hidden = false;
-
-    wordmarkStage.classList.remove(
+  const resetGhost = () => {
+    ghostStage.classList.remove(
       'is-visible',
       'is-entering',
       'is-settled',
@@ -98,53 +87,14 @@
     );
   };
 
-  const resetHeart = () => {
-    heartStage.classList.remove(
-      'is-visible',
-      'is-entering',
-      'is-settled',
-      'is-exiting',
-      'is-hidden'
-    );
-  };
-
-  const resetAll = () => {
-    resetWordmark();
-    resetHeart();
-  };
-
   /* =========================================================
-     WORDMARK
+     GHOST ENTER + ROTATION
      ========================================================= */
 
-  const showWordmark = async () => {
-    resetWordmark();
+  const showGhost = async () => {
+    resetGhost();
 
-    wordmarkStage.classList.add(
-      'is-visible',
-      'is-entering'
-    );
-
-    await wait(WORDMARK_ANIMATION_MS);
-
-    if (destroyed) {
-      return;
-    }
-
-    wordmarkStage.classList.remove('is-entering');
-    wordmarkStage.classList.add('is-settled');
-
-    await nextFrame();
-  };
-
-  /* =========================================================
-     HEART
-     ========================================================= */
-
-  const showHeart = async () => {
-    resetHeart();
-
-    heartStage.classList.add('is-visible');
+    ghostStage.classList.add('is-visible');
 
     await nextFrame();
 
@@ -152,16 +102,16 @@
       return;
     }
 
-    heartStage.classList.add('is-entering');
+    ghostStage.classList.add('is-entering');
 
-    await wait(HEART_ANIMATION_MS);
+    await wait(GHOST_ANIMATION_MS);
 
     if (destroyed) {
       return;
     }
 
-    heartStage.classList.remove('is-entering');
-    heartStage.classList.add('is-settled');
+    ghostStage.classList.remove('is-entering');
+    ghostStage.classList.add('is-settled');
 
     await nextFrame();
 
@@ -169,22 +119,23 @@
       return;
     }
 
-    await wait(HEART_SETTLE_DELAY_MS);
+    /* =====================================================
+       GHOST HOLD
+       ===================================================== */
+
+    await wait(GHOST_HOLD_MS);
 
     if (destroyed) {
       return;
     }
 
-    await wait(HEART_HOLD_MS);
+    /* =====================================================
+       GHOST EXIT — LEFT / PAUSE / RIGHT
+       ===================================================== */
 
-    if (destroyed) {
-      return;
-    }
+    ghostStage.classList.add('is-exiting');
 
-    heartStage.classList.add('is-exiting');
-    wordmarkStage.classList.add('is-exiting');
-
-    await wait(SPLIT_EXIT_MS);
+    await wait(GHOST_EXIT_MS);
   };
 
   /* =========================================================
@@ -217,19 +168,7 @@
      ========================================================= */
 
   const run = async () => {
-    await wait(START_DELAY_MS);
-
-    if (destroyed) {
-      return;
-    }
-
-    await showWordmark();
-
-    if (destroyed) {
-      return;
-    }
-
-    await showHeart();
+    await showGhost();
 
     if (destroyed) {
       return;
@@ -242,7 +181,7 @@
      START
      ========================================================= */
 
-  resetAll();
+  resetGhost();
   run();
 
   /* =========================================================
