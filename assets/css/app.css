@@ -33,7 +33,7 @@
      ========================================================= */
 
   --topLogoW:40px;      /* ŠÍŘKA LOGA */
-  --topLogoX:2px;        /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
+  --topLogoX:4px;        /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
   --topLogoY:-2px;       /* SVISLE: - = NAHORU / + = DOLŮ */
 }
 
