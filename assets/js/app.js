@@ -9,23 +9,26 @@
      TIMING
      ========================================================= */
 
-  const GHOST_ANIMATION_MS = 1200;
-  const GHOST_HOLD_MS = 500;
-  const GHOST_EXIT_MS = 900;
+  const START_DELAY_MS = 2200;
+
+  const HEART_ANIMATION_MS = 2400;
+  const HEART_SETTLE_DELAY_MS = 520;
+  const HEART_HOLD_MS = 5000;
+  const SPLIT_EXIT_MS = 1100;
 
   /* =========================================================
      ELEMENTS
      ========================================================= */
 
   const intro = document.getElementById('intro');
-  const ghostStage = document.getElementById('introHeartStage');
-  const ghost = document.getElementById('introHeartWhite');
+  const heartStage = document.getElementById('introHeartStage');
+  const heartWhite = document.getElementById('introHeartWhite');
   const app = document.getElementById('twinchApp');
 
   if (
     !intro ||
-    !ghostStage ||
-    !ghost ||
+    !heartStage ||
+    !heartWhite ||
     !app
   ) {
     return;
@@ -77,8 +80,8 @@
      RESET
      ========================================================= */
 
-  const resetGhost = () => {
-    ghostStage.classList.remove(
+  const resetHeart = () => {
+    heartStage.classList.remove(
       'is-visible',
       'is-entering',
       'is-settled',
@@ -88,30 +91,13 @@
   };
 
   /* =========================================================
-     GHOST ENTER + ROTATION
+     HEART
      ========================================================= */
 
-  const showGhost = async () => {
-    resetGhost();
+  const showHeart = async () => {
+    resetHeart();
 
-    ghostStage.classList.add('is-visible');
-
-    await nextFrame();
-
-    if (destroyed) {
-      return;
-    }
-
-    ghostStage.classList.add('is-entering');
-
-    await wait(GHOST_ANIMATION_MS);
-
-    if (destroyed) {
-      return;
-    }
-
-    ghostStage.classList.remove('is-entering');
-    ghostStage.classList.add('is-settled');
+    heartStage.classList.add('is-visible');
 
     await nextFrame();
 
@@ -119,23 +105,38 @@
       return;
     }
 
-    /* =====================================================
-       GHOST HOLD
-       ===================================================== */
+    heartStage.classList.add('is-entering');
 
-    await wait(GHOST_HOLD_MS);
+    await wait(HEART_ANIMATION_MS);
 
     if (destroyed) {
       return;
     }
 
-    /* =====================================================
-       GHOST EXIT — LEFT / PAUSE / RIGHT
-       ===================================================== */
+    heartStage.classList.remove('is-entering');
+    heartStage.classList.add('is-settled');
 
-    ghostStage.classList.add('is-exiting');
+    await nextFrame();
 
-    await wait(GHOST_EXIT_MS);
+    if (destroyed) {
+      return;
+    }
+
+    await wait(HEART_SETTLE_DELAY_MS);
+
+    if (destroyed) {
+      return;
+    }
+
+    await wait(HEART_HOLD_MS);
+
+    if (destroyed) {
+      return;
+    }
+
+    heartStage.classList.add('is-exiting');
+
+    await wait(SPLIT_EXIT_MS);
   };
 
   /* =========================================================
@@ -168,7 +169,13 @@
      ========================================================= */
 
   const run = async () => {
-    await showGhost();
+    await wait(START_DELAY_MS);
+
+    if (destroyed) {
+      return;
+    }
+
+    await showHeart();
 
     if (destroyed) {
       return;
@@ -181,7 +188,7 @@
      START
      ========================================================= */
 
-  resetGhost();
+  resetHeart();
   run();
 
   /* =========================================================
