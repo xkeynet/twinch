@@ -11,7 +11,7 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
 
-  --heart-width-mobile: 80px;
+  --heart-width-mobile: 200px;
   --heart-width-tablet: 130px;
   --heart-width-desktop: 145px;
 
