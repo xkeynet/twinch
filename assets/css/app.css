@@ -15,9 +15,9 @@
   --heart-width-tablet: 130px;
   --heart-width-desktop: 145px;
 
-  --heart-stop-mobile: -8vh;
-  --heart-stop-tablet: -9vh;
-  --heart-stop-desktop: -10vh;
+  --heart-stop-mobile: 0px;
+  --heart-stop-tablet: 0px;
+  --heart-stop-desktop: 0px;
 
   --heart-duration: 2400ms;
   --heart-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
@@ -403,7 +403,7 @@ img {
     transform:
       translate3d(
         -50%,
-        -90%,
+        -50%,
         0
       );
   }
@@ -417,7 +417,7 @@ img {
       transform:
         translate3d(
           -50%,
-          -90%,
+          -50%,
           0
         );
     }
@@ -426,7 +426,7 @@ img {
       transform:
         translate3d(
           calc(-100vw - 100%),
-          -90%,
+          -50%,
           0
         );
     }
