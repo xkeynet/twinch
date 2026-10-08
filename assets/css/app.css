@@ -15,11 +15,16 @@
   --heart-width-tablet: 130px;
   --heart-width-desktop: 145px;
 
-  --heart-duration: 1200ms;
-  --heart-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
-  --heart-fade-duration: 180ms;
+  --heart-stop-mobile: -8vh;
+  --heart-stop-tablet: -9vh;
+  --heart-stop-desktop: -10vh;
 
-  --heart-exit-duration: 900ms;
+  --heart-duration: 2400ms;
+  --heart-easing: cubic-bezier(0.14, 0.92, 0.18, 1);
+  --heart-fade-duration: 500ms;
+
+  --split-exit-duration: 1100ms;
+  --split-exit-easing: cubic-bezier(0.55, 0, 1, 0.45);
 
   --landscape-lock-icon-size: 100px;
 
@@ -27,9 +32,9 @@
      TOP TWINCH LOGO — VELIKOST A POLOHA
      ========================================================= */
 
-  --topLogoW: 110px;
-  --topLogoX: 0px;
-  --topLogoY: -2px;
+  --topLogoW:110px;      /* ŠÍŘKA LOGA */
+  --topLogoX:0px;        /* VODOROVNĚ: - = DOLEVA / + = DOPRAVA */
+  --topLogoY:-2px;       /* SVISLE: - = NAHORU / + = DOLŮ */
 }
 
 /* =========================================================
@@ -130,16 +135,7 @@ img {
 }
 
 /* =========================================================
-   WORDMARK — DISABLED
-   ========================================================= */
-
-.intro__wordmark-stage,
-.intro__wordmark {
-  display: none !important;
-}
-
-/* =========================================================
-   GHOST STAGE
+   HEART STAGE
    ========================================================= */
 
 .intro__heart-stage {
@@ -154,7 +150,12 @@ img {
   opacity: 0;
   visibility: hidden;
 
-  transform: translate3d(-50%, -50%, 0);
+  transform:
+    translate3d(
+      -50%,
+      calc(-50% + var(--heart-stop-mobile)),
+      0
+    );
 
   transform-origin: 50% 50%;
 
@@ -181,7 +182,7 @@ img {
 }
 
 /* =========================================================
-   GHOST IMAGE
+   HEART
    ========================================================= */
 
 .intro__heart {
@@ -211,32 +212,44 @@ img {
   opacity: 0;
 
   transform:
-    translate3d(0, calc(-50svh - 140%), 0)
+    translate3d(
+      0,
+      calc(-50svh - 140%),
+      0
+    )
     rotate(0deg);
 }
 
 /* =========================================================
-   GHOST ENTER + ROTATION
+   HEART ENTER + ROTATION
    ========================================================= */
 
 .intro__heart-stage.is-entering .intro__heart--white {
   animation:
-    introGhostEnter
+    introHeartEnter
     var(--heart-duration)
     var(--heart-easing)
     forwards;
 }
 
-@keyframes introGhostEnter {
+@keyframes introHeartEnter {
   0% {
     opacity: 0;
 
     transform:
-      translate3d(0, calc(-50svh - 140%), 0)
+      translate3d(
+        0,
+        calc(-50svh - 140%),
+        0
+      )
       rotate(0deg);
   }
 
   8% {
+    opacity: 1;
+  }
+
+  42% {
     opacity: 1;
   }
 
@@ -250,7 +263,7 @@ img {
 }
 
 /* =========================================================
-   GHOST SETTLED
+   HEART SETTLED
    ========================================================= */
 
 .intro__heart-stage.is-settled .intro__heart--white {
@@ -264,34 +277,36 @@ img {
 }
 
 /* =========================================================
-   GHOST EXIT — LEFT / PAUSE / RIGHT
+   HEART EXIT
    ========================================================= */
 
 .intro__heart-stage.is-settled.is-exiting {
   animation:
-    introGhostExit
-    var(--heart-exit-duration)
-    linear
+    introHeartExitLeft
+    var(--split-exit-duration)
+    var(--split-exit-easing)
     forwards;
 
   will-change: transform;
 }
 
-@keyframes introGhostExit {
+@keyframes introHeartExitLeft {
   0% {
-    transform: translate3d(-50%, -50%, 0);
-  }
-
-  38% {
-    transform: translate3d(calc(-50% - 17vw), -50%, 0);
-  }
-
-  55% {
-    transform: translate3d(calc(-50% - 17vw), -50%, 0);
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% + var(--heart-stop-mobile)),
+        0
+      );
   }
 
   100% {
-    transform: translate3d(calc(100vw + 100%), -50%, 0);
+    transform:
+      translate3d(
+        calc(-100vw - 100%),
+        calc(-50% + var(--heart-stop-mobile)),
+        0
+      );
   }
 }
 
@@ -302,6 +317,37 @@ img {
 @media (min-width: 768px) and (max-width: 1199px) {
   .intro__heart-stage {
     width: var(--heart-width-tablet);
+
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% + var(--heart-stop-tablet)),
+        0
+      );
+  }
+
+  .intro__heart-stage.is-settled.is-exiting {
+    animation-name: introHeartExitLeftTablet;
+  }
+
+  @keyframes introHeartExitLeftTablet {
+    0% {
+      transform:
+        translate3d(
+          -50%,
+          calc(-50% + var(--heart-stop-tablet)),
+          0
+        );
+    }
+
+    100% {
+      transform:
+        translate3d(
+          calc(-100vw - 100%),
+          calc(-50% + var(--heart-stop-tablet)),
+          0
+        );
+    }
   }
 }
 
@@ -312,6 +358,37 @@ img {
 @media (min-width: 1200px) {
   .intro__heart-stage {
     width: var(--heart-width-desktop);
+
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% + var(--heart-stop-desktop)),
+        0
+      );
+  }
+
+  .intro__heart-stage.is-settled.is-exiting {
+    animation-name: introHeartExitLeftDesktop;
+  }
+
+  @keyframes introHeartExitLeftDesktop {
+    0% {
+      transform:
+        translate3d(
+          -50%,
+          calc(-50% + var(--heart-stop-desktop)),
+          0
+        );
+    }
+
+    100% {
+      transform:
+        translate3d(
+          calc(-100vw - 100%),
+          calc(-50% + var(--heart-stop-desktop)),
+          0
+        );
+    }
   }
 }
 
@@ -322,6 +399,37 @@ img {
 @media (max-height: 520px) and (orientation: landscape) {
   .intro__heart-stage {
     width: 85px;
+
+    transform:
+      translate3d(
+        -50%,
+        -90%,
+        0
+      );
+  }
+
+  .intro__heart-stage.is-settled.is-exiting {
+    animation-name: introHeartExitLeftLandscape;
+  }
+
+  @keyframes introHeartExitLeftLandscape {
+    0% {
+      transform:
+        translate3d(
+          -50%,
+          -90%,
+          0
+        );
+    }
+
+    100% {
+      transform:
+        translate3d(
+          calc(-100vw - 100%),
+          -90%,
+          0
+        );
+    }
   }
 }
 
@@ -331,15 +439,15 @@ img {
 
 @media (prefers-reduced-motion: reduce) {
   .intro__heart-stage {
-    transition-duration: 100ms;
+    transition-duration: 250ms;
   }
 
   .intro__heart-stage.is-entering .intro__heart--white {
-    animation-duration: 400ms;
+    animation-duration: 800ms;
   }
 
   .intro__heart-stage.is-settled.is-exiting {
-    animation-duration: 400ms;
+    animation-duration: 600ms;
   }
 }
 
